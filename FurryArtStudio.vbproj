@@ -220,30 +220,30 @@
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Resources\L10n\en.Designer.vb">
+    <Compile Include="Resources\Resources.Designer.vb">
+      <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>en.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\L10n\zh-CHS.Designer.vb">
+    <Compile Include="Resources\Resources.en-US.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>zh-CHS.resx</DependentUpon>
+      <DependentUpon>Resources.en-US.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\L10n\zh-CHT.Designer.vb">
+    <Compile Include="Resources\Resources.zh-Hans.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>zh-CHT.resx</DependentUpon>
+      <DependentUpon>Resources.zh-Hans.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resources.zh-Hant.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.zh-Hant.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Licenses.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -288,26 +288,25 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Icons.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\Resources.resx">
+    <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\L10n\en.resx">
+    <EmbeddedResource Include="Resources\Resources.en-US.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>en.Designer.vb</LastGenOutput>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en-US.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\L10n\zh-CHS.resx">
+    <EmbeddedResource Include="Resources\Resources.zh-Hans.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>zh-CHS.Designer.vb</LastGenOutput>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh-Hans.Designer.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\L10n\zh-CHT.resx">
+    <EmbeddedResource Include="Resources\Resources.zh-Hant.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>zh-CHT.Designer.vb</LastGenOutput>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.zh-Hant.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Licenses.resx">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>

@@ -26,7 +26,7 @@ Public Class TextBoxForm
         TxtBox.Dock = DockStyle.Fill
         SystemThemeChange()
     End Sub
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         '判断颜色
         If IsDarkMode() Then
             TxtBox.BackColor = BgColorDark

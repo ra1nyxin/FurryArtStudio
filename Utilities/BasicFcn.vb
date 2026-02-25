@@ -524,9 +524,11 @@ Module BasicFcn
     ''' </summary>
     Public Function ReadChangelogFromResource() As String
         Try
-            Dim assembly = Reflection.Assembly.GetExecutingAssembly()
-            Dim resourceName = "FurryArtStudio.CHANGELOG.txt"
-            Using stream = assembly.GetManifestResourceStream(resourceName)
+            Dim asm = Assembly.GetExecutingAssembly()
+            Dim resourceName = asm.GetName().Name + ".CHANGELOG.txt"
+            'Dim assembly = Reflection.Assembly.GetExecutingAssembly()
+            'Dim resourceName = "FurryArtStudio.CHANGELOG.txt"
+            Using stream = asm.GetManifestResourceStream(resourceName)
                 If stream IsNot Nothing Then
                     Using reader = New StreamReader(stream)
                         Return reader.ReadToEnd()
@@ -538,6 +540,18 @@ Module BasicFcn
         End Try
         Return "未找到更新日志"
     End Function
+#End Region
+
+#Region "本地化"
+    Public Interface ILocalizable
+        Sub LanguageChange()
+    End Interface
+    Public Sub UpdateFormLang()
+        For Each frm As Form In Application.OpenForms
+            Dim localizable = TryCast(frm, ILocalizable)
+            localizable?.LanguageChange() '当不为空时更新语言
+        Next
+    End Sub
 #End Region
 
 End Module

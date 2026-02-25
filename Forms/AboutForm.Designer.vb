@@ -57,7 +57,7 @@ Partial Class AboutForm
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(150, 23)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Furry Art Studio"
+        Me.Label1.Text = "FurryArtStudio"
         '
         'LlblWebSite
         '

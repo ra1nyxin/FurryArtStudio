@@ -15,7 +15,7 @@
 Imports System.Runtime.InteropServices
 
 Public Class AboutForm
-    Implements IThemeChangeable
+    Implements IThemeChangeable, ILocalizable
     Private Sub AboutForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TxtBox.ReadOnly = True
         Dim MnuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
@@ -26,8 +26,9 @@ Public Class AboutForm
         SystemThemeChange()
         TxtBox.Text = My.Resources.Licenses.AboutText
         LblVersion.Text = GetCurrentVersion()
+        LanguageChange()
     End Sub
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         '颜色常量
         Dim bgColor As Color
         Dim frColor As Color
@@ -57,12 +58,22 @@ Public Class AboutForm
             control.ForeColor = frColor
             control.BackColor = bgColor
         Next
-        ForeColor = frColor
-        BackColor = bgColor
+        ForeColor = BgColorDark
+        BackColor = BgColorDark
+        TxtBox.BackColor = Color.FromArgb(50, 50, 50) '增加一个好看的底色
         'WinAPI
         DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
         SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
         FlushMenuThemes()
+    End Sub
+    Private Sub LanguageChange() Implements ILocalizable.LanguageChange
+        Text = My.Resources.About_Title
+        LlblWebSite.Text = My.Resources.About_LinkWebSite
+        LlblGitHub.Text = My.Resources.About_LinkGitHub
+        LlblLicense.Text = My.Resources.About_LinkLicense
+        LlblPrivacy.Text = My.Resources.About_LinkPrivacy
+        LlblUserAgreement.Text = My.Resources.About_LinkUserAgreement
+        BtnOK.Text = My.Resources.About_BtnOK
     End Sub
     'GitHub
     Private Sub LlblGitHub_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LlblGitHub.LinkClicked

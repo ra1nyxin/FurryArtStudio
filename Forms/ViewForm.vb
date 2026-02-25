@@ -18,7 +18,7 @@ Imports System.Text.RegularExpressions
 Imports System.Threading
 
 Public Class ViewForm
-    Implements IThemeChangeable
+    Implements IThemeChangeable, ILocalizable
 
 #Region "私有字段"
     '稿件
@@ -94,7 +94,8 @@ Public Class ViewForm
             PictureBoxMain.Image = Nothing
         End If
     End Sub
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    '主题
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         If IsDarkMode() Then
             PictureBoxMain.BackColor = BgColorDark
             Icon = CreateRoundedRectangleIcon(True, My.Resources.Icons.FormImageDark)
@@ -108,6 +109,10 @@ Public Class ViewForm
         DwmSetWindowAttribute(Handle, DwmWindowAttribute.UseImmersiveDarkMode, IsDarkMode(), Marshal.SizeOf(Of Integer))
         SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
         FlushMenuThemes()
+    End Sub
+    '语言
+    Private Sub LanguageChange() Implements ILocalizable.LanguageChange
+
     End Sub
     ''' <summary>
     ''' 初始化系统菜单

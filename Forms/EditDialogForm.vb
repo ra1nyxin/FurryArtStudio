@@ -17,14 +17,14 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 
 Public Class EditDialogForm
-    Implements IThemeChangeable
+    Implements IThemeChangeable, ILocalizable
     '存储传入的稿件对象
     Private _artwork As Artwork
     Private _libraryPath As String
     '文件事务管理类
     Private _transaction As FileTransaction
 #Region "窗体相关"
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         '颜色常量
         Dim bgColor As Color
         Dim frColor As Color
@@ -51,6 +51,24 @@ Public Class EditDialogForm
         SetPreferredAppMode(If(IsDarkMode(), PreferredAppMode.AllowDark, PreferredAppMode.ForceLight))
         FlushMenuThemes()
     End Sub
+    Private Sub LanguageChange() Implements ILocalizable.LanguageChange
+        If _artwork.ID = 0 Then
+            Text = My.Resources.Edit_NewTitle
+        Else
+            Text = My.Resources.Edit_EditTitle
+        End If
+        LblTitle.Text = My.Resources.Edit_LblTitle
+        LblAuthor.Text = My.Resources.Edit_LblAuthor
+        LblCharacters.Text = My.Resources.Edit_LblCharacters
+        LblTags.Text = My.Resources.Edit_LblTags
+        LblNotes.Text = My.Resources.Edit_LblNotes
+        LblCreateTime.Text = My.Resources.Edit_LblCreate
+        BtnAdd.Text = My.Resources.Edit_BtnAddItem
+        BtnDel.Text = My.Resources.Edit_BtnDel
+        BtnSetPreview.Text = My.Resources.Edit_BtnSetPreview
+        BtnCancel.Text = My.Resources.Edit_BtnCancel
+        BtnModify.Text = My.Resources.About_BtnOK
+    End Sub
     Private Sub EditDialogForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SystemThemeChange()
         Dim MnuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
@@ -64,6 +82,7 @@ Public Class EditDialogForm
             BtnSetPreview.Enabled = False
             BtnDel.Enabled = False
         End If
+        LanguageChange()
     End Sub
     Protected Overrides Sub OnHandleCreated(e As EventArgs)
         MyBase.OnHandleCreated(e)
@@ -85,8 +104,7 @@ Public Class EditDialogForm
         InitializeComponent()
         _libraryPath = libraryPath
         If artwork.ID = 0 Then '用户拖入图片添加
-            Me.Text = "新建稿件"
-            BtnModify.Text = "添加(&A)"
+            Me.Text = My.Resources.Edit_NewTitle
             _artwork = New Artwork With {
                         .ID = 0,
                         .UUID = Guid.NewGuid(),
@@ -103,8 +121,7 @@ Public Class EditDialogForm
                     }
             _transaction = New FileTransaction() '新建文件事务处理类
         Else '编辑已有稿件
-            Me.Text = "编辑稿件"
-            BtnModify.Text = "保存(&S)"
+            Me.Text = My.Resources.Edit_EditTitle
             _artwork = artwork
             _transaction = New FileTransaction(Path.Combine(_libraryPath, _artwork.UUID.ToString))
             RefreshFileList() '将文件添加到列表
@@ -121,8 +138,10 @@ Public Class EditDialogForm
         TxtboxCharacters.Text = If(_artwork.Characters IsNot Nothing, String.Join(" ", _artwork.Characters), "") '角色
         TxtboxTags.Text = If(_artwork.Tags IsNot Nothing, String.Join(" ", _artwork.Tags), "") '标签
         TxtboxCreateTime.Text = _artwork.CreateTime.ToString("yyyy-MM-dd HH:mm:ss") '创作时间
-        LblImportTime.Text = "导入时间: " & _artwork.ImportTime.ToString("yyyy-MM-dd HH:mm:ss") '导入时间
-        LblUpdateTime.Text = "更新时间: " & _artwork.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss") '更新时间
+        LblImportTime.Text = String.Format(My.Resources.Edit_LblImport,
+                                           _artwork.ImportTime.ToString("yyyy-MM-dd HH:mm:ss")) '导入时间
+        LblUpdateTime.Text = String.Format(My.Resources.Edit_LblUpdate,
+                                           _artwork.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss")) '更新时间
         LblUUID.Text = _artwork.UUID.ToString() 'UUID
         TxtboxNotes.Text = _artwork.Notes '备注
         TxtboxCreateTime.ForeColor = Color.Gray '设置创建时间文本框的提示

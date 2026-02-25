@@ -22,436 +22,607 @@ Partial Class PropertiesForm
     '不要使用代码编辑器修改它。
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.RBSystem = New System.Windows.Forms.RadioButton()
-        Me.RBDark = New System.Windows.Forms.RadioButton()
-        Me.RBLight = New System.Windows.Forms.RadioButton()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox6 = New System.Windows.Forms.CheckBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox7 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox8 = New System.Windows.Forms.CheckBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.CheckBox9 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.BtnExport = New System.Windows.Forms.Button()
+        Me.BtnImport = New System.Windows.Forms.Button()
+        Me.BtnReset = New System.Windows.Forms.Button()
+        Me.GrpAppearance = New System.Windows.Forms.GroupBox()
+        Me.ChkShowThemeColor = New System.Windows.Forms.CheckBox()
+        Me.LblFontShow = New System.Windows.Forms.Label()
+        Me.BtnFont = New System.Windows.Forms.Button()
+        Me.TxtPicTitle = New System.Windows.Forms.TextBox()
+        Me.TxtMainTitle = New System.Windows.Forms.TextBox()
+        Me.LblLanguage = New System.Windows.Forms.Label()
+        Me.CboLang = New System.Windows.Forms.ComboBox()
+        Me.LblPicTitle = New System.Windows.Forms.Label()
+        Me.LblMainTitle = New System.Windows.Forms.Label()
+        Me.LblFont = New System.Windows.Forms.Label()
+        Me.LblCorColor = New System.Windows.Forms.Label()
+        Me.LblSelColor = New System.Windows.Forms.Label()
+        Me.BtnCornerColor = New System.Windows.Forms.Button()
+        Me.BtnSelectedColor = New System.Windows.Forms.Button()
+        Me.LblCornerColor = New System.Windows.Forms.Label()
+        Me.LblSelectedColor = New System.Windows.Forms.Label()
+        Me.LblThemeColor = New System.Windows.Forms.Label()
+        Me.BtnThemeColor = New System.Windows.Forms.Button()
+        Me.ChkShowInChild = New System.Windows.Forms.CheckBox()
+        Me.RadSystem = New System.Windows.Forms.RadioButton()
+        Me.RadDark = New System.Windows.Forms.RadioButton()
+        Me.RadLight = New System.Windows.Forms.RadioButton()
+        Me.LblTheme = New System.Windows.Forms.Label()
+        Me.GrpStartup = New System.Windows.Forms.GroupBox()
+        Me.ChkRestore = New System.Windows.Forms.CheckBox()
+        Me.CboCheckUpdate = New System.Windows.Forms.ComboBox()
+        Me.ChkAutoCheckUpdate = New System.Windows.Forms.CheckBox()
+        Me.ChkAutoPlay = New System.Windows.Forms.CheckBox()
+        Me.ChkAutoStart = New System.Windows.Forms.CheckBox()
+        Me.GrpAdvanced = New System.Windows.Forms.GroupBox()
+        Me.ChkDevTools = New System.Windows.Forms.CheckBox()
+        Me.ChkPlayNext = New System.Windows.Forms.CheckBox()
+        Me.LblPlayMode = New System.Windows.Forms.Label()
+        Me.CboPlayMode = New System.Windows.Forms.ComboBox()
+        Me.TxtAutoNext = New System.Windows.Forms.TextBox()
+        Me.LblAutoNext = New System.Windows.Forms.Label()
+        Me.ChkFileAssociation = New System.Windows.Forms.CheckBox()
+        Me.ChkKeepScale = New System.Windows.Forms.CheckBox()
+        Me.TxtMaxSize = New System.Windows.Forms.TextBox()
+        Me.LblThumbMax = New System.Windows.Forms.Label()
+        Me.TxtMinSize = New System.Windows.Forms.TextBox()
+        Me.LblThumbMin = New System.Windows.Forms.Label()
+        Me.ColorDlg = New System.Windows.Forms.ColorDialog()
+        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.GrpAppearance.SuspendLayout()
+        Me.GrpStartup.SuspendLayout()
+        Me.GrpAdvanced.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Label9
-        '
-        Me.Label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label9.Location = New System.Drawing.Point(150, 161)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(136, 33)
-        Me.Label9.TabIndex = 37
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(293, 155)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(108, 40)
-        Me.Button5.TabIndex = 36
-        Me.Button5.Text = "字体(&F)..."
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Location = New System.Drawing.Point(185, 236)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(216, 25)
-        Me.TextBox1.TabIndex = 35
-        '
-        'TextBox2
-        '
-        Me.TextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox2.Location = New System.Drawing.Point(185, 204)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(216, 25)
-        Me.TextBox2.TabIndex = 34
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(17, 51)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(52, 15)
-        Me.Label12.TabIndex = 33
-        Me.Label12.Text = "语言："
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(185, 48)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(216, 23)
-        Me.ComboBox2.TabIndex = 32
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(17, 239)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(157, 15)
-        Me.Label13.TabIndex = 31
-        Me.Label13.Text = "图片窗口标题栏格式：" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(17, 207)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(142, 15)
-        Me.Label14.TabIndex = 30
-        Me.Label14.Text = "主窗口标题栏格式："
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(17, 170)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(82, 15)
-        Me.Label15.TabIndex = 29
-        Me.Label15.Text = "全局字体："
-        '
-        'Label16
-        '
-        Me.Label16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label16.Location = New System.Drawing.Point(252, 119)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(35, 35)
-        Me.Label16.TabIndex = 28
-        '
-        'Label17
-        '
-        Me.Label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Label17.Location = New System.Drawing.Point(252, 78)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(35, 35)
-        Me.Label17.TabIndex = 27
-        '
-        'Button6
-        '
-        Me.Button6.Location = New System.Drawing.Point(293, 115)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(108, 41)
-        Me.Button6.TabIndex = 26
-        Me.Button6.Text = "颜色(&O)..."
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.Location = New System.Drawing.Point(293, 75)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(108, 41)
-        Me.Button7.TabIndex = 25
-        Me.Button7.Text = "颜色(&C)..."
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(17, 133)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(97, 15)
-        Me.Label18.TabIndex = 24
-        Me.Label18.Text = "角标背景色："
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(17, 91)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(112, 15)
-        Me.Label19.TabIndex = 23
-        Me.Label19.Text = "选中项强调色："
-        '
-        'RBSystem
-        '
-        Me.RBSystem.AutoSize = True
-        Me.RBSystem.Checked = True
-        Me.RBSystem.Location = New System.Drawing.Point(313, 15)
-        Me.RBSystem.Name = "RBSystem"
-        Me.RBSystem.Size = New System.Drawing.Size(88, 19)
-        Me.RBSystem.TabIndex = 22
-        Me.RBSystem.TabStop = True
-        Me.RBSystem.Text = "跟随系统"
-        Me.RBSystem.UseVisualStyleBackColor = True
-        '
-        'RBDark
-        '
-        Me.RBDark.AutoSize = True
-        Me.RBDark.Location = New System.Drawing.Point(199, 15)
-        Me.RBDark.Name = "RBDark"
-        Me.RBDark.Size = New System.Drawing.Size(88, 19)
-        Me.RBDark.TabIndex = 21
-        Me.RBDark.Text = "深色模式"
-        Me.RBDark.UseVisualStyleBackColor = True
-        '
-        'RBLight
-        '
-        Me.RBLight.AutoSize = True
-        Me.RBLight.Location = New System.Drawing.Point(85, 15)
-        Me.RBLight.Name = "RBLight"
-        Me.RBLight.Size = New System.Drawing.Size(88, 19)
-        Me.RBLight.TabIndex = 20
-        Me.RBLight.Text = "浅色模式"
-        Me.RBLight.UseVisualStyleBackColor = True
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(17, 15)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(52, 15)
-        Me.Label20.TabIndex = 19
-        Me.Label20.Text = "主题："
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(20, 317)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(179, 19)
-        Me.CheckBox4.TabIndex = 41
-        Me.CheckBox4.Text = "启动时自动播放幻灯片"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'CheckBox5
-        '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Location = New System.Drawing.Point(20, 292)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(254, 19)
-        Me.CheckBox5.TabIndex = 40
-        Me.CheckBox5.Text = "开机时自动启动 FurryArtStudio"
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        '
-        'CheckBox6
-        '
-        Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Location = New System.Drawing.Point(20, 369)
-        Me.CheckBox6.Name = "CheckBox6"
-        Me.CheckBox6.Size = New System.Drawing.Size(220, 19)
-        Me.CheckBox6.TabIndex = 44
-        Me.CheckBox6.Text = "关联稿件库备份文件(*.paw)"
-        Me.CheckBox6.UseVisualStyleBackColor = True
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(185, 342)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(216, 23)
-        Me.ComboBox4.TabIndex = 43
-        '
-        'CheckBox7
-        '
-        Me.CheckBox7.AutoSize = True
-        Me.CheckBox7.Location = New System.Drawing.Point(20, 344)
-        Me.CheckBox7.Name = "CheckBox7"
-        Me.CheckBox7.Size = New System.Drawing.Size(119, 19)
-        Me.CheckBox7.TabIndex = 42
-        Me.CheckBox7.Text = "自动检查更新"
-        Me.CheckBox7.UseVisualStyleBackColor = True
-        '
-        'CheckBox8
-        '
-        Me.CheckBox8.AutoSize = True
-        Me.CheckBox8.Location = New System.Drawing.Point(20, 454)
-        Me.CheckBox8.Name = "CheckBox8"
-        Me.CheckBox8.Size = New System.Drawing.Size(179, 19)
-        Me.CheckBox8.TabIndex = 49
-        Me.CheckBox8.Text = "播放后切换到下一个库"
-        Me.CheckBox8.UseVisualStyleBackColor = True
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(17, 426)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(82, 15)
-        Me.Label22.TabIndex = 48
-        Me.Label22.Text = "播放模式："
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(208, 423)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(193, 23)
-        Me.ComboBox5.TabIndex = 47
-        '
-        'TextBox3
-        '
-        Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Location = New System.Drawing.Point(247, 392)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(154, 25)
-        Me.TextBox3.TabIndex = 46
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(17, 394)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(181, 15)
-        Me.Label23.TabIndex = 45
-        Me.Label23.Text = "自动切换时间(单位:秒)："
-        '
-        'Button8
-        '
-        Me.Button8.Location = New System.Drawing.Point(151, 504)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(119, 41)
-        Me.Button8.TabIndex = 53
-        Me.Button8.Text = "导出(&E)..."
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button9
-        '
-        Me.Button9.Location = New System.Drawing.Point(20, 504)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(119, 41)
-        Me.Button9.TabIndex = 52
-        Me.Button9.Text = "导入(&I)..."
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button10
-        '
-        Me.Button10.Location = New System.Drawing.Point(282, 504)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(119, 41)
-        Me.Button10.TabIndex = 51
-        Me.Button10.Text = "重置(&R)"
-        Me.Button10.UseVisualStyleBackColor = True
-        '
-        'CheckBox9
-        '
-        Me.CheckBox9.AutoSize = True
-        Me.CheckBox9.Location = New System.Drawing.Point(20, 479)
-        Me.CheckBox9.Name = "CheckBox9"
-        Me.CheckBox9.Size = New System.Drawing.Size(119, 19)
-        Me.CheckBox9.TabIndex = 50
-        Me.CheckBox9.Text = "显示隐藏菜单"
-        Me.CheckBox9.UseVisualStyleBackColor = True
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(20, 267)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(194, 19)
-        Me.CheckBox1.TabIndex = 54
-        Me.CheckBox1.Text = "启动时恢复上次关闭的库"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        'BtnExport
+        '
+        Me.BtnExport.Location = New System.Drawing.Point(136, 386)
+        Me.BtnExport.Name = "BtnExport"
+        Me.BtnExport.Size = New System.Drawing.Size(119, 41)
+        Me.BtnExport.TabIndex = 53
+        Me.BtnExport.Text = "导出(&E)..."
+        Me.BtnExport.UseVisualStyleBackColor = True
+        '
+        'BtnImport
+        '
+        Me.BtnImport.Location = New System.Drawing.Point(12, 386)
+        Me.BtnImport.Name = "BtnImport"
+        Me.BtnImport.Size = New System.Drawing.Size(119, 41)
+        Me.BtnImport.TabIndex = 52
+        Me.BtnImport.Text = "导入(&I)..."
+        Me.BtnImport.UseVisualStyleBackColor = True
+        '
+        'BtnReset
+        '
+        Me.BtnReset.Location = New System.Drawing.Point(565, 386)
+        Me.BtnReset.Name = "BtnReset"
+        Me.BtnReset.Size = New System.Drawing.Size(119, 41)
+        Me.BtnReset.TabIndex = 51
+        Me.BtnReset.Text = "重置(&R)"
+        Me.BtnReset.UseVisualStyleBackColor = True
+        '
+        'GrpAppearance
+        '
+        Me.GrpAppearance.Controls.Add(Me.ChkShowThemeColor)
+        Me.GrpAppearance.Controls.Add(Me.LblFontShow)
+        Me.GrpAppearance.Controls.Add(Me.BtnFont)
+        Me.GrpAppearance.Controls.Add(Me.TxtPicTitle)
+        Me.GrpAppearance.Controls.Add(Me.TxtMainTitle)
+        Me.GrpAppearance.Controls.Add(Me.LblLanguage)
+        Me.GrpAppearance.Controls.Add(Me.CboLang)
+        Me.GrpAppearance.Controls.Add(Me.LblPicTitle)
+        Me.GrpAppearance.Controls.Add(Me.LblMainTitle)
+        Me.GrpAppearance.Controls.Add(Me.LblFont)
+        Me.GrpAppearance.Controls.Add(Me.LblCorColor)
+        Me.GrpAppearance.Controls.Add(Me.LblSelColor)
+        Me.GrpAppearance.Controls.Add(Me.BtnCornerColor)
+        Me.GrpAppearance.Controls.Add(Me.BtnSelectedColor)
+        Me.GrpAppearance.Controls.Add(Me.LblCornerColor)
+        Me.GrpAppearance.Controls.Add(Me.LblSelectedColor)
+        Me.GrpAppearance.Controls.Add(Me.LblThemeColor)
+        Me.GrpAppearance.Controls.Add(Me.BtnThemeColor)
+        Me.GrpAppearance.Controls.Add(Me.ChkShowInChild)
+        Me.GrpAppearance.Controls.Add(Me.RadSystem)
+        Me.GrpAppearance.Controls.Add(Me.RadDark)
+        Me.GrpAppearance.Controls.Add(Me.RadLight)
+        Me.GrpAppearance.Controls.Add(Me.LblTheme)
+        Me.GrpAppearance.Location = New System.Drawing.Point(12, 12)
+        Me.GrpAppearance.Name = "GrpAppearance"
+        Me.GrpAppearance.Size = New System.Drawing.Size(380, 368)
+        Me.GrpAppearance.TabIndex = 55
+        Me.GrpAppearance.TabStop = False
+        Me.GrpAppearance.Text = "外观"
+        '
+        'ChkShowThemeColor
+        '
+        Me.ChkShowThemeColor.AutoSize = True
+        Me.ChkShowThemeColor.Location = New System.Drawing.Point(20, 65)
+        Me.ChkShowThemeColor.Name = "ChkShowThemeColor"
+        Me.ChkShowThemeColor.Size = New System.Drawing.Size(104, 19)
+        Me.ChkShowThemeColor.TabIndex = 79
+        Me.ChkShowThemeColor.Text = "显示主题色"
+        Me.ChkShowThemeColor.UseVisualStyleBackColor = True
+        '
+        'LblFontShow
+        '
+        Me.LblFontShow.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblFontShow.Location = New System.Drawing.Point(124, 246)
+        Me.LblFontShow.Name = "LblFontShow"
+        Me.LblFontShow.Size = New System.Drawing.Size(136, 33)
+        Me.LblFontShow.TabIndex = 78
+        Me.LblFontShow.Text = "宋体, 9pt"
+        Me.LblFontShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'BtnFont
+        '
+        Me.BtnFont.Location = New System.Drawing.Point(260, 243)
+        Me.BtnFont.Name = "BtnFont"
+        Me.BtnFont.Size = New System.Drawing.Size(108, 40)
+        Me.BtnFont.TabIndex = 77
+        Me.BtnFont.Text = "字体..."
+        Me.BtnFont.UseVisualStyleBackColor = True
+        '
+        'TxtPicTitle
+        '
+        Me.TxtPicTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtPicTitle.Location = New System.Drawing.Point(179, 328)
+        Me.TxtPicTitle.Name = "TxtPicTitle"
+        Me.TxtPicTitle.Size = New System.Drawing.Size(189, 25)
+        Me.TxtPicTitle.TabIndex = 76
+        '
+        'TxtMainTitle
+        '
+        Me.TxtMainTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtMainTitle.Location = New System.Drawing.Point(179, 299)
+        Me.TxtMainTitle.Name = "TxtMainTitle"
+        Me.TxtMainTitle.Size = New System.Drawing.Size(189, 25)
+        Me.TxtMainTitle.TabIndex = 75
+        '
+        'LblLanguage
+        '
+        Me.LblLanguage.AutoSize = True
+        Me.LblLanguage.Location = New System.Drawing.Point(17, 132)
+        Me.LblLanguage.Name = "LblLanguage"
+        Me.LblLanguage.Size = New System.Drawing.Size(52, 15)
+        Me.LblLanguage.TabIndex = 74
+        Me.LblLanguage.Text = "语言："
+        '
+        'CboLang
+        '
+        Me.CboLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CboLang.FormattingEnabled = True
+        Me.CboLang.Location = New System.Drawing.Point(179, 129)
+        Me.CboLang.Name = "CboLang"
+        Me.CboLang.Size = New System.Drawing.Size(189, 23)
+        Me.CboLang.TabIndex = 73
+        '
+        'LblPicTitle
+        '
+        Me.LblPicTitle.AutoSize = True
+        Me.LblPicTitle.Location = New System.Drawing.Point(17, 330)
+        Me.LblPicTitle.Name = "LblPicTitle"
+        Me.LblPicTitle.Size = New System.Drawing.Size(127, 15)
+        Me.LblPicTitle.TabIndex = 72
+        Me.LblPicTitle.Text = "图片窗口标题栏：" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'LblMainTitle
+        '
+        Me.LblMainTitle.AutoSize = True
+        Me.LblMainTitle.Location = New System.Drawing.Point(16, 301)
+        Me.LblMainTitle.Name = "LblMainTitle"
+        Me.LblMainTitle.Size = New System.Drawing.Size(112, 15)
+        Me.LblMainTitle.TabIndex = 71
+        Me.LblMainTitle.Text = "主窗口标题栏："
+        '
+        'LblFont
+        '
+        Me.LblFont.AutoSize = True
+        Me.LblFont.Location = New System.Drawing.Point(17, 256)
+        Me.LblFont.Name = "LblFont"
+        Me.LblFont.Size = New System.Drawing.Size(82, 15)
+        Me.LblFont.TabIndex = 70
+        Me.LblFont.Text = "全局字体："
+        '
+        'LblCorColor
+        '
+        Me.LblCorColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblCorColor.Location = New System.Drawing.Point(225, 202)
+        Me.LblCorColor.Name = "LblCorColor"
+        Me.LblCorColor.Size = New System.Drawing.Size(35, 35)
+        Me.LblCorColor.TabIndex = 69
+        '
+        'LblSelColor
+        '
+        Me.LblSelColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblSelColor.Location = New System.Drawing.Point(225, 161)
+        Me.LblSelColor.Name = "LblSelColor"
+        Me.LblSelColor.Size = New System.Drawing.Size(35, 35)
+        Me.LblSelColor.TabIndex = 68
+        '
+        'BtnCornerColor
+        '
+        Me.BtnCornerColor.Location = New System.Drawing.Point(260, 200)
+        Me.BtnCornerColor.Name = "BtnCornerColor"
+        Me.BtnCornerColor.Size = New System.Drawing.Size(108, 41)
+        Me.BtnCornerColor.TabIndex = 67
+        Me.BtnCornerColor.Text = "颜色..."
+        Me.BtnCornerColor.UseVisualStyleBackColor = True
+        '
+        'BtnSelectedColor
+        '
+        Me.BtnSelectedColor.Location = New System.Drawing.Point(260, 158)
+        Me.BtnSelectedColor.Name = "BtnSelectedColor"
+        Me.BtnSelectedColor.Size = New System.Drawing.Size(108, 41)
+        Me.BtnSelectedColor.TabIndex = 66
+        Me.BtnSelectedColor.Text = "颜色..."
+        Me.BtnSelectedColor.UseVisualStyleBackColor = True
+        '
+        'LblCornerColor
+        '
+        Me.LblCornerColor.AutoSize = True
+        Me.LblCornerColor.Location = New System.Drawing.Point(17, 213)
+        Me.LblCornerColor.Name = "LblCornerColor"
+        Me.LblCornerColor.Size = New System.Drawing.Size(97, 15)
+        Me.LblCornerColor.TabIndex = 65
+        Me.LblCornerColor.Text = "角标背景色："
+        '
+        'LblSelectedColor
+        '
+        Me.LblSelectedColor.AutoSize = True
+        Me.LblSelectedColor.Location = New System.Drawing.Point(17, 171)
+        Me.LblSelectedColor.Name = "LblSelectedColor"
+        Me.LblSelectedColor.Size = New System.Drawing.Size(112, 15)
+        Me.LblSelectedColor.TabIndex = 64
+        Me.LblSelectedColor.Text = "选中项强调色："
+        '
+        'LblThemeColor
+        '
+        Me.LblThemeColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.LblThemeColor.Location = New System.Drawing.Point(225, 56)
+        Me.LblThemeColor.Name = "LblThemeColor"
+        Me.LblThemeColor.Size = New System.Drawing.Size(35, 35)
+        Me.LblThemeColor.TabIndex = 63
+        '
+        'BtnThemeColor
+        '
+        Me.BtnThemeColor.Location = New System.Drawing.Point(260, 53)
+        Me.BtnThemeColor.Name = "BtnThemeColor"
+        Me.BtnThemeColor.Size = New System.Drawing.Size(108, 41)
+        Me.BtnThemeColor.TabIndex = 62
+        Me.BtnThemeColor.Text = "颜色..."
+        Me.BtnThemeColor.UseVisualStyleBackColor = True
+        '
+        'ChkShowInChild
+        '
+        Me.ChkShowInChild.AutoSize = True
+        Me.ChkShowInChild.Location = New System.Drawing.Point(36, 95)
+        Me.ChkShowInChild.Name = "ChkShowInChild"
+        Me.ChkShowInChild.Size = New System.Drawing.Size(149, 19)
+        Me.ChkShowInChild.TabIndex = 60
+        Me.ChkShowInChild.Text = "子窗口使用主题色"
+        Me.ChkShowInChild.UseVisualStyleBackColor = True
+        '
+        'RadSystem
+        '
+        Me.RadSystem.AutoSize = True
+        Me.RadSystem.Checked = True
+        Me.RadSystem.Location = New System.Drawing.Point(280, 30)
+        Me.RadSystem.Name = "RadSystem"
+        Me.RadSystem.Size = New System.Drawing.Size(88, 19)
+        Me.RadSystem.TabIndex = 26
+        Me.RadSystem.TabStop = True
+        Me.RadSystem.Text = "跟随系统"
+        Me.RadSystem.UseVisualStyleBackColor = True
+        '
+        'RadDark
+        '
+        Me.RadDark.AutoSize = True
+        Me.RadDark.Location = New System.Drawing.Point(179, 30)
+        Me.RadDark.Name = "RadDark"
+        Me.RadDark.Size = New System.Drawing.Size(88, 19)
+        Me.RadDark.TabIndex = 25
+        Me.RadDark.Text = "深色模式"
+        Me.RadDark.UseVisualStyleBackColor = True
+        '
+        'RadLight
+        '
+        Me.RadLight.AutoSize = True
+        Me.RadLight.Location = New System.Drawing.Point(78, 30)
+        Me.RadLight.Name = "RadLight"
+        Me.RadLight.Size = New System.Drawing.Size(88, 19)
+        Me.RadLight.TabIndex = 24
+        Me.RadLight.Text = "浅色模式"
+        Me.RadLight.UseVisualStyleBackColor = True
+        '
+        'LblTheme
+        '
+        Me.LblTheme.AutoSize = True
+        Me.LblTheme.Location = New System.Drawing.Point(16, 30)
+        Me.LblTheme.Name = "LblTheme"
+        Me.LblTheme.Size = New System.Drawing.Size(52, 15)
+        Me.LblTheme.TabIndex = 23
+        Me.LblTheme.Text = "主题："
+        '
+        'GrpStartup
+        '
+        Me.GrpStartup.Controls.Add(Me.ChkRestore)
+        Me.GrpStartup.Controls.Add(Me.CboCheckUpdate)
+        Me.GrpStartup.Controls.Add(Me.ChkAutoCheckUpdate)
+        Me.GrpStartup.Controls.Add(Me.ChkAutoPlay)
+        Me.GrpStartup.Controls.Add(Me.ChkAutoStart)
+        Me.GrpStartup.Location = New System.Drawing.Point(398, 12)
+        Me.GrpStartup.Name = "GrpStartup"
+        Me.GrpStartup.Size = New System.Drawing.Size(408, 133)
+        Me.GrpStartup.TabIndex = 56
+        Me.GrpStartup.TabStop = False
+        Me.GrpStartup.Text = "启动"
+        '
+        'ChkRestore
+        '
+        Me.ChkRestore.AutoSize = True
+        Me.ChkRestore.Location = New System.Drawing.Point(10, 49)
+        Me.ChkRestore.Name = "ChkRestore"
+        Me.ChkRestore.Size = New System.Drawing.Size(194, 19)
+        Me.ChkRestore.TabIndex = 59
+        Me.ChkRestore.Text = "启动时恢复上次关闭的库"
+        Me.ChkRestore.UseVisualStyleBackColor = True
+        '
+        'CboCheckUpdate
+        '
+        Me.CboCheckUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CboCheckUpdate.FormattingEnabled = True
+        Me.CboCheckUpdate.Location = New System.Drawing.Point(187, 99)
+        Me.CboCheckUpdate.Name = "CboCheckUpdate"
+        Me.CboCheckUpdate.Size = New System.Drawing.Size(204, 23)
+        Me.CboCheckUpdate.TabIndex = 58
+        '
+        'ChkAutoCheckUpdate
+        '
+        Me.ChkAutoCheckUpdate.AutoSize = True
+        Me.ChkAutoCheckUpdate.Location = New System.Drawing.Point(10, 101)
+        Me.ChkAutoCheckUpdate.Name = "ChkAutoCheckUpdate"
+        Me.ChkAutoCheckUpdate.Size = New System.Drawing.Size(119, 19)
+        Me.ChkAutoCheckUpdate.TabIndex = 57
+        Me.ChkAutoCheckUpdate.Text = "自动检查更新"
+        Me.ChkAutoCheckUpdate.UseVisualStyleBackColor = True
+        '
+        'ChkAutoPlay
+        '
+        Me.ChkAutoPlay.AutoSize = True
+        Me.ChkAutoPlay.Location = New System.Drawing.Point(25, 74)
+        Me.ChkAutoPlay.Name = "ChkAutoPlay"
+        Me.ChkAutoPlay.Size = New System.Drawing.Size(179, 19)
+        Me.ChkAutoPlay.TabIndex = 56
+        Me.ChkAutoPlay.Text = "启动时自动播放幻灯片"
+        Me.ChkAutoPlay.UseVisualStyleBackColor = True
+        '
+        'ChkAutoStart
+        '
+        Me.ChkAutoStart.AutoSize = True
+        Me.ChkAutoStart.Location = New System.Drawing.Point(10, 24)
+        Me.ChkAutoStart.Name = "ChkAutoStart"
+        Me.ChkAutoStart.Size = New System.Drawing.Size(254, 19)
+        Me.ChkAutoStart.TabIndex = 55
+        Me.ChkAutoStart.Text = "开机时自动启动 FurryArtStudio"
+        Me.ChkAutoStart.UseVisualStyleBackColor = True
+        '
+        'GrpAdvanced
+        '
+        Me.GrpAdvanced.Controls.Add(Me.ChkDevTools)
+        Me.GrpAdvanced.Controls.Add(Me.ChkPlayNext)
+        Me.GrpAdvanced.Controls.Add(Me.LblPlayMode)
+        Me.GrpAdvanced.Controls.Add(Me.CboPlayMode)
+        Me.GrpAdvanced.Controls.Add(Me.TxtAutoNext)
+        Me.GrpAdvanced.Controls.Add(Me.LblAutoNext)
+        Me.GrpAdvanced.Controls.Add(Me.ChkFileAssociation)
+        Me.GrpAdvanced.Controls.Add(Me.ChkKeepScale)
+        Me.GrpAdvanced.Controls.Add(Me.TxtMaxSize)
+        Me.GrpAdvanced.Controls.Add(Me.LblThumbMax)
+        Me.GrpAdvanced.Controls.Add(Me.TxtMinSize)
+        Me.GrpAdvanced.Controls.Add(Me.LblThumbMin)
+        Me.GrpAdvanced.Location = New System.Drawing.Point(398, 151)
+        Me.GrpAdvanced.Name = "GrpAdvanced"
+        Me.GrpAdvanced.Size = New System.Drawing.Size(408, 229)
+        Me.GrpAdvanced.TabIndex = 57
+        Me.GrpAdvanced.TabStop = False
+        Me.GrpAdvanced.Text = "高级"
+        '
+        'ChkDevTools
+        '
+        Me.ChkDevTools.AutoSize = True
+        Me.ChkDevTools.Location = New System.Drawing.Point(10, 196)
+        Me.ChkDevTools.Name = "ChkDevTools"
+        Me.ChkDevTools.Size = New System.Drawing.Size(134, 19)
+        Me.ChkDevTools.TabIndex = 87
+        Me.ChkDevTools.Text = "显示开发者选项"
+        Me.ChkDevTools.UseVisualStyleBackColor = True
+        '
+        'ChkPlayNext
+        '
+        Me.ChkPlayNext.AutoSize = True
+        Me.ChkPlayNext.Location = New System.Drawing.Point(25, 171)
+        Me.ChkPlayNext.Name = "ChkPlayNext"
+        Me.ChkPlayNext.Size = New System.Drawing.Size(179, 19)
+        Me.ChkPlayNext.TabIndex = 86
+        Me.ChkPlayNext.Text = "播放后切换到下一个库"
+        Me.ChkPlayNext.UseVisualStyleBackColor = True
+        '
+        'LblPlayMode
+        '
+        Me.LblPlayMode.AutoSize = True
+        Me.LblPlayMode.Location = New System.Drawing.Point(8, 145)
+        Me.LblPlayMode.Name = "LblPlayMode"
+        Me.LblPlayMode.Size = New System.Drawing.Size(82, 15)
+        Me.LblPlayMode.TabIndex = 85
+        Me.LblPlayMode.Text = "播放模式："
+        '
+        'CboPlayMode
+        '
+        Me.CboPlayMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CboPlayMode.FormattingEnabled = True
+        Me.CboPlayMode.Location = New System.Drawing.Point(212, 142)
+        Me.CboPlayMode.Name = "CboPlayMode"
+        Me.CboPlayMode.Size = New System.Drawing.Size(179, 23)
+        Me.CboPlayMode.TabIndex = 84
+        '
+        'TxtAutoNext
+        '
+        Me.TxtAutoNext.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtAutoNext.Location = New System.Drawing.Point(212, 111)
+        Me.TxtAutoNext.Name = "TxtAutoNext"
+        Me.TxtAutoNext.Size = New System.Drawing.Size(179, 25)
+        Me.TxtAutoNext.TabIndex = 83
+        '
+        'LblAutoNext
+        '
+        Me.LblAutoNext.AutoSize = True
+        Me.LblAutoNext.Location = New System.Drawing.Point(8, 117)
+        Me.LblAutoNext.Name = "LblAutoNext"
+        Me.LblAutoNext.Size = New System.Drawing.Size(181, 15)
+        Me.LblAutoNext.TabIndex = 82
+        Me.LblAutoNext.Text = "自动切换时间(单位:秒)："
+        '
+        'ChkFileAssociation
+        '
+        Me.ChkFileAssociation.AutoSize = True
+        Me.ChkFileAssociation.Location = New System.Drawing.Point(10, 88)
+        Me.ChkFileAssociation.Name = "ChkFileAssociation"
+        Me.ChkFileAssociation.Size = New System.Drawing.Size(220, 19)
+        Me.ChkFileAssociation.TabIndex = 81
+        Me.ChkFileAssociation.Text = "关联稿件库备份文件(*.paw)"
+        Me.ChkFileAssociation.UseVisualStyleBackColor = True
+        '
+        'ChkKeepScale
+        '
+        Me.ChkKeepScale.AutoSize = True
+        Me.ChkKeepScale.Location = New System.Drawing.Point(10, 63)
+        Me.ChkKeepScale.Name = "ChkKeepScale"
+        Me.ChkKeepScale.Size = New System.Drawing.Size(194, 19)
+        Me.ChkKeepScale.TabIndex = 80
+        Me.ChkKeepScale.Text = "图片查看器保持比例放大"
+        Me.ChkKeepScale.UseVisualStyleBackColor = True
+        '
+        'TxtMaxSize
+        '
+        Me.TxtMaxSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtMaxSize.Location = New System.Drawing.Point(338, 27)
+        Me.TxtMaxSize.Name = "TxtMaxSize"
+        Me.TxtMaxSize.Size = New System.Drawing.Size(63, 25)
+        Me.TxtMaxSize.TabIndex = 79
+        Me.TxtMaxSize.Text = "240"
+        '
+        'LblThumbMax
+        '
+        Me.LblThumbMax.AutoSize = True
+        Me.LblThumbMax.Location = New System.Drawing.Point(209, 32)
+        Me.LblThumbMax.Name = "LblThumbMax"
+        Me.LblThumbMax.Size = New System.Drawing.Size(127, 15)
+        Me.LblThumbMax.TabIndex = 78
+        Me.LblThumbMax.Text = "缩略图最大尺寸："
+        '
+        'TxtMinSize
+        '
+        Me.TxtMinSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtMinSize.Location = New System.Drawing.Point(136, 27)
+        Me.TxtMinSize.Name = "TxtMinSize"
+        Me.TxtMinSize.Size = New System.Drawing.Size(63, 25)
+        Me.TxtMinSize.TabIndex = 77
+        Me.TxtMinSize.Text = "120"
+        '
+        'LblThumbMin
+        '
+        Me.LblThumbMin.AutoSize = True
+        Me.LblThumbMin.Location = New System.Drawing.Point(7, 32)
+        Me.LblThumbMin.Name = "LblThumbMin"
+        Me.LblThumbMin.Size = New System.Drawing.Size(127, 15)
+        Me.LblThumbMin.TabIndex = 76
+        Me.LblThumbMin.Text = "缩略图最小尺寸："
+        '
+        'BtnClose
+        '
+        Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.BtnClose.Location = New System.Drawing.Point(687, 386)
+        Me.BtnClose.Name = "BtnClose"
+        Me.BtnClose.Size = New System.Drawing.Size(119, 41)
+        Me.BtnClose.TabIndex = 58
+        Me.BtnClose.Text = "关闭(&C)"
+        Me.BtnClose.UseVisualStyleBackColor = True
         '
         'PropertiesForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(412, 553)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.CheckBox9)
-        Me.Controls.Add(Me.CheckBox8)
-        Me.Controls.Add(Me.Label22)
-        Me.Controls.Add(Me.ComboBox5)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.Label23)
-        Me.Controls.Add(Me.CheckBox6)
-        Me.Controls.Add(Me.ComboBox4)
-        Me.Controls.Add(Me.CheckBox7)
-        Me.Controls.Add(Me.CheckBox4)
-        Me.Controls.Add(Me.CheckBox5)
-        Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label14)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.RBSystem)
-        Me.Controls.Add(Me.RBDark)
-        Me.Controls.Add(Me.RBLight)
-        Me.Controls.Add(Me.Label20)
+        Me.CancelButton = Me.BtnClose
+        Me.ClientSize = New System.Drawing.Size(812, 433)
+        Me.Controls.Add(Me.BtnClose)
+        Me.Controls.Add(Me.GrpAdvanced)
+        Me.Controls.Add(Me.GrpStartup)
+        Me.Controls.Add(Me.GrpAppearance)
+        Me.Controls.Add(Me.BtnExport)
+        Me.Controls.Add(Me.BtnImport)
+        Me.Controls.Add(Me.BtnReset)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PropertiesForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "选项"
+        Me.GrpAppearance.ResumeLayout(False)
+        Me.GrpAppearance.PerformLayout()
+        Me.GrpStartup.ResumeLayout(False)
+        Me.GrpStartup.PerformLayout()
+        Me.GrpAdvanced.ResumeLayout(False)
+        Me.GrpAdvanced.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Button5 As Button
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents RBSystem As RadioButton
-    Friend WithEvents RBDark As RadioButton
-    Friend WithEvents RBLight As RadioButton
-    Friend WithEvents Label20 As Label
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
-    Friend WithEvents CheckBox6 As CheckBox
-    Friend WithEvents ComboBox4 As ComboBox
-    Friend WithEvents CheckBox7 As CheckBox
-    Friend WithEvents CheckBox8 As CheckBox
-    Friend WithEvents Label22 As Label
-    Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button10 As Button
-    Friend WithEvents CheckBox9 As CheckBox
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents BtnExport As Button
+    Friend WithEvents BtnImport As Button
+    Friend WithEvents BtnReset As Button
+    Friend WithEvents GrpAppearance As GroupBox
+    Friend WithEvents LblFontShow As Label
+    Friend WithEvents BtnFont As Button
+    Friend WithEvents TxtPicTitle As TextBox
+    Friend WithEvents TxtMainTitle As TextBox
+    Friend WithEvents LblLanguage As Label
+    Friend WithEvents CboLang As ComboBox
+    Friend WithEvents LblPicTitle As Label
+    Friend WithEvents LblMainTitle As Label
+    Friend WithEvents LblFont As Label
+    Friend WithEvents LblCorColor As Label
+    Friend WithEvents LblSelColor As Label
+    Friend WithEvents BtnCornerColor As Button
+    Friend WithEvents BtnSelectedColor As Button
+    Friend WithEvents LblCornerColor As Label
+    Friend WithEvents LblSelectedColor As Label
+    Friend WithEvents LblThemeColor As Label
+    Friend WithEvents BtnThemeColor As Button
+    Friend WithEvents ChkShowInChild As CheckBox
+    Friend WithEvents RadSystem As RadioButton
+    Friend WithEvents RadDark As RadioButton
+    Friend WithEvents RadLight As RadioButton
+    Friend WithEvents LblTheme As Label
+    Friend WithEvents GrpStartup As GroupBox
+    Friend WithEvents ChkRestore As CheckBox
+    Friend WithEvents CboCheckUpdate As ComboBox
+    Friend WithEvents ChkAutoCheckUpdate As CheckBox
+    Friend WithEvents ChkAutoPlay As CheckBox
+    Friend WithEvents ChkAutoStart As CheckBox
+    Friend WithEvents GrpAdvanced As GroupBox
+    Friend WithEvents ChkKeepScale As CheckBox
+    Friend WithEvents TxtMaxSize As TextBox
+    Friend WithEvents LblThumbMax As Label
+    Friend WithEvents TxtMinSize As TextBox
+    Friend WithEvents LblThumbMin As Label
+    Friend WithEvents ChkDevTools As CheckBox
+    Friend WithEvents ChkPlayNext As CheckBox
+    Friend WithEvents LblPlayMode As Label
+    Friend WithEvents CboPlayMode As ComboBox
+    Friend WithEvents TxtAutoNext As TextBox
+    Friend WithEvents LblAutoNext As Label
+    Friend WithEvents ChkFileAssociation As CheckBox
+    Friend WithEvents ChkShowThemeColor As CheckBox
+    Friend WithEvents ColorDlg As ColorDialog
+    Friend WithEvents BtnClose As Button
 End Class

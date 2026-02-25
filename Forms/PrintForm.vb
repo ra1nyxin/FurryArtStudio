@@ -15,7 +15,7 @@
 Imports System.Drawing.Printing
 Imports System.Runtime.InteropServices
 Public Class PrintForm
-    Implements IThemeChangeable
+    Implements IThemeChangeable, ILocalizable
     '打印设置变量
     Private _printSettings As PrinterSettings
     Private _pageSettings As PageSettings
@@ -152,7 +152,10 @@ Public Class PrintForm
         RemoveMenu(MnuHandle, SC_SIZE, MF_BYCOMMAND) '去除大小菜单
         RemoveMenu(MnuHandle, SC_MINIMIZE, MF_BYCOMMAND) '去除最小化菜单
     End Sub
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    Private Sub LanguageChange() Implements ILocalizable.LanguageChange
+
+    End Sub
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         '颜色常量
         Dim bgColor As Color
         Dim frColor As Color

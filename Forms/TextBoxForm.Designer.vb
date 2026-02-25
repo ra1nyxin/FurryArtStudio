@@ -27,7 +27,7 @@ Partial Class TextBoxForm
         '
         'TxtBox
         '
-        Me.TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TxtBox.Location = New System.Drawing.Point(2, 2)
         Me.TxtBox.Name = "TxtBox"
         Me.TxtBox.Size = New System.Drawing.Size(699, 450)

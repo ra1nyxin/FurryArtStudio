@@ -22,7 +22,7 @@ Imports System.Text
 Imports Krypton.Toolkit
 
 Public Class MainForm
-    Implements IThemeChangeable
+    Implements IThemeChangeable, ILocalizable
 #Region "变量与常量"
     '库
     Private _libraryManager As LibraryManager '当前稿件库管理器实例
@@ -117,7 +117,7 @@ Public Class MainForm
                     AboutForm.ShowDialog()
             End Select
         End If
-        If m.Msg = WM_DWMCOLORIZATIONCOLORCHANGED Then
+        If m.Msg = WM_DWMCOLORIZATIONCOLORCHANGED Then '主题发生改变时
             If AppTheme = Appearance.System Then
                 _themeDebounceTimer.Stop()
                 _themeDebounceTimer.Start() '消抖
@@ -132,7 +132,6 @@ Public Class MainForm
                                               UpdateFormTheme() '当主题设置为跟随系统时,主题变更通过接口发送给全部窗体
                                           End If
                                       End Sub))
-        Debug.Print("主题变更")
     End Sub
 
     ''' <summary>
@@ -147,7 +146,7 @@ Public Class MainForm
     ''' </summary>
     Private Sub ResizeControl()
         Dim p2Width = ArtworkListSplitContainer.Panel2.Width - 10
-        PicboxThumb.Height = PicboxThumb.Width '保持为方形
+        PiChkThumb.Height = PiChkThumb.Width '保持为方形
         LblTitle.Width = p2Width
         LblTitle.Top = p2Width + 10
         LblAuthor.Width = p2Width
@@ -163,11 +162,39 @@ Public Class MainForm
 #End Region
 
 #Region "辅助方法"
+    ''' <summary>
+    ''' 语言变更
+    ''' </summary>
+    Private Sub LanguageChange() Implements ILocalizable.LanguageChange
+        '菜单
+        MnuFile.Text = My.Resources.Mnu_File
+        MnuOnTop.Text = My.Resources.Mnu_AlwaysOnTop
+        MnuDevTools.Text = My.Resources.Mnu_DevTools
+        MnuRunAsElevated.Text = My.Resources.Mnu_RunAsElevated
+        MnuRunTerminal.Text = My.Resources.Mnu_OpenTerminal
+        MnuProperties.Text = My.Resources.Mnu_Options
+        MnuExit.Text = My.Resources.Mnu_Exit
+        MnuLibrary.Text = My.Resources.Mnu_Lib
+        MnuLibList.Text = My.Resources.Mnu_CurrentLib
+        MnuLibRefresh.Text = My.Resources.Mnu_Refresh
+        MnuLibNew.Text = My.Resources.Mnu_New
+        MnuLibImport.Text = My.Resources.Mnu_Import
+        MnuLibExport.Text = My.Resources.Mnu_Export
+        MnuLibExportCSV.Text = My.Resources.Mnu_ExportCSV
+        MnuLibClone.Text = My.Resources.Mnu_Clone
+        MnuLibOpenFolder.Text = My.Resources.Mnu_OpenPath
+        MnuLibCopy.Text = My.Resources.Mnu_Copy
+        MnuLibCopyPath.Text = My.Resources.Mnu_CopyPath
+        MnuLibClose.Text = My.Resources.Mnu_Close
+        MnuLibRename.Text = My.Resources.Mnu_Rename
+        MnuLibDelete.Text = My.Resources.Mnu_Delete
+        MnuLibProperties.Text = My.Resources.Mnu_Properties
+    End Sub
 
     ''' <summary>
     ''' 系统主题发生变化时调用以更新
     ''' </summary>
-    Public Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
+    Private Sub SystemThemeChange() Implements IThemeChangeable.SystemThemeChange
         '颜色常量
         Dim bgColor As Color
         Dim frColor As Color
@@ -328,7 +355,7 @@ Public Class MainForm
         RefreshLibListMenu()
         ImageGalleryMain.ClearImages() '清空所有图片
         If _imageList.Count <> 0 Then _imageList.Clear()
-        PicboxThumb.Image = Nothing
+        PiChkThumb.Image = Nothing
         LblTitle.Text = ""
         LblAuthor.Text = ""
         LblTags.Text = ""
@@ -420,7 +447,7 @@ Public Class MainForm
         LblTags.Text = ""
         LblCharacters.Text = ""
         LblNotes.Text = ""
-        PicboxThumb.Image = Nothing
+        PiChkThumb.Image = Nothing
         SearchTextBox.Enabled = True
         '设置图片墙
         ImageGalleryMain.ClearImages() '清空所有图片
@@ -545,7 +572,7 @@ Public Class MainForm
             Process.Start(startInfo)
             Me.Close()
         Catch ex As Win32Exception
-            MessageBox.Show($"权限提升失败。{vbCrLf}操作被用户取消。", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show($"权限提升失败：{ex.Message}", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
     Private Sub MnuRunTerminal_Click(sender As Object, e As EventArgs) Handles MnuRunTerminal.Click
@@ -738,26 +765,37 @@ Public Class MainForm
         Try
             StatusLabel.Text = "正在删除稿件库..."
             If isShiftPressed Then
-                DelDirPermanently(nowPath)
+                Dim result = MessageBox.Show($"你希望永久删除稿件库 {nowLib} 吗? 此操作不可逆",
+                    "删除稿件库",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning)
+                If result = DialogResult.Yes Then
+                    Directory.Delete(nowPath, True)
+                Else
+                    Throw New OperationCanceledException("操作被用户取消")
+                End If
             Else
-                FileIO.FileSystem.DeleteDirectory(nowPath,
-                                                  FileIO.UIOption.AllDialogs,
-                                                  FileIO.RecycleOption.SendToRecycleBin)
+                Dim result = MessageBox.Show($"你希望将稿件库 {nowLib} 移到回收站吗?",
+                    "删除稿件库",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question)
+                If result = DialogResult.Yes Then
+                    FileIO.FileSystem.DeleteDirectory(nowPath,
+                    FileIO.UIOption.AllDialogs,
+                    FileIO.RecycleOption.SendToRecycleBin)
+                Else
+                    Throw New OperationCanceledException("操作被用户取消")
+                End If
             End If
             MenuInit()
             CloseLibrary()
         Catch ex As OperationCanceledException '操作被取消, 回滚操作
             _libraryManager.AddLibrary(nowLib)
             _libraryManager.SwitchLibrary(nowLib)
+        Catch ex As Exception
+            MessageBox.Show($"稿件库删除失败: {ex.Message}", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
         StatusLabel.Text = "就绪"
-    End Sub
-    ''' <summary>
-    ''' 永久删除文件夹
-    ''' </summary>
-    ''' <param name="folderPath">文件夹目录</param>
-    Private Sub DelDirPermanently(folderPath As String)
-        MsgBox("这里是永久删除的源代码，还没写呢")
     End Sub
     Private Sub MnuLibProperties_Click(sender As Object, e As EventArgs) Handles MnuLibProperties.Click
         ShowLibProperties()
@@ -820,12 +858,20 @@ Public Class MainForm
         Dim nowPath As String = _libraryManager.GetCurrentLibrary.LibraryPath
         Try
             If isShiftPressed Then
+                Dim result = MessageBox.Show($"确实要永久性的删除{titleList.Count}项稿件吗?" & vbCrLf & String.Join(vbCrLf, titleList.Take(5)) & If(titleList.Count > 5, vbCrLf & $"...等 {titleList.Count} 个项目", ""),
+                    "删除项目",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question)
+                If result <> DialogResult.Yes Then
+                    StatusLabel.Text = "就绪"
+                    Return
+                End If
                 For Each uuid In uuidList
-                    DelDirPermanently(Path.Combine(nowPath, uuid.ToString)) '永久删除数据
+                    Directory.Delete(Path.Combine(nowPath, uuid.ToString), True) '永久删除数据
                     _libraryManager.GetCurrentLibrary.SoftDeleteArtwork(uuid) '标记为软删除
                 Next
             Else
-                Dim result = MessageBox.Show($"确实要将这 {titleList.Count} 项放入回收站吗?" & vbCrLf & String.Join(vbCrLf, titleList.Take(5)) & If(titleList.Count > 5, vbCrLf & $"...等 {titleList.Count} 个项目", ""),
+                Dim result = MessageBox.Show($"确实要将这{titleList.Count}项放入回收站吗?" & vbCrLf & String.Join(vbCrLf, titleList.Take(5)) & If(titleList.Count > 5, vbCrLf & $"...等 {titleList.Count} 个项目", ""),
                     "删除项目",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Question)
@@ -875,6 +921,7 @@ Public Class MainForm
         '检查是否有图片
         If selectedImages.Count = 0 Then
             MessageBox.Show("没有找到可打印的图片文件", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            StatusLabel.Text = "就绪"
             Return
         End If
         Dim isShiftPressed As Boolean = My.Computer.Keyboard.ShiftKeyDown
@@ -1111,7 +1158,7 @@ Public Class MainForm
 
     End Sub
     Private Sub MnuHelpWhatsNew_Click(sender As Object, e As EventArgs) Handles MnuHelpWhatsNew.Click
-        Dim txt As New TextBoxForm(ReadChangelogFromResource, "更新日志")
+        Dim txt As New TextBoxForm(ReadChangelogFromResource, "新增功能")
         txt.Show()
     End Sub
     Private Sub MnuTerms_Click(sender As Object, e As EventArgs) Handles MnuTerms.Click
@@ -1144,7 +1191,7 @@ Public Class MainForm
         LblTags.Text = ""
         LblCharacters.Text = ""
         LblNotes.Text = ""
-        PicboxThumb.Image = Nothing
+        PiChkThumb.Image = Nothing
     End Sub
     Private Sub ImageGalleryMain_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles ImageGalleryMain.SelectionChanged
         Dim selectedImages = e.SelectedImages
@@ -1171,7 +1218,7 @@ Public Class MainForm
             ConMnuMsCopy.Enabled = True
             ConMnuMsCopyPath.Enabled = True
             SelectStatusLabel.Text = $"已选: 1/{_artworkCount}"
-            PicboxThumb.Image = selectedImage.Thumbnail
+            PiChkThumb.Image = selectedImage.Thumbnail
             LblTitle.Text = $"{selectedArtwork.Title}"
             LblAuthor.Text = $"{selectedArtwork.Author}"
             LblCharacters.Text = $"角色: {FormatArrayWithEllipsis(selectedArtwork.Characters)}"
@@ -1200,7 +1247,7 @@ Public Class MainForm
             LblCharacters.Text = ""
             LblTags.Text = ""
             LblNotes.Text = ""
-            PicboxThumb.Image = Nothing
+            PiChkThumb.Image = Nothing
         End If
     End Sub
     Private Sub ImageGalleryMain_PageChanged(page As Integer) Handles ImageGalleryMain.PageChanged

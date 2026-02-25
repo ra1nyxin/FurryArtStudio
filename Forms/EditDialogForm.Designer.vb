@@ -23,23 +23,23 @@ Partial Class EditDialogForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TxtboxTitle = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LblTitle = New System.Windows.Forms.Label()
         Me.TxtboxAuthor = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LblAuthor = New System.Windows.Forms.Label()
         Me.PreviewPicturebox = New System.Windows.Forms.PictureBox()
         Me.BtnModify = New System.Windows.Forms.Button()
         Me.LblUUID = New System.Windows.Forms.Label()
         Me.BtnCancel = New System.Windows.Forms.Button()
         Me.TxtboxCharacters = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LblCharacters = New System.Windows.Forms.Label()
         Me.TxtboxTags = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.LblTags = New System.Windows.Forms.Label()
         Me.LblImportTime = New System.Windows.Forms.Label()
         Me.LblUpdateTime = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.LblCreateTime = New System.Windows.Forms.Label()
         Me.TxtboxCreateTime = New System.Windows.Forms.TextBox()
         Me.TxtboxNotes = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LblNotes = New System.Windows.Forms.Label()
         Me.BtnAdd = New System.Windows.Forms.Button()
         Me.LstBox = New System.Windows.Forms.ListBox()
         Me.BtnDel = New System.Windows.Forms.Button()
@@ -52,36 +52,36 @@ Partial Class EditDialogForm
         'TxtboxTitle
         '
         Me.TxtboxTitle.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxTitle.Location = New System.Drawing.Point(276, 12)
+        Me.TxtboxTitle.Location = New System.Drawing.Point(285, 12)
         Me.TxtboxTitle.Name = "TxtboxTitle"
-        Me.TxtboxTitle.Size = New System.Drawing.Size(258, 25)
+        Me.TxtboxTitle.Size = New System.Drawing.Size(249, 25)
         Me.TxtboxTitle.TabIndex = 1
         '
-        'Label1
+        'LblTitle
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(219, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(45, 15)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "标题:"
+        Me.LblTitle.AutoSize = True
+        Me.LblTitle.Location = New System.Drawing.Point(219, 15)
+        Me.LblTitle.Name = "LblTitle"
+        Me.LblTitle.Size = New System.Drawing.Size(45, 15)
+        Me.LblTitle.TabIndex = 1
+        Me.LblTitle.Text = "标题:"
         '
         'TxtboxAuthor
         '
         Me.TxtboxAuthor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxAuthor.Location = New System.Drawing.Point(276, 45)
+        Me.TxtboxAuthor.Location = New System.Drawing.Point(285, 45)
         Me.TxtboxAuthor.Name = "TxtboxAuthor"
-        Me.TxtboxAuthor.Size = New System.Drawing.Size(258, 25)
+        Me.TxtboxAuthor.Size = New System.Drawing.Size(249, 25)
         Me.TxtboxAuthor.TabIndex = 2
         '
-        'Label2
+        'LblAuthor
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(219, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 15)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "作者:"
+        Me.LblAuthor.AutoSize = True
+        Me.LblAuthor.Location = New System.Drawing.Point(219, 48)
+        Me.LblAuthor.Name = "LblAuthor"
+        Me.LblAuthor.Size = New System.Drawing.Size(45, 15)
+        Me.LblAuthor.TabIndex = 3
+        Me.LblAuthor.Text = "作者:"
         '
         'PreviewPicturebox
         '
@@ -98,7 +98,7 @@ Partial Class EditDialogForm
         Me.BtnModify.Name = "BtnModify"
         Me.BtnModify.Size = New System.Drawing.Size(109, 49)
         Me.BtnModify.TabIndex = 11
-        Me.BtnModify.Text = "完成(&O)"
+        Me.BtnModify.Text = "保存(&S)"
         Me.BtnModify.UseVisualStyleBackColor = True
         '
         'LblUUID
@@ -123,36 +123,36 @@ Partial Class EditDialogForm
         'TxtboxCharacters
         '
         Me.TxtboxCharacters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxCharacters.Location = New System.Drawing.Point(276, 78)
+        Me.TxtboxCharacters.Location = New System.Drawing.Point(285, 78)
         Me.TxtboxCharacters.Name = "TxtboxCharacters"
-        Me.TxtboxCharacters.Size = New System.Drawing.Size(258, 25)
+        Me.TxtboxCharacters.Size = New System.Drawing.Size(249, 25)
         Me.TxtboxCharacters.TabIndex = 3
         '
-        'Label3
+        'LblCharacters
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(219, 81)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(45, 15)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "角色:"
+        Me.LblCharacters.AutoSize = True
+        Me.LblCharacters.Location = New System.Drawing.Point(219, 81)
+        Me.LblCharacters.Name = "LblCharacters"
+        Me.LblCharacters.Size = New System.Drawing.Size(45, 15)
+        Me.LblCharacters.TabIndex = 10
+        Me.LblCharacters.Text = "角色:"
         '
         'TxtboxTags
         '
         Me.TxtboxTags.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxTags.Location = New System.Drawing.Point(276, 111)
+        Me.TxtboxTags.Location = New System.Drawing.Point(285, 111)
         Me.TxtboxTags.Name = "TxtboxTags"
-        Me.TxtboxTags.Size = New System.Drawing.Size(258, 25)
+        Me.TxtboxTags.Size = New System.Drawing.Size(249, 25)
         Me.TxtboxTags.TabIndex = 4
         '
-        'Label4
+        'LblTags
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(219, 114)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(45, 15)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "标签:"
+        Me.LblTags.AutoSize = True
+        Me.LblTags.Location = New System.Drawing.Point(219, 114)
+        Me.LblTags.Name = "LblTags"
+        Me.LblTags.Size = New System.Drawing.Size(45, 15)
+        Me.LblTags.TabIndex = 12
+        Me.LblTags.Text = "标签:"
         '
         'LblImportTime
         '
@@ -172,41 +172,41 @@ Partial Class EditDialogForm
         Me.LblUpdateTime.TabIndex = 14
         Me.LblUpdateTime.Text = "更新时间: "
         '
-        'Label5
+        'LblCreateTime
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(11, 221)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(75, 15)
-        Me.Label5.TabIndex = 15
-        Me.Label5.Text = "创作时间:"
+        Me.LblCreateTime.AutoSize = True
+        Me.LblCreateTime.Location = New System.Drawing.Point(11, 221)
+        Me.LblCreateTime.Name = "LblCreateTime"
+        Me.LblCreateTime.Size = New System.Drawing.Size(75, 15)
+        Me.LblCreateTime.TabIndex = 15
+        Me.LblCreateTime.Text = "创作时间:"
         '
         'TxtboxCreateTime
         '
         Me.TxtboxCreateTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxCreateTime.Location = New System.Drawing.Point(88, 218)
+        Me.TxtboxCreateTime.Location = New System.Drawing.Point(103, 218)
         Me.TxtboxCreateTime.Name = "TxtboxCreateTime"
-        Me.TxtboxCreateTime.Size = New System.Drawing.Size(189, 25)
+        Me.TxtboxCreateTime.Size = New System.Drawing.Size(184, 25)
         Me.TxtboxCreateTime.TabIndex = 6
         '
         'TxtboxNotes
         '
         Me.TxtboxNotes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TxtboxNotes.Location = New System.Drawing.Point(276, 144)
+        Me.TxtboxNotes.Location = New System.Drawing.Point(285, 144)
         Me.TxtboxNotes.Multiline = True
         Me.TxtboxNotes.Name = "TxtboxNotes"
         Me.TxtboxNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TxtboxNotes.Size = New System.Drawing.Size(258, 68)
+        Me.TxtboxNotes.Size = New System.Drawing.Size(249, 68)
         Me.TxtboxNotes.TabIndex = 5
         '
-        'Label6
+        'LblNotes
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(219, 147)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(45, 15)
-        Me.Label6.TabIndex = 18
-        Me.Label6.Text = "备注:"
+        Me.LblNotes.AutoSize = True
+        Me.LblNotes.Location = New System.Drawing.Point(219, 147)
+        Me.LblNotes.Name = "LblNotes"
+        Me.LblNotes.Size = New System.Drawing.Size(45, 15)
+        Me.LblNotes.TabIndex = 18
+        Me.LblNotes.Text = "备注:"
         '
         'BtnAdd
         '
@@ -267,23 +267,23 @@ Partial Class EditDialogForm
         Me.Controls.Add(Me.BtnDel)
         Me.Controls.Add(Me.LstBox)
         Me.Controls.Add(Me.BtnAdd)
-        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.LblNotes)
         Me.Controls.Add(Me.TxtboxNotes)
         Me.Controls.Add(Me.TxtboxCreateTime)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.LblCreateTime)
         Me.Controls.Add(Me.LblUpdateTime)
         Me.Controls.Add(Me.LblImportTime)
-        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.LblTags)
         Me.Controls.Add(Me.TxtboxTags)
-        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.LblCharacters)
         Me.Controls.Add(Me.TxtboxCharacters)
         Me.Controls.Add(Me.BtnCancel)
         Me.Controls.Add(Me.LblUUID)
         Me.Controls.Add(Me.BtnModify)
         Me.Controls.Add(Me.PreviewPicturebox)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.LblAuthor)
         Me.Controls.Add(Me.TxtboxAuthor)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LblTitle)
         Me.Controls.Add(Me.TxtboxTitle)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -300,23 +300,23 @@ Partial Class EditDialogForm
     End Sub
 
     Friend WithEvents TxtboxTitle As TextBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents LblTitle As Label
     Friend WithEvents TxtboxAuthor As TextBox
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LblAuthor As Label
     Friend WithEvents PreviewPicturebox As PictureBox
     Friend WithEvents BtnModify As Button
     Friend WithEvents LblUUID As Label
     Friend WithEvents BtnCancel As Button
     Friend WithEvents TxtboxCharacters As TextBox
-    Friend WithEvents Label3 As Label
+    Friend WithEvents LblCharacters As Label
     Friend WithEvents TxtboxTags As TextBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents LblTags As Label
     Friend WithEvents LblImportTime As Label
     Friend WithEvents LblUpdateTime As Label
-    Friend WithEvents Label5 As Label
+    Friend WithEvents LblCreateTime As Label
     Friend WithEvents TxtboxCreateTime As TextBox
     Friend WithEvents TxtboxNotes As TextBox
-    Friend WithEvents Label6 As Label
+    Friend WithEvents LblNotes As Label
     Friend WithEvents BtnAdd As Button
     Friend WithEvents LstBox As ListBox
     Friend WithEvents BtnDel As Button

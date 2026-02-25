@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About_LinkGitHub" xml:space="preserve">
+    <value>GitHub</value>
+  </data>
+  <data name="About_LinkLicense" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="About_LinkPrivacy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="About_LinkUserAgreement" xml:space="preserve">
+    <value>User Agreement</value>
+  </data>
+  <data name="About_LinkWebSite" xml:space="preserve">
+    <value>Official Website</value>
+  </data>
+  <data name="About_Title" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Edit_BtnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Edit_EditTitle" xml:space="preserve">
+    <value>Edit Manuscript</value>
+  </data>
+  <data name="Edit_NewTitle" xml:space="preserve">
+    <value>New Manuscript</value>
+  </data>
+  <data name="Edit_LblTitle" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="Edit_LblAuthor" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="Edit_LblTags" xml:space="preserve">
+    <value>Tags:</value>
+  </data>
+  <data name="Edit_LblNotes" xml:space="preserve">
+    <value>Notes:</value>
+  </data>
+  <data name="Edit_LblCharacters" xml:space="preserve">
+    <value>Roles:</value>
+  </data>
+  <data name="Edit_LblCreate" xml:space="preserve">
+    <value>Create At:</value>
+  </data>
+  <data name="Edit_LblImport" xml:space="preserve">
+    <value>Import At: {0}</value>
+  </data>
+  <data name="Edit_LblUpdate" xml:space="preserve">
+    <value>Update At: {0}</value>
+  </data>
+  <data name="Edit_BtnAddItem" xml:space="preserve">
+    <value>&amp;Add...</value>
+  </data>
+  <data name="Edit_BtnDel" xml:space="preserve">
+    <value>&amp;Delete...</value>
+  </data>
+  <data name="Edit_BtnSave" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="Stat_Init" xml:space="preserve">
+    <value>Initializing...</value>
+  </data>
+  <data name="Stat_Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Stat_OpenProp" xml:space="preserve">
+    <value>Setting preferences...</value>
+  </data>
+  <data name="Main_LblNoLib" xml:space="preserve">
+    <value>&lt;No Manuscript Library&gt;</value>
+  </data>
+  <data name="Main_LblNoMs" xml:space="preserve">
+    <value>0 manuscripts</value>
+  </data>
+  <data name="Main_LblNoStorage" xml:space="preserve">
+    <value>Storage: 0B (0 files)</value>
+  </data>
+  <data name="Main_LblNoPage" xml:space="preserve">
+    <value>Page: 0/0</value>
+  </data>
+  <data name="Mnu_AlwaysOnTop" xml:space="preserve">
+    <value>Always on &amp;Top</value>
+  </data>
+  <data name="Mnu_NewMs" xml:space="preserve">
+    <value>&amp;New Manuscript...</value>
+  </data>
+  <data name="Mnu_Refresh" xml:space="preserve">
+    <value>&amp;Refresh</value>
+  </data>
+  <data name="Mnu_Play" xml:space="preserve">
+    <value>Slideshow(&amp;P)</value>
+  </data>
+  <data name="Mnu_Options" xml:space="preserve">
+    <value>&amp;Options...</value>
+  </data>
+  <data name="Mnu_Properties" xml:space="preserve">
+    <value>Statistics(&amp;I)...</value>
+  </data>
+  <data name="Stat_Loading" xml:space="preserve">
+    <value>Loading data...</value>
+  </data>
+  <data name="Main_LblNoSelect" xml:space="preserve">
+    <value>Please select an item</value>
+  </data>
+  <data name="Main_LblMs" xml:space="preserve">
+    <value>{0} manuscripts</value>
+  </data>
+  <data name="Main_LblStorage" xml:space="preserve">
+    <value>Storage: {0} ({1} files)</value>
+  </data>
+  <data name="Main_LblPage1" xml:space="preserve">
+    <value>Page: 1/{0}</value>
+  </data>
+  <data name="Stat_Searching" xml:space="preserve">
+    <value>Searching...</value>
+  </data>
+  <data name="Msg_ElevatedFailed" xml:space="preserve">
+    <value>Elevation failed: {ex.Message}</value>
+  </data>
+  <data name="Msg_TerminalFailed" xml:space="preserve">
+    <value>Failed to start terminal: {ex.Message}</value>
+  </data>
+  <data name="Input_NewLibTitle" xml:space="preserve">
+    <value>New Manuscript Library</value>
+  </data>
+  <data name="Input_TxtNewLib" xml:space="preserve">
+    <value>New Manuscript Library</value>
+  </data>
+  <data name="Stat_CreatingLib" xml:space="preserve">
+    <value>Creating manuscript library...</value>
+  </data>
+  <data name="Stat_ExportCSV" xml:space="preserve">
+    <value>Exporting to CSV...</value>
+  </data>
+  <data name="Main_FileFilterCSV" xml:space="preserve">
+    <value>CSV files (*.csv)|*.csv|All files (*.*)|*.*</value>
+  </data>
+  <data name="Input_CloneLibTitle" xml:space="preserve">
+    <value>Clone Manuscript Library</value>
+  </data>
+  <data name="Stat_Cloning" xml:space="preserve">
+    <value>Cloning manuscript library...</value>
+  </data>
+  <data name="Input_TxtClone" xml:space="preserve">
+    <value>Copy of {0}</value>
+  </data>
+  <data name="Stat_Closing" xml:space="preserve">
+    <value>Closing manuscript library...</value>
+  </data>
+  <data name="Input_RenameLibTitle" xml:space="preserve">
+    <value>Rename Manuscript Library</value>
+  </data>
+  <data name="Stat_Renaming" xml:space="preserve">
+    <value>Renaming manuscript library...</value>
+  </data>
+  <data name="Msg_CreateFailed" xml:space="preserve">
+    <value>Creation failed: {ex.Message}</value>
+  </data>
+  <data name="Stat_DeletingLib" xml:space="preserve">
+    <value>Deleting manuscript library...</value>
+  </data>
+  <data name="Prop_BtnClose" xml:space="preserve">
+    <value>&amp;Close</value>
+  </data>
+  <data name="Edit_BtnOK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="Edit_BtnSetPreview" xml:space="preserve">
+    <value>Set as &amp;Preview</value>
+  </data>
+  <data name="Mnu_About" xml:space="preserve">
+    <value>&amp;About...</value>
+  </data>
+  <data name="Main_LblLibName" xml:space="preserve">
+    <value>Library: {0}</value>
+  </data>
+  <data name="FurryArtStudio" xml:space="preserve">
+    <value>FurryArtStudio</value>
+  </data>
+  <data name="Main_StrOperationCancelled" xml:space="preserve">
+    <value>Operation cancelled by user</value>
+  </data>
+  <data name="Msg_DeleteLibPermanently" xml:space="preserve">
+    <value>Do you want to permanently delete the manuscript library {0}? This action is irreversible!</value>
+  </data>
+  <data name="Msg_DeleteLib" xml:space="preserve">
+    <value>Do you want to move the manuscript library {0} to the Recycle Bin?</value>
+  </data>
+  <data name="Msg_LibDeleteFailed" xml:space="preserve">
+    <value>Failed to delete library: {ex.Message}</value>
+  </data>
+  <data name="Main_StrPropLib" xml:space="preserve">
+    <value>Library: {0}</value>
+  </data>
+  <data name="Main_StrPropLibPath" xml:space="preserve">
+    <value>Library path: {0}</value>
+  </data>
+  <data name="Main_StrPropMsCount" xml:space="preserve">
+    <value>Manuscripts: {0}</value>
+  </data>
+  <data name="Main_StrPropStorage" xml:space="preserve">
+    <value>Storage: {0} Files: {1}</value>
+  </data>
+  <data name="Main_StrPropNowTime" xml:space="preserve">
+    <value>Current time: {Now:yyyy-MM-dd HH:mm:ss}</value>
+  </data>
+  <data name="Stat_NewMs" xml:space="preserve">
+    <value>Creating new manuscript...</value>
+  </data>
+  <data name="Stat_EditMs" xml:space="preserve">
+    <value>Editing manuscript...</value>
+  </data>
+  <data name="Stat_PreparePrint" xml:space="preserve">
+    <value>Initializing print...</value>
+  </data>
+  <data name="Msg_NoPrintFile" xml:space="preserve">
+    <value>No printable image files found</value>
+  </data>
+  <data name="Stat_Printing" xml:space="preserve">
+    <value>Printing...</value>
+  </data>
+  <data name="Msg_PrintFailed" xml:space="preserve">
+    <value>Error while printing: {ex.Message}</value>
+  </data>
+  <data name="Msg_ImageLoadFailed" xml:space="preserve">
+    <value>Failed to load image: {ex.Message}</value>
+  </data>
+  <data name="Msg_MultiFolderOpen" xml:space="preserve">
+    <value>You are about to open {0} folders at once. Do you want to continue?</value>
+  </data>
+  <data name="Stat_DeletingMs" xml:space="preserve">
+    <value>Deleting manuscript...</value>
+  </data>
+  <data name="Msg_DeleteMsPermanently" xml:space="preserve">
+    <value>Are you sure you want to permanently delete {0} manuscript(s)?</value>
+  </data>
+  <data name="Msg_DeleteMsCount" xml:space="preserve">
+    <value>...and {0} other items</value>
+  </data>
+  <data name="Msg_DeleteMs" xml:space="preserve">
+    <value>Are you sure you want to move these {0} item(s) to the Recycle Bin?</value>
+  </data>
+  <data name="Msg_StrMsInfo" xml:space="preserve">
+    <value>## Manuscript information:</value>
+  </data>
+  <data name="Msg_StrMsTitle" xml:space="preserve">
+    <value>### Title: {0} - {1}</value>
+  </data>
+  <data name="Msg_StrMsUUID" xml:space="preserve">
+    <value> - UUID: {0}</value>
+  </data>
+  <data name="Msg_StrMsUpdate" xml:space="preserve">
+    <value> - Update time: {0}</value>
+  </data>
+  <data name="Msg_StrMsImport" xml:space="preserve">
+    <value> - Import time: {0}</value>
+  </data>
+  <data name="Msg_StrMsCreate" xml:space="preserve">
+    <value> - Creation time: {0}</value>
+  </data>
+  <data name="Msg_StrMsTags" xml:space="preserve">
+    <value> - Tags: {0}</value>
+  </data>
+  <data name="Msg_StrMsCharacters" xml:space="preserve">
+    <value> - Characters: {0}</value>
+  </data>
+  <data name="Msg_StrMsNotes" xml:space="preserve">
+    <value> - Notes: {0}</value>
+  </data>
+  <data name="Msg_StrMsTotal" xml:space="preserve">
+    <value>Total {0} manuscripts</value>
+  </data>
+  <data name="Msg_StrMsNow" xml:space="preserve">
+    <value>Current time: {Now:yyyy-MM-dd HH:mm:ss}</value>
+  </data>
+  <data name="Msg_StrMsSupportByFAS" xml:space="preserve">
+    <value>*Powered by FurryArtStudio*</value>
+  </data>
+  <data name="Main_StrLicense" xml:space="preserve">
+    <value>Apache License 2.0</value>
+  </data>
+  <data name="Main_StrPrivacy" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="Main_StrWhatsNew" xml:space="preserve">
+    <value>What's New</value>
+  </data>
+  <data name="Main_StrTerms" xml:space="preserve">
+    <value>User Agreement</value>
+  </data>
+  <data name="Main_LblSelectMs1" xml:space="preserve">
+    <value>Selected: 1/{0}</value>
+  </data>
+  <data name="Main_LblCharacter" xml:space="preserve">
+    <value>Characters: {0}</value>
+  </data>
+  <data name="Main_LblTags" xml:space="preserve">
+    <value>Tags: {0}</value>
+  </data>
+  <data name="Main_LblNotes" xml:space="preserve">
+    <value>Notes: {0}</value>
+  </data>
+  <data name="Main_LblSelectMs" xml:space="preserve">
+    <value>Selected: {0}/{1}</value>
+  </data>
+  <data name="Main_LblTitleSelect" xml:space="preserve">
+    <value>{0} item(s) selected</value>
+  </data>
+  <data name="Main_LblPage" xml:space="preserve">
+    <value>Page: {0}/{1}</value>
+  </data>
+  <data name="Msg_NoImg" xml:space="preserve">
+    <value>The current manuscript has no image files</value>
+  </data>
+  <data name="Msg_OpenImgFailed" xml:space="preserve">
+    <value>Error opening image window: {ex.Message}</value>
+  </data>
+  <data name="Print_Title" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Print_LblPrinter" xml:space="preserve">
+    <value>Printer:</value>
+  </data>
+  <data name="Print_LblCount" xml:space="preserve">
+    <value>Copies:</value>
+  </data>
+  <data name="Print_LblPaper" xml:space="preserve">
+    <value>Paper:</value>
+  </data>
+  <data name="Print_LblType" xml:space="preserve">
+    <value>Layout:</value>
+  </data>
+  <data name="Print_BtnPrint" xml:space="preserve">
+    <value>&amp;Print</value>
+  </data>
+  <data name="Print_BtnCancel" xml:space="preserve">
+    <value>&amp;Cancel</value>
+  </data>
+  <data name="Print_PrinterManager" xml:space="preserve">
+    <value>Printer &amp;Manager</value>
+  </data>
+  <data name="Print_LblTop" xml:space="preserve">
+    <value>Top margin:</value>
+  </data>
+  <data name="Print_LblBottom" xml:space="preserve">
+    <value>Bottom margin:</value>
+  </data>
+  <data name="Print_LblLeft" xml:space="preserve">
+    <value>Left margin:</value>
+  </data>
+  <data name="Print_LblRight" xml:space="preserve">
+    <value>Right margin:</value>
+  </data>
+  <data name="Mnu_DevTools" xml:space="preserve">
+    <value>&amp;Developer Tools...</value>
+  </data>
+  <data name="Mnu_RunAsElevated" xml:space="preserve">
+    <value>&amp;Restart as Administrator</value>
+  </data>
+  <data name="Mnu_OpenTerminal" xml:space="preserve">
+    <value>Open &amp;Terminal Here</value>
+  </data>
+  <data name="Mnu_Exit" xml:space="preserve">
+    <value>Exit(&amp;C)</value>
+  </data>
+  <data name="Mnu_CurrentLib" xml:space="preserve">
+    <value>C&amp;urrent Library</value>
+  </data>
+  <data name="Mnu_New" xml:space="preserve">
+    <value>&amp;New...</value>
+  </data>
+  <data name="Mnu_Import" xml:space="preserve">
+    <value>&amp;Import...</value>
+  </data>
+  <data name="Mnu_Export" xml:space="preserve">
+    <value>&amp;Export...</value>
+  </data>
+  <data name="Mnu_ExportCSV" xml:space="preserve">
+    <value>Export as CS&amp;V...</value>
+  </data>
+  <data name="Mnu_Clone" xml:space="preserve">
+    <value>C&amp;lone...</value>
+  </data>
+  <data name="Mnu_OpenPath" xml:space="preserve">
+    <value>&amp;Open Folder</value>
+  </data>
+  <data name="Mnu_Copy" xml:space="preserve">
+    <value>&amp;Copy Folder</value>
+  </data>
+  <data name="Mnu_CopyPath" xml:space="preserve">
+    <value>Copy Folder Pa&amp;th</value>
+  </data>
+  <data name="Mnu_Close" xml:space="preserve">
+    <value>Close(&amp;X)</value>
+  </data>
+  <data name="Mnu_Rename" xml:space="preserve">
+    <value>Rena&amp;me...</value>
+  </data>
+  <data name="Mnu_Delete" xml:space="preserve">
+    <value>&amp;Delete...</value>
+  </data>
+  <data name="Mnu_FormProperties" xml:space="preserve">
+    <value>Statistics(&amp;P)...</value>
+  </data>
+  <data name="Mnu_View" xml:space="preserve">
+    <value>Pre&amp;view</value>
+  </data>
+  <data name="Mnu_Edit" xml:space="preserve">
+    <value>&amp;Edit...</value>
+  </data>
+  <data name="Mnu_ExportMs" xml:space="preserve">
+    <value>E&amp;xport...</value>
+  </data>
+  <data name="Mnu_Print" xml:space="preserve">
+    <value>&amp;Print...</value>
+  </data>
+  <data name="Mnu_SelectAll" xml:space="preserve">
+    <value>Select &amp;All</value>
+  </data>
+  <data name="Mnu_SelectReverse" xml:space="preserve">
+    <value>Inve&amp;rt Selection</value>
+  </data>
+  <data name="Mnu_Search" xml:space="preserve">
+    <value>Search(&amp;F)</value>
+  </data>
+  <data name="Mnu_AdvancedSearch" xml:space="preserve">
+    <value>&amp;Advanced Search...</value>
+  </data>
+  <data name="Mnu_Prev" xml:space="preserve">
+    <value>Pr&amp;evious Page</value>
+  </data>
+  <data name="Mnu_Next" xml:space="preserve">
+    <value>&amp;Next Page</value>
+  </data>
+  <data name="Mnu_Tutorial" xml:space="preserve">
+    <value>Quick Start(&amp;T)</value>
+  </data>
+  <data name="Mnu_Website" xml:space="preserve">
+    <value>&amp;Website</value>
+  </data>
+  <data name="Mnu_GitHub" xml:space="preserve">
+    <value>&amp;GitHub</value>
+  </data>
+  <data name="Mnu_WhatsNew" xml:space="preserve">
+    <value>What's New(&amp;H)</value>
+  </data>
+  <data name="Mnu_CheckUpdate" xml:space="preserve">
+    <value>Check for &amp;Updates</value>
+  </data>
+  <data name="Mnu_License" xml:space="preserve">
+    <value>&amp;License...</value>
+  </data>
+  <data name="Mnu_Privacy" xml:space="preserve">
+    <value>&amp;Privacy Policy...</value>
+  </data>
+  <data name="Mnu_Terms" xml:space="preserve">
+    <value>User Agreement(&amp;T)</value>
+  </data>
+  <data name="Mnu_File" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="Mnu_Lib" xml:space="preserve">
+    <value>&amp;Library</value>
+  </data>
+  <data name="Mnu_Ms" xml:space="preserve">
+    <value>&amp;Manuscript</value>
+  </data>
+  <data name="Mnu_Views" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="Mnu_Help" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="About_BtnOK" xml:space="preserve">
+    <value>&amp;Ok</value>
+  </data>
+</root>
