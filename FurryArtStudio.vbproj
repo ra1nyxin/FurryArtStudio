@@ -250,6 +250,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Licenses.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\AppSettings.vb" />
     <Compile Include="Utilities\BasicFcn.vb" />
     <Compile Include="Utilities\FileTransaction.vb" />
     <Compile Include="Utilities\Logger.vb" />
@@ -433,6 +434,7 @@
     <Content Include="Resources\Lightmode-Icons\wallpaper.png" />
     <Content Include="Resources\Lightmode-Icons\x.png" />
     <Content Include="TERMS.txt" />
+    <Content Include="WHATSNEW.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <Import Project="packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />

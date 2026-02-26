@@ -117,7 +117,7 @@ Namespace My.Resources
         '''    生效日期：2026年2月21日
         '''    最新更新日期：2026年2月21日
         '''
-        '''    FurryArtStudio（以下简称&quot;&quot;本软件&quot;&quot;）是由个人开发者 雄龙ztz（GitHub: xionglongztz）开发并开源的本地稿件管理工具。我们高度重视您的隐私和数据安全。本隐私政策说明本软件如何处理您的信息。
+        '''    FurryArtStudio（以下简称&quot;本软件&quot;）是由个人开发者 雄龙ztz（GitHub: xionglongztz）开发并开源的本地稿件管理工具。我们高度重视您的隐私和数据安全。本隐私政策说明本软件如何处理您的信息。
         '''    
         '''    1. 我们不收集任何个人信息
         '''    本软件完全离线运行，所有稿件、图片、标签、标题、作者、角色信息、元数据等全部存储在您的本地设备上。我们不会：
@@ -128,7 +128,7 @@ Namespace My.Resources
         '''    与任何第三方共享您的信息。
         '''
         '''    2. 唯一的联网行为：检查更新
-        '''    本软件仅在您手动或自动启用&quot;&quot;检查更新&quot;&quot;功能时，才会短暂联网连接官方源，仅下载版本信息和更新包。本软件本身不会上传任何用户数据或记录访 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        '''    本软件仅在您手动或自动启用&quot;检查更新&quot;功能时，才会短暂联网连接官方源，仅下载版本信息和更新包。本软件本身不会上传任何用户数据或记录访问行为。 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         '''</summary>
         Friend Shared ReadOnly Property PrivacyText() As String
             Get
@@ -146,19 +146,28 @@ Namespace My.Resources
         '''    1. 软件许可
         '''    本软件根据 Apache License 2.0 开源许可提供。您可以免费使用、修改、分发，但需遵守许可条款（详见项目根目录 LICENSE 文件）。
         '''
-        '''    2. &quot;&quot;按现状&quot;&quot;提供，无任何保证
-        '''    本软件按&quot;&quot;现状&quot;&quot;（AS IS）提供，不提供任何明示或暗示的保证，包括但不限于：
+        '''    2. &quot;按现状&quot;提供，无任何保证
+        '''    本软件按&quot;现状&quot;（AS IS）提供，不提供任何明示或暗示的保证，包括但不限于：
         '''    对适销性、特定用途适用性、非侵权性的任何保证；
         '''    软件无错误、无中断、无病毒或完全适合您的需求。
         '''    开发者不对因使用本软件导致的任何直接、间接、附带、特殊、惩戒性或后果性损害负责，包括但不限于数据丢失、业务中断、利润损失等。即使开发者已被告知此类损害的可能性，亦不承担责任。
         '''    
         '''    3. 数据备份与丢失责任
         '''    本软件仅为本地管理工具，不提供自动备份或数据恢复功能。
-        '''    开发者强烈建议您定期备份所有稿件文件和数据库（例如复制整个库文件夹到外 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        '''    开发者强烈建议您定期备份所有稿件文件和数据库（例如复制整个库文件夹到外部存储） [字符串的其余部分被截断]&quot;; 的本地化字符串。
         '''</summary>
         Friend Shared ReadOnly Property TermsText() As String
             Get
                 Return ResourceManager.GetString("TermsText", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似  的本地化字符串。
+        '''</summary>
+        Friend Shared ReadOnly Property WhatsNewText() As String
+            Get
+                Return ResourceManager.GetString("WhatsNewText", resourceCulture)
             End Get
         End Property
     End Class

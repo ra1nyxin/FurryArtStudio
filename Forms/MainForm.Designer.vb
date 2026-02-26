@@ -91,7 +91,6 @@ Partial Class MainForm
         Me.MnuHelpAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.ArtworkListSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.LblNotes = New System.Windows.Forms.Label()
         Me.LblTags = New System.Windows.Forms.Label()
         Me.LblCharacters = New System.Windows.Forms.Label()
@@ -122,6 +121,7 @@ Partial Class MainForm
         Me.ConMnuMsOpenFolder = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConMnuMsCopy = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConMnuMsCopyPath = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.MnuStrip.SuspendLayout()
         CType(Me.ArtworkListSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ArtworkListSplitContainer.Panel1.SuspendLayout()
@@ -139,7 +139,7 @@ Partial Class MainForm
         Me.MnuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuFile, Me.MnuLibrary, Me.MnuManuscript, Me.MnuViews, Me.MnuHelp})
         Me.MnuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MnuStrip.Name = "MnuStrip"
-        Me.MnuStrip.Size = New System.Drawing.Size(962, 28)
+        Me.MnuStrip.Size = New System.Drawing.Size(962, 30)
         Me.MnuStrip.TabIndex = 4
         Me.MnuStrip.Text = "MenuStrip1"
         '
@@ -147,7 +147,7 @@ Partial Class MainForm
         '
         Me.MnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuOnTop, Me.ToolStripSeparator9, Me.MnuDevTools, Me.MnuRunAsElevated, Me.MnuRunTerminal, Me.MnuProperties, Me.ToolStripSeparator1, Me.MnuExit})
         Me.MnuFile.Name = "MnuFile"
-        Me.MnuFile.Size = New System.Drawing.Size(71, 24)
+        Me.MnuFile.Size = New System.Drawing.Size(71, 26)
         Me.MnuFile.Text = "文件(&F)"
         '
         'MnuOnTop
@@ -212,7 +212,7 @@ Partial Class MainForm
         '
         Me.MnuLibrary.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuLibList, Me.MnuLibRefresh, Me.ToolStripSeparator11, Me.MnuLibNew, Me.MnuLibImport, Me.MnuLibExport, Me.MnuLibExportCSV, Me.ToolStripSeparator5, Me.MnuLibClone, Me.MnuLibOpenFolder, Me.MnuLibCopy, Me.MnuLibCopyPath, Me.ToolStripSeparator6, Me.MnuLibClose, Me.MnuLibRename, Me.MnuLibDelete, Me.ToolStripSeparator7, Me.MnuLibStatistics})
         Me.MnuLibrary.Name = "MnuLibrary"
-        Me.MnuLibrary.Size = New System.Drawing.Size(86, 24)
+        Me.MnuLibrary.Size = New System.Drawing.Size(86, 26)
         Me.MnuLibrary.Text = "稿件库(&L)"
         '
         'MnuLibList
@@ -347,7 +347,7 @@ Partial Class MainForm
         '
         Me.MnuManuscript.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuMsNew, Me.MnuMsImport, Me.ToolStripSeparator3, Me.MnuMsView, Me.MnuMsEdit, Me.MnuMsExport, Me.MnuMsPrint, Me.MnuMsDelete, Me.ToolStripSeparator4, Me.MnuMsOpenFolder, Me.MnuMsCopy, Me.MnuMsCopyPath})
         Me.MnuManuscript.Name = "MnuManuscript"
-        Me.MnuManuscript.Size = New System.Drawing.Size(78, 24)
+        Me.MnuManuscript.Size = New System.Drawing.Size(78, 26)
         Me.MnuManuscript.Text = "稿件(&M)"
         '
         'MnuMsNew
@@ -442,7 +442,7 @@ Partial Class MainForm
         '
         Me.MnuViews.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuViewPlay, Me.ToolStripSeparator12, Me.MnuSelectAll, Me.MnuSelectReverse, Me.ToolStripSeparator13, Me.MnuSearch, Me.MnuAdvancedSearch, Me.ToolStripSeparator2, Me.MnuPageUp, Me.MnuPageDown})
         Me.MnuViews.Name = "MnuViews"
-        Me.MnuViews.Size = New System.Drawing.Size(73, 24)
+        Me.MnuViews.Size = New System.Drawing.Size(73, 26)
         Me.MnuViews.Text = "视图(&V)"
         '
         'MnuViewPlay
@@ -519,7 +519,7 @@ Partial Class MainForm
         '
         Me.MnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuHelpTutorial, Me.ToolStripSeparator8, Me.MnuHelpWebsite, Me.MnuHelpGithub, Me.MnuHelpWhatsNew, Me.MnuCheckUpdate, Me.ToolStripSeparator10, Me.MnuHelpLicense, Me.MnuHelpPrivacy, Me.MnuTerms, Me.MnuHelpAbout})
         Me.MnuHelp.Name = "MnuHelp"
-        Me.MnuHelp.Size = New System.Drawing.Size(75, 24)
+        Me.MnuHelp.Size = New System.Drawing.Size(75, 26)
         Me.MnuHelp.Text = "帮助(&H)"
         '
         'MnuHelpTutorial
@@ -527,61 +527,61 @@ Partial Class MainForm
         Me.MnuHelpTutorial.Image = CType(resources.GetObject("MnuHelpTutorial.Image"), System.Drawing.Image)
         Me.MnuHelpTutorial.Name = "MnuHelpTutorial"
         Me.MnuHelpTutorial.ShortcutKeys = System.Windows.Forms.Keys.F1
-        Me.MnuHelpTutorial.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpTutorial.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpTutorial.Text = "教程(&T)"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(221, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(215, 6)
         '
         'MnuHelpWebsite
         '
         Me.MnuHelpWebsite.Name = "MnuHelpWebsite"
-        Me.MnuHelpWebsite.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpWebsite.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpWebsite.Text = "官网(&W)"
         '
         'MnuHelpGithub
         '
         Me.MnuHelpGithub.Image = CType(resources.GetObject("MnuHelpGithub.Image"), System.Drawing.Image)
         Me.MnuHelpGithub.Name = "MnuHelpGithub"
-        Me.MnuHelpGithub.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpGithub.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpGithub.Text = "&GitHub"
         '
         'MnuHelpWhatsNew
         '
         Me.MnuHelpWhatsNew.Image = CType(resources.GetObject("MnuHelpWhatsNew.Image"), System.Drawing.Image)
         Me.MnuHelpWhatsNew.Name = "MnuHelpWhatsNew"
-        Me.MnuHelpWhatsNew.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpWhatsNew.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpWhatsNew.Text = "新增功能(&H)"
         '
         'MnuCheckUpdate
         '
         Me.MnuCheckUpdate.Name = "MnuCheckUpdate"
-        Me.MnuCheckUpdate.Size = New System.Drawing.Size(224, 26)
+        Me.MnuCheckUpdate.Size = New System.Drawing.Size(218, 26)
         Me.MnuCheckUpdate.Text = "检查更新(&U)"
         '
         'ToolStripSeparator10
         '
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
-        Me.ToolStripSeparator10.Size = New System.Drawing.Size(221, 6)
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(215, 6)
         '
         'MnuHelpLicense
         '
         Me.MnuHelpLicense.Name = "MnuHelpLicense"
-        Me.MnuHelpLicense.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpLicense.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpLicense.Text = "许可证(&L)..."
         '
         'MnuHelpPrivacy
         '
         Me.MnuHelpPrivacy.Name = "MnuHelpPrivacy"
-        Me.MnuHelpPrivacy.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpPrivacy.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpPrivacy.Text = "隐私政策(&P)..."
         '
         'MnuTerms
         '
         Me.MnuTerms.Name = "MnuTerms"
-        Me.MnuTerms.Size = New System.Drawing.Size(224, 26)
+        Me.MnuTerms.Size = New System.Drawing.Size(218, 26)
         Me.MnuTerms.Text = "用户协议(&T)..."
         '
         'MnuHelpAbout
@@ -589,7 +589,7 @@ Partial Class MainForm
         Me.MnuHelpAbout.Image = CType(resources.GetObject("MnuHelpAbout.Image"), System.Drawing.Image)
         Me.MnuHelpAbout.Name = "MnuHelpAbout"
         Me.MnuHelpAbout.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.MnuHelpAbout.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpAbout.Size = New System.Drawing.Size(218, 26)
         Me.MnuHelpAbout.Text = "关于(&A)..."
         '
         'SearchTextBox
@@ -605,7 +605,7 @@ Partial Class MainForm
         '
         Me.ArtworkListSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ArtworkListSplitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2
-        Me.ArtworkListSplitContainer.Location = New System.Drawing.Point(0, 28)
+        Me.ArtworkListSplitContainer.Location = New System.Drawing.Point(0, 30)
         Me.ArtworkListSplitContainer.Name = "ArtworkListSplitContainer"
         '
         'ArtworkListSplitContainer.Panel1
@@ -625,58 +625,58 @@ Partial Class MainForm
         Me.ArtworkListSplitContainer.Panel2.Controls.Add(Me.PiChkThumb)
         Me.ArtworkListSplitContainer.Panel2.Padding = New System.Windows.Forms.Padding(0, 0, 3, 0)
         Me.ArtworkListSplitContainer.Panel2MinSize = 220
-        Me.ArtworkListSplitContainer.Size = New System.Drawing.Size(962, 539)
+        Me.ArtworkListSplitContainer.Size = New System.Drawing.Size(962, 537)
         Me.ArtworkListSplitContainer.SplitterDistance = 730
         Me.ArtworkListSplitContainer.TabIndex = 3
         '
-        'ImageGalleryMain
-        '
-        Me.ImageGalleryMain.AutoScroll = True
-        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
-        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
-        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 25)
-        Me.ImageGalleryMain.MaxItemSize = 240
-        Me.ImageGalleryMain.MinItemSize = 120
-        Me.ImageGalleryMain.Name = "ImageGalleryMain"
-        Me.ImageGalleryMain.PageSize = 100
-        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 514)
-        Me.ImageGalleryMain.TabIndex = 3
-        '
         'LblNotes
         '
-        Me.LblNotes.Location = New System.Drawing.Point(3, 344)
+        Me.LblNotes.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LblNotes.Location = New System.Drawing.Point(0, 305)
         Me.LblNotes.Name = "LblNotes"
-        Me.LblNotes.Size = New System.Drawing.Size(220, 116)
+        Me.LblNotes.Size = New System.Drawing.Size(225, 120)
         Me.LblNotes.TabIndex = 7
+        Me.LblNotes.Text = "备注"
         '
         'LblTags
         '
-        Me.LblTags.Location = New System.Drawing.Point(3, 319)
+        Me.LblTags.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LblTags.Location = New System.Drawing.Point(0, 285)
         Me.LblTags.Name = "LblTags"
-        Me.LblTags.Size = New System.Drawing.Size(220, 20)
+        Me.LblTags.Size = New System.Drawing.Size(225, 20)
         Me.LblTags.TabIndex = 4
+        Me.LblTags.Text = "标签"
+        Me.LblTags.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblCharacters
         '
-        Me.LblCharacters.Location = New System.Drawing.Point(3, 294)
+        Me.LblCharacters.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LblCharacters.Location = New System.Drawing.Point(0, 265)
         Me.LblCharacters.Name = "LblCharacters"
-        Me.LblCharacters.Size = New System.Drawing.Size(220, 20)
+        Me.LblCharacters.Size = New System.Drawing.Size(225, 20)
         Me.LblCharacters.TabIndex = 3
+        Me.LblCharacters.Text = "角色"
+        Me.LblCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblAuthor
         '
-        Me.LblAuthor.Location = New System.Drawing.Point(3, 254)
+        Me.LblAuthor.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LblAuthor.Location = New System.Drawing.Point(0, 245)
         Me.LblAuthor.Name = "LblAuthor"
-        Me.LblAuthor.Size = New System.Drawing.Size(220, 20)
+        Me.LblAuthor.Size = New System.Drawing.Size(225, 20)
         Me.LblAuthor.TabIndex = 2
+        Me.LblAuthor.Text = "作者"
+        Me.LblAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LblTitle
         '
-        Me.LblTitle.Location = New System.Drawing.Point(3, 229)
+        Me.LblTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LblTitle.Location = New System.Drawing.Point(0, 220)
         Me.LblTitle.Name = "LblTitle"
-        Me.LblTitle.Size = New System.Drawing.Size(220, 20)
+        Me.LblTitle.Size = New System.Drawing.Size(225, 25)
         Me.LblTitle.TabIndex = 1
+        Me.LblTitle.Text = "标题"
+        Me.LblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'PiChkThumb
         '
@@ -845,6 +845,20 @@ Partial Class MainForm
         Me.ConMnuMsCopyPath.Name = "ConMnuMsCopyPath"
         Me.ConMnuMsCopyPath.Size = New System.Drawing.Size(229, 24)
         Me.ConMnuMsCopyPath.Text = "复制目录路径(&T)"
+        '
+        'ImageGalleryMain
+        '
+        Me.ImageGalleryMain.AutoScroll = True
+        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
+        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
+        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 25)
+        Me.ImageGalleryMain.MaxItemSize = 240
+        Me.ImageGalleryMain.MinItemSize = 120
+        Me.ImageGalleryMain.Name = "ImageGalleryMain"
+        Me.ImageGalleryMain.PageSize = 100
+        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 512)
+        Me.ImageGalleryMain.TabIndex = 3
         '
         'MainForm
         '

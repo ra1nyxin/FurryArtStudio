@@ -537,24 +537,6 @@ Module BasicFcn
     ''' <summary>
     ''' 从嵌入资源读取更新日志
     ''' </summary>
-    Public Function ReadChangelogFromResource() As String
-        Try
-            Dim asm = Assembly.GetExecutingAssembly()
-            Dim resourceName = asm.GetName().Name + ".CHANGELOG.txt"
-            'Dim assembly = Reflection.Assembly.GetExecutingAssembly()
-            'Dim resourceName = "FurryArtStudio.CHANGELOG.txt"
-            Using stream = asm.GetManifestResourceStream(resourceName)
-                If stream IsNot Nothing Then
-                    Using reader = New StreamReader(stream)
-                        Return reader.ReadToEnd()
-                    End Using
-                End If
-            End Using
-        Catch ex As Exception
-            Return $"无法读取更新日志: {ex.Message}"
-        End Try
-        Return "未找到更新日志"
-    End Function
 #End Region
 
 #Region "本地化"

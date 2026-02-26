@@ -147,16 +147,16 @@ Public Class MainForm
     Private Sub ResizeControl()
         Dim p2Width = ArtworkListSplitContainer.Panel2.Width - 10
         PiChkThumb.Height = PiChkThumb.Width '保持为方形
-        LblTitle.Width = p2Width
-        LblTitle.Top = p2Width + 10
-        LblAuthor.Width = p2Width
-        LblAuthor.Top = p2Width + 30
-        LblCharacters.Width = p2Width
-        LblCharacters.Top = p2Width + 50
-        LblTags.Width = p2Width
-        LblTags.Top = p2Width + 70
-        LblNotes.Width = p2Width
-        LblNotes.Top = p2Width + 90
+        'LblTitle.Width = p2Width
+        'LblTitle.Top = p2Width + 10
+        'LblAuthor.Width = p2Width
+        'LblAuthor.Top = p2Width + 30
+        'LblCharacters.Width = p2Width
+        'LblCharacters.Top = p2Width + 50
+        'LblTags.Width = p2Width
+        'LblTags.Top = p2Width + 70
+        'LblNotes.Width = p2Width
+        'LblNotes.Top = p2Width + 90
     End Sub
 
 #End Region
@@ -908,7 +908,7 @@ Public Class MainForm
                                              If(titleList.Count > 5, vbCrLf & String.Format(My.Resources.Msg_DeleteMsCount, titleList.Count), ""),
                     My.Resources.FurryArtStudio,
                     MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question)
+                    MessageBoxIcon.Warning)
                 If result <> DialogResult.Yes Then
                     StatusLabel.Text = My.Resources.Stat_Ready
                     Return
@@ -1208,7 +1208,7 @@ Public Class MainForm
 
     End Sub
     Private Sub MnuHelpWhatsNew_Click(sender As Object, e As EventArgs) Handles MnuHelpWhatsNew.Click
-        Dim txt As New TextBoxForm(ReadChangelogFromResource, My.Resources.Main_StrWhatsNew)
+        Dim txt As New TextBoxForm(My.Resources.Licenses.WhatsNewText, My.Resources.Main_StrWhatsNew)
         txt.Show()
     End Sub
     Private Sub MnuTerms_Click(sender As Object, e As EventArgs) Handles MnuTerms.Click

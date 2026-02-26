@@ -15,6 +15,7 @@
 Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Runtime.InteropServices
+Imports Krypton.Toolkit
 
 Public Class EditDialogForm
     Implements IThemeChangeable, ILocalizable

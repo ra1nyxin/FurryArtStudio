@@ -621,6 +621,7 @@ Public Class ViewForm
 #Region "其他"
     '窗体键盘事件处理 - 使用窗体事件确保响应
     Private Sub ViewForm_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+        Dim isAltPressed As Boolean = e.Alt
         If _isProcessing Then '当正在加载图片时, 取消处理按键响应
             e.Handled = True
             Return
@@ -652,7 +653,9 @@ Public Class ViewForm
                 e.Handled = True
             Case Keys.Right, Keys.N, Keys.PageDown, Keys.Down, Keys.OemPeriod, Keys.S, Keys.D,
                 Keys.Space, Keys.Enter '下一张
-                NavigateNext()
+                If Not isAltPressed Then '防止打开窗体菜单时不小心切换到下一张
+                    NavigateNext()
+                End If
                 e.Handled = True
             Case Keys.Home '第一张
                 NavigateToFirstArtwork()

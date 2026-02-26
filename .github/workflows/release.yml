@@ -28,6 +28,33 @@ jobs:
     - name: Build solution
       run: msbuild FurryArtStudio.sln /p:Configuration=Release /p:Platform="Any CPU"
       
+    - name: Update CHANGELOG.txt
+      shell: pwsh
+      run: |
+        $whatsNewPath = ".\WHATSNEW.txt"
+        $changelogPath = ".\CHANGELOG.txt"
+
+        if (Test-Path $whatsNewPath) {
+
+            $whatsNewContent = Get-Content $whatsNewPath -Raw
+            $oldChangelogContent = ""
+
+            if (Test-Path $changelogPath) {
+                $oldChangelogContent = Get-Content $changelogPath -Raw
+            }
+
+            # 拼接：新内容 + 两个空行 + 旧内容
+            $newChangelogContent = $whatsNewContent.TrimEnd() + "`r`n" + $oldChangelogContent.TrimStart()
+
+            # 写回文件
+            Set-Content -Path $changelogPath -Value $newChangelogContent -Encoding UTF8
+
+            Write-Host "CHANGELOG.txt updated successfully."
+        }
+        else {
+            Write-Host "WHATSNEW.txt not found, skipping changelog update."
+        }
+
     - name: Prepare files for packaging
       shell: pwsh
       run: |
@@ -59,7 +86,7 @@ jobs:
       with:
         tag_name: ${{ github.ref_name }}
         name: Release ${{ github.ref_name }}
-        body_path: CHANGELOG.txt
+        body_path: WHATSNEW.txt
         files: |
           ./FurryArtStudio-${{ github.ref_name }}.zip
       env:

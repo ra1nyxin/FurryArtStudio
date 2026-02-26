@@ -134,4 +134,8 @@
     <value>..\TERMS.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
     <comment>用户协议文本</comment>
   </data>
+  <data name="WhatsNewText" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\WHATSNEW.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <comment>新增功能文本</comment>
+  </data>
 </root>

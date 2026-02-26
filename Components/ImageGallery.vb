@@ -468,6 +468,7 @@ Public Class ImageGallery
         For Each item In _layoutItems
             If e.Button = MouseButtons.Right Then
                 RaiseEvent ImageRightClicked(item.Image) '鼠标右键
+                Return
             End If
             If item.Bounds.Contains(logicalPoint) Then
                 If isCtrlPressed Then
