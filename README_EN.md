@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/xionglongztz/FurryArtStudio/refs/heads/master/Resources/Banner.png" alt="Banner"/>
 </div>
 
-<h1 align="center">🐾🖊FurryArtStudio</h1>
+<h1 align="center">🐾FurryArtStudio</h1>
 
 <p align="center">
   <strong>Scientifically and efficiently organize and manage Fursona sketches, reference materials, original OC content, and image documents ✨</strong>

@@ -3,7 +3,7 @@
   <img src="https://raw.githubusercontent.com/xionglongztz/FurryArtStudio/refs/heads/master/Resources/Banner.png" alt="Banner"/>
 </div>
 
-<h1 align="center">🐾🖊FurryArtStudio</h1>
+<h1 align="center">🐾FurryArtStudio</h1>
 
 <p align="center">
   <strong>科学、高效的组织和管理 Fursona 手稿、参考素材、原创 OC 内容和图片文档 ✨</strong>
@@ -14,10 +14,10 @@
 </p>
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Platform-Windows-blue">
-  <img src="https://img.shields.io/badge/Target-.NET%20Framework%204.7.2-green">
-  <img src="https://img.shields.io/badge/License-Apache--2.0-orange">
-  <img src="https://img.shields.io/badge/Language-VB.NET-red">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6">
+  <img src="https://img.shields.io/badge/Target-.NET%20Framework%204.7.2-512BD4">
+  <img src="https://img.shields.io/badge/License-Apache--2.0-4CAF50">
+  <img src="https://img.shields.io/badge/Language-VB.NET-9B4F96">
 </div>
 
 ---
@@ -38,7 +38,7 @@
 - 🧠 轻量、开源、可扩展、绿色（免安装）、免费  
 - 📄 SQLite + 文件系统存储方式，安全、易迁移  
 - ℹ 角标设计、事务提交型文件管理  
-- 🖼 高性能图片墙、加载速度块、内存占用低  
+- 🖼 高性能图片墙、加载速度快、内存占用低  
 - 🦾 隐私优先、不上传数据、不训练AI  
 - 以及更多  
 
@@ -83,7 +83,7 @@ cd FurryArtStudio
 ## 📄 许可证
 
 本项目遵循 **Apache License 2.0**  
-使用本项目请确保您已充分阅读并同意`PRIVACY.txt`和`TERMS.txt`
+使用本项目请确保您已充分阅读并同意[隐私政策](PRIVACY.txt)和[用户协议](TERMS.txt)
 
 ---
 
