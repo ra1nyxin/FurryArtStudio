@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");
@@ -86,7 +86,7 @@ Public Class MainForm
         UpdateFormLang() '更新语言
         SystemThemeChange() '设置主题
         SetTitleBarColor(Handle, IconColorLight) '修改标题栏颜色(win11生效)
-
+        Icon = Icon.FromHandle(My.Resources.Icons.FurryArtStudio.GetHicon)
         StatusLabel.Text = My.Resources.Stat_Ready '就绪
     End Sub
 
@@ -374,7 +374,7 @@ Public Class MainForm
     ''' 初始化菜单项
     ''' </summary>
     Private Sub MenuInit()
-        Text = "Furry Art Studio"
+        Text = "FurryArtStudio"
         MnuLibOpenFolder.Enabled = False
         MnuLibCopy.Enabled = False
         MnuLibCopyPath.Enabled = False
@@ -479,7 +479,7 @@ Public Class MainForm
     ''' 载入数据并设置图片墙
     ''' </summary>
     Private Sub LoadArtworks()
-        Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - Furry Art Studio"
+        Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - FurryArtStudio"
         StatusLabel.Text = My.Resources.Stat_Loading
         ArtworkListSplitContainer.UseWaitCursor = True
         '设置菜单
@@ -597,7 +597,7 @@ Public Class MainForm
             RefreshLib()
             TSSep1.Visible = False
             SearchStatusLabel.Visible = False
-            If _libraryManager.GetCurrentLibrary IsNot Nothing Then Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - Furry Art Studio"
+            If _libraryManager.GetCurrentLibrary IsNot Nothing Then Text = $"{_libraryManager.GetCurrentLibrary.LibraryName} - FurryArtStudio"
         Else
             ImageGalleryMain.ClearImages()
             Dim resultArtwork As List(Of Artwork) = _libraryManager.GetCurrentLibrary.SearchArtworks(SearchTextBox.Text)
@@ -610,7 +610,7 @@ Public Class MainForm
             MnuPageDown.Enabled = page > 1
             PageStatusLabel.Text = String.Format(My.Resources.Main_LblPage1, page) '在初始化阶段暂时获得不到准确的页码
             SelectStatusLabel.Text = String.Format(My.Resources.Main_LblMs, _artworkCount) '稿件总数量
-            Text = $"{ImageGalleryMain.TotalImageCount}个稿件 - {_libraryManager.GetCurrentLibrary.LibraryName} - Furry Art Studio"
+            Text = $"{ImageGalleryMain.TotalImageCount}个稿件 - {_libraryManager.GetCurrentLibrary.LibraryName} - FurryArtStudio"
         End If
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub
@@ -643,7 +643,7 @@ Public Class MainForm
             Process.Start(startInfo)
             Me.Close()
         Catch ex As Win32Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_ElevatedFailed, ex.Message), "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show(String.Format(My.Resources.Msg_ElevatedFailed, ex.Message), "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
     Private Sub MnuRunTerminal_Click(sender As Object, e As EventArgs) Handles MnuRunTerminal.Click
@@ -662,7 +662,7 @@ Public Class MainForm
             }
             Process.Start(psi)
         Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_TerminalFailed, ex.Message), "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show(String.Format(My.Resources.Msg_TerminalFailed, ex.Message), "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End Try
     End Sub
     Private Sub MnuProperties_Click(sender As Object, e As EventArgs) Handles MnuProperties.Click

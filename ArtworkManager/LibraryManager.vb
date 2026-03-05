@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");

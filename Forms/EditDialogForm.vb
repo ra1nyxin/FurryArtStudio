@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");
@@ -272,7 +272,7 @@ Public Class EditDialogForm
     End Sub
     Private Sub BtnDel_Click(sender As Object, e As EventArgs) Handles BtnDel.Click
         If LstBox.SelectedItem Is Nothing Then
-            MessageBox.Show("请先选择要删除的文件", "Furry Art Studio",
+            MessageBox.Show("请先选择要删除的文件", "FurryArtStudio",
                           MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return
         End If
@@ -284,10 +284,10 @@ Public Class EditDialogForm
         If result = DialogResult.Yes Then
             If _transaction.DeleteFile(selectedItem.FileName) Then
                 RefreshFileList() '更新文件列表
-                MessageBox.Show("文件已标记为删除", "Furry Art Studio",
+                MessageBox.Show("文件已标记为删除", "FurryArtStudio",
                               MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("删除失败，文件不存在", "Furry Art Studio",
+                MessageBox.Show("删除失败，文件不存在", "FurryArtStudio",
                               MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
@@ -368,7 +368,7 @@ Public Class EditDialogForm
             End If
             Return True
         Catch ex As Exception
-            MessageBox.Show($"创建稿件文件夹时出错：{ex.Message}", "Furry Art Studio",
+            MessageBox.Show($"创建稿件文件夹时出错：{ex.Message}", "FurryArtStudio",
                           MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return False
         End Try
@@ -399,14 +399,14 @@ Public Class EditDialogForm
         If TxtboxCharacters.Text = "" Then createTime = DateTime.Parse("1970-01-01 00:00:00")
         '验证创建时间格式
         If Not DateTime.TryParse(CleanInvisibleCharacters(TxtboxCreateTime.Text), createTime) Then
-            MessageBox.Show("创作时间格式不正确！请使用 yyyy-MM-dd HH:mm:ss 格式", "Furry Art Studio",
+            MessageBox.Show("创作时间格式不正确！请使用 yyyy-MM-dd HH:mm:ss 格式", "FurryArtStudio",
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return
         End If
         '验证创建时间不能晚于当前时间
         If createTime > DateTime.Now Then
-            MessageBox.Show("创作时间不能晚于当前时间！", "Furry Art Studio",
+            MessageBox.Show("创作时间不能晚于当前时间！", "FurryArtStudio",
                           MessageBoxButtons.OK, MessageBoxIcon.Warning)
             TxtboxCreateTime.Focus()
             Return

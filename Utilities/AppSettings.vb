@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");
@@ -69,7 +69,7 @@ Public Class AppSettings
         Public Property GlobalFontName As String = "宋体"
         Public Property GlobalFontSize As Single = 9.0F
 
-        Public Property MainWindowTitleFormat As String = "{LibraryName} - Furry Art Studio"
+        Public Property MainWindowTitleFormat As String = "{LibraryName} - FurryArtStudio"
         Public Property ImageWindowTitleFormat As String = "{ImageName} - FAS"
 
         Public Property MenuUppercase As Boolean = False

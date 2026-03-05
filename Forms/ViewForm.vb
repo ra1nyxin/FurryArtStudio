@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");
@@ -47,6 +47,7 @@ Public Class ViewForm
     Private Const SC_PLAY = 8
     Private Const SC_HELP = 9
     Private Const SC_FULLSCREEN = 10
+    Private Settings As AppSettings = AppSettings.Load()
 #End Region
 
 #Region "窗体相关"
@@ -271,13 +272,13 @@ Public Class ViewForm
     ''' </summary>
     Private Sub LoadCurrentArtworkFirstImage()
         If _currentArtwork Is Nothing OrElse _currentArtwork.FilePaths Is Nothing Then
-            MessageBox.Show("当前稿件目录为空", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("当前稿件目录为空", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
             Return
         End If
         Dim imageFiles As List(Of String) = GetImageFiles(_currentArtwork.FilePaths)
         If imageFiles.Count = 0 Then
-            MessageBox.Show("当前稿件没有支持的图片格式文件", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("当前稿件没有支持的图片格式文件", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
             Return
         End If
@@ -324,7 +325,8 @@ Public Class ViewForm
             Else
                 Me.Text = $"{title} - [{_currentFileIndex + 1}/{totalImages}] {fileName} - 图片浏览器"
             End If
-            UpdateMenuStates() '同时更新标题
+            UpdateMenuStates() '同时更新菜单
+            Dim a As String = Settings.Appearance.ImageWindowTitleFormat
         End If
     End Sub
 
@@ -428,7 +430,7 @@ Public Class ViewForm
         Catch ex As OperationCanceledException
             '忽略取消事件
         Catch ex As Exception
-            MessageBox.Show($"加载图片时出错: {ex.Message}", "Furry Art Studio",
+            MessageBox.Show($"加载图片时出错: {ex.Message}", "FurryArtStudio",
                            MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             '无论如何都要释放加载状态
@@ -509,7 +511,7 @@ Public Class ViewForm
                 End If
             Next
         End If
-        MessageBox.Show("已经是最后一张图片了", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是最后一张图片了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -539,7 +541,7 @@ Public Class ViewForm
                 End If
             Next
         End If
-        MessageBox.Show("已经是第一张图片了", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是第一张图片了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -594,7 +596,7 @@ Public Class ViewForm
                 Return
             End If
         Next
-        MessageBox.Show("已经是第一个有图片的稿件了", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是第一个有图片的稿件了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     ''' <summary>
     ''' 导航到下一个稿件
@@ -614,7 +616,7 @@ Public Class ViewForm
                 Return
             End If
         Next
-        MessageBox.Show("已经是最后一个有图片的稿件了", "Furry Art Studio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是最后一个有图片的稿件了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 #End Region
 

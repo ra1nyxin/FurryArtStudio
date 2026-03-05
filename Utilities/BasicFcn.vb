@@ -1,4 +1,4 @@
-﻿' Furry Art Studio - 本地稿件管理工具
+﻿' FurryArtStudio - 本地稿件管理工具
 ' Copyright 2026 xionglongztz
 '
 ' Licensed under the Apache License, Version 2.0 (the "License");
@@ -399,6 +399,16 @@ Module BasicFcn
             themeable?.SystemThemeChange() '当不为空时更新主题
         Next
     End Sub
+    ''' <summary>
+    ''' 返回特定尺寸的logo图标
+    ''' </summary>
+    Public Function GetIconBySize(ByVal size As Integer) As Icon
+        '从资源文件获取原始图标
+        Dim originalIcon As Icon = Icon.FromHandle(My.Resources.Icons.FurryArtStudio.GetHicon)
+        '创建指定大小的图标
+        Dim sizedIcon As Icon = New Icon(originalIcon, New Size(size, size))
+        Return sizedIcon
+    End Function
 #End Region
 
 #Region "菜单处理"
