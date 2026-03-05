@@ -355,6 +355,7 @@
     <Content Include="ABOUT.txt" />
     <Content Include="CHANGELOG.txt" />
     <Content Include="PRIVACY.txt" />
+    <Content Include="Resources\Banner.png" />
     <Content Include="Resources\Darkmode-Icons\arrow-big-left.png" />
     <Content Include="Resources\Darkmode-Icons\arrow-big-right-dash.png" />
     <Content Include="Resources\Darkmode-Icons\arrow-big-right.png" />

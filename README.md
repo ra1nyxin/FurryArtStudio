@@ -1,5 +1,9 @@
 ﻿
-<h1 align="center">🐾FurryArtStudio</h1>
+<div align="center">
+  <img src="https://raw.githubusercontent.com/xionglongztz/FurryArtStudio/refs/heads/main/Resources/Banner.png" alt="Banner"/>
+</div>
+
+<h1 align="center">🐾🖊FurryArtStudio</h1>
 
 <p align="center">
   <strong>科学、高效的组织和管理 Fursona 手稿、参考素材、原创 OC 内容和图片文档 ✨</strong>
