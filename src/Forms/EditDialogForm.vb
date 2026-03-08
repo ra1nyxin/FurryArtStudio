@@ -15,6 +15,7 @@
 Imports System.Drawing.Imaging
 Imports System.IO
 Imports System.Runtime.InteropServices
+Imports System.Text.RegularExpressions
 Imports Krypton.Toolkit
 
 Public Class EditDialogForm
@@ -221,6 +222,9 @@ Public Class EditDialogForm
             If imageFiles.Count > 0 Then
                 _transaction.AddFiles(imageFiles) '添加文件到处理类
                 PreviewPicturebox.Image = LoadImageFromFile(imageFiles(0)) '添加一个文件作为缩略图
+                If _artwork.ID = 0 Then '当前为新稿件时,刷新列表时提取字段
+                    ExtractFileInfo(imageFiles)
+                End If
                 RefreshFileList()
             End If
         Catch ex As Exception
@@ -249,17 +253,17 @@ Public Class EditDialogForm
             If openFileDialog.ShowDialog() = DialogResult.OK Then
                 Try
                     Dim canAddedFiles As New List(Of String)
-                    'Dim cannotAddedFiles As New List(Of String) ' 考虑为用户选中的不是图片的文件提供反馈
-                    ' 检查给定的文件是不是图片文件
+                    '检查给定的文件是不是图片文件
                     For Each file In openFileDialog.FileNames
-                        If ImageChecker.IsImageByMIMEType(file) Then
+                        If IsImageByMIMEType(file) Then
                             canAddedFiles.Add(file)
-                        Else
-                            'cannotAddedFiles.Add(file)
                         End If
                     Next
                     If canAddedFiles.Count > 0 Then
                         _transaction.AddFiles(canAddedFiles) '添加文件到处理类
+                        If _artwork.ID = 0 Then '当前为新稿件时,刷新列表时提取字段
+                            ExtractFileInfo(canAddedFiles)
+                        End If
                         PreviewPicturebox.Image = LoadImageFromFile(canAddedFiles(0)) '添加一个文件作为缩略图
                         PreviewPicturebox.Refresh()
                         RefreshFileList()
@@ -287,7 +291,7 @@ Public Class EditDialogForm
                 MessageBox.Show("文件已标记为删除", "FurryArtStudio",
                               MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("删除失败，文件不存在", "FurryArtStudio",
+                MessageBox.Show("删除失败,文件不存在", "FurryArtStudio",
                               MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
@@ -356,6 +360,74 @@ Public Class EditDialogForm
 #End Region
 
 #Region "其他功能"
+    ''' <summary>
+    ''' 更新表单数据,通过正则表达式自动填写字段
+    ''' </summary>
+    Public Sub ExtractFileInfo(filePaths As List(Of String))
+        If filePaths Is Nothing OrElse filePaths.Count = 0 Then Return
+        '存储提取到的信息
+        Dim extractedTitle As String = ""
+        Dim extractedTags As New List(Of String)
+        Dim earliestDate As DateTime = Now
+        '遍历所有文件找出最早出现的时间
+        For Each filePath In filePaths
+            Try
+                Dim fileInfo As New FileInfo(filePath)
+                If fileInfo.Exists Then
+                    Dim creationTime = fileInfo.CreationTime '读取创建时间
+                    If creationTime < earliestDate Then
+                        earliestDate = creationTime
+                    End If
+                    Dim updateTime = fileInfo.LastWriteTime '读取写入时间
+                    If updateTime < earliestDate Then
+                        earliestDate = updateTime
+                    End If
+                End If
+            Catch ex As Exception
+                '忽略无法访问的文件
+                Continue For
+            End Try
+        Next
+        '提取文件名信息
+        If filePaths.Count > 0 Then
+            Try
+                Dim fileName = Path.GetFileNameWithoutExtension(filePaths(0))
+                Dim extension = Path.GetExtension(filePaths(0))
+                '正则表达式: 匹配"xx牌yy"格式
+                '^(.*?)牌(.*)$ - 捕获"牌"前面的内容和后面的内容
+                Dim match = Regex.Match(fileName, "^(.*?)牌(.*)$")
+                'TODO: 这里未来会添加一个配置项,可以允许用户自定义正则表达式
+                If match.Success Then
+                    '符合"xx牌yy"格式
+                    Dim brand As String = match.Groups(1).Value.Trim()
+                    Dim title As String = match.Groups(2).Value.Trim()
+                    extractedTitle = If(String.IsNullOrEmpty(title), fileName, title)
+                    '添加标签：如果提取到了品牌, 则添加"品牌 模板"格式的标签
+                    If Not String.IsNullOrEmpty(brand) Then
+                        extractedTags.Add($"{brand}牌")
+                        extractedTags.Add("模板")
+                    End If
+                Else
+                    '不符合规则, 直接使用文件名作为标题
+                    extractedTitle = fileName
+                    '不添加标签
+                End If
+            Catch ex As Exception
+                '出错时使用文件名作为标题
+                extractedTitle = Path.GetFileNameWithoutExtension(filePaths(0))
+            End Try
+        End If
+        '更新字段
+        TxtboxTitle.Text = extractedTitle
+        'TxtboxAuthor.Text =
+        'TxtboxCharacters.Text =
+        For i As Integer = 0 To extractedTags.Count - 1 '清除空格
+            extractedTags(i) = extractedTags(i).Replace(" ", "_")
+        Next
+        TxtboxTags.Text = String.Join(" ", extractedTags)
+        TxtboxCreateTime.Text = earliestDate.ToString("yyyy-MM-dd HH:mm:ss")
+        'TxtboxNotes.Text =
+    End Sub
     ''' <summary>
     ''' 创建稿件文件夹
     ''' </summary>
