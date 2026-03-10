@@ -24,7 +24,7 @@ if ($versionLine -match '"(\d+\.\d+\.\d+)\.\d+"') {
 
 # 当版本号为空时直接退出
 if (-not $version) {
-    Write-Error "Version not detected!"
+    Write-Error "Version not detected!" -ForegroundColor Red
     Start-Sleep -Seconds 5 # 自动退出
     exit 1
 }
@@ -61,5 +61,5 @@ git tag $tagName
 git push
 git push origin $tagName
 
-Write-Host "Release $tagName pushed successfully."
+Write-Host "Release $tagName pushed successfully." -ForegroundColor Green
 Start-Sleep -Seconds 5 # 自动退出
