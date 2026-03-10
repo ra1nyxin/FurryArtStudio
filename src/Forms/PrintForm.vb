@@ -12,6 +12,7 @@
 ' WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 ' See the License for the specific language governing permissions and
 ' limitations under the License.
+Imports System.Drawing.Imaging
 Imports System.Drawing.Printing
 Imports System.Runtime.InteropServices
 Public Class PrintForm
@@ -261,7 +262,14 @@ Public Class PrintForm
         End If
         Try
             Dim currentImagePath = _selectedImages(_currentPrintIndex)
-            Using img As Image = Image.FromFile(currentImagePath)
+            Using original As Image = Image.FromFile(currentImagePath)
+
+                Dim img As New Bitmap(original.Width, original.Height, PixelFormat.Format64bppArgb)
+                '通过创建副本的方式, 保证图片尺寸不会出现问题
+                Using g = Graphics.FromImage(img)
+                    g.DrawImage(original, 0, 0, original.Width, original.Height)
+                End Using
+
                 '获取可打印区域
                 Dim marginBounds = e.MarginBounds
                 '计算保持比例的矩形

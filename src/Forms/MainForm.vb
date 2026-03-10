@@ -417,6 +417,8 @@ Public Class MainForm
         ConMnuMsCopyPath.Enabled = False
         RefreshLibListMenu()
         ImageGalleryMain.ClearImages() '清空所有图片
+        ImageGalleryMain.Enabled = False
+        SearchTextBox.Focus()
         If _imageList.Count <> 0 Then _imageList.Clear()
         PiChkThumb.Image = Nothing
         LblTitle.Text = ""
@@ -509,6 +511,7 @@ Public Class MainForm
         TSSep2.Visible = True
         MnuLibExportCSV.Enabled = True
         MnuSearch.Enabled = True
+        ImageGalleryMain.Enabled = True
         Dim menuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
         EnableMenuItem(menuHandle, SC_NEWMANUSCRIPT, MF_ENABLED)
         EnableMenuItem(menuHandle, SC_PLAY, MF_ENABLED)
@@ -1022,6 +1025,9 @@ Public Class MainForm
         Dim isShiftPressed As Boolean = My.Computer.Keyboard.ShiftKeyDown
         Dim nowArtwork As Artwork = _libraryManager.GetCurrentLibrary.GetArtworkByUUID(Guid.Parse(selectedItem(0).UUID))
         Dim docName As String = $"{nowArtwork.Title} - {nowArtwork.Author}"
+        Dim defaultEncoding As System.Text.Encoding = System.Text.Encoding.Default
+        Dim nameBytes As Byte() = defaultEncoding.GetBytes(docName)
+        Dim ansiName As String = defaultEncoding.GetString(nameBytes)
         If isShiftPressed Then
             Dim pd As New PrintDocument With {
                 .DocumentName = docName,'标题 - 作者
@@ -1081,7 +1087,14 @@ Public Class MainForm
         End If
         Try
             Dim currentImagePath = _currentPrintImages(_currentPrintIndex) '加载当前图片
-            Using img As Image = Image.FromFile(currentImagePath) '使用Using确保释放资源
+            Using original As Image = Image.FromFile(currentImagePath) '使用Using确保释放资源
+
+                Dim img As New Bitmap(original.Width, original.Height, PixelFormat.Format64bppArgb)
+                '通过创建副本的方式, 保证图片尺寸不会出现问题
+                Using g = Graphics.FromImage(img)
+                    g.DrawImage(original, 0, 0, original.Width, original.Height)
+                End Using
+
                 Dim marginBounds = e.MarginBounds '获取页面边距区域
                 Dim destRect As Rectangle '保持图片比例
                 If img.Width / img.Height > marginBounds.Width / marginBounds.Height Then
