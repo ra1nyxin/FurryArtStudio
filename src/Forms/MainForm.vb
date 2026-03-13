@@ -652,7 +652,7 @@ Public Class MainForm
             TSSep1.Visible = True
             SearchStatusLabel.Visible = True
             SearchStatusLabel.Text = String.Format(My.Resources.Main_LblSearchedMs, ImageGalleryMain.TotalImageCount) '已搜到的图片数量
-            Dim page As Integer = Math.Ceiling(ImageGalleryMain.TotalImageCount / ImageGalleryMain.PageSize)
+            Dim page As Integer = Math.Max(1, Math.Ceiling(ImageGalleryMain.TotalImageCount / ImageGalleryMain.PageSize))
             MnuPageDown.Enabled = page > 1
             PageStatusLabel.Text = String.Format(My.Resources.Main_LblPage1, page) '在初始化阶段暂时获得不到准确的页码
             SelectStatusLabel.Text = String.Format(My.Resources.Main_LblMs, _artworkCount) '稿件总数量
