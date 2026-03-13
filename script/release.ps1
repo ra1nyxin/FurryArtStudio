@@ -44,8 +44,8 @@ if (Test-Path $changelogPath) {
 $newContent = $whatsNew.TrimEnd() + "`r`n`r`n" + $changelog.TrimStart()
 Set-Content $changelogPath $newContent -Encoding UTF8
 
-Write-Host "------ CHANGELOG PREVIEW ------"
-Write-Host $newContent
+Write-Host "------ WHATSNEW PREVIEW ------"
+Write-Host $whatsNew
 Write-Host "-------------------------------"
 
 Write-Host "CHANGELOG updated."
