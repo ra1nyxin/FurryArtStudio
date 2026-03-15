@@ -235,10 +235,10 @@
     <value>正在搜尋……</value>
   </data>
   <data name="Msg_ElevatedFailed" xml:space="preserve">
-    <value>權限提升失敗: {0}</value>
+    <value>權限提升失敗</value>
   </data>
   <data name="Msg_TerminalFailed" xml:space="preserve">
-    <value>命令提示字元啟動失敗:{0}</value>
+    <value>命令提示字元啟動失敗</value>
   </data>
   <data name="Input_NewLibTitle" xml:space="preserve">
     <value>新增稿件庫</value>
@@ -274,7 +274,7 @@
     <value>正在重新命名稿件庫……</value>
   </data>
   <data name="Msg_CreateFailed" xml:space="preserve">
-    <value>建立失敗: {0}</value>
+    <value>建立失敗</value>
   </data>
   <data name="Stat_DeletingLib" xml:space="preserve">
     <value>正在刪除稿件庫……</value>
@@ -301,13 +301,13 @@
     <value>操作已被使用者取消</value>
   </data>
   <data name="Msg_DeleteLibPermanently" xml:space="preserve">
-    <value>您希望永久刪除稿件庫 {0} 嗎？此動作無法復原！</value>
+    <value>您希望永久刪除稿件庫 {0} 嗎?</value>
   </data>
   <data name="Msg_DeleteLib" xml:space="preserve">
-    <value>您希望將稿件庫 {0} 移到資源回收筒嗎？</value>
+    <value>您希望將稿件庫 {0} 移到資源回收筒嗎?</value>
   </data>
   <data name="Msg_LibDeleteFailed" xml:space="preserve">
-    <value>稿件庫刪除失敗: {0}</value>
+    <value>稿件庫刪除失敗</value>
   </data>
   <data name="Main_StrPropLib" xml:space="preserve">
     <value>稿件庫: {0}</value>
@@ -346,19 +346,19 @@
     <value>無法載入圖片: {0}</value>
   </data>
   <data name="Msg_MultiFolderOpen" xml:space="preserve">
-    <value>您將同時開啟 {0} 個資料夾，確定要繼續嗎？</value>
+    <value>您將同時開啟 {0} 個資料夾，確定要繼續嗎?</value>
   </data>
   <data name="Stat_DeletingMs" xml:space="preserve">
     <value>正在刪除稿件……</value>
   </data>
   <data name="Msg_DeleteMsPermanently" xml:space="preserve">
-    <value>確定要永久刪除 {0} 個稿件嗎？</value>
+    <value>確定要永久刪除 {0} 個稿件嗎?</value>
   </data>
   <data name="Msg_DeleteMsCount" xml:space="preserve">
     <value>……等 {0} 個項目</value>
   </data>
   <data name="Msg_DeleteMs" xml:space="preserve">
-    <value>確定要將這 {0} 個項目放入資源回收筒嗎？</value>
+    <value>確定要將這 {0} 個項目放入資源回收筒嗎?</value>
   </data>
   <data name="Msg_StrMsInfo" xml:space="preserve">
     <value>## 稿件資訊:</value>
@@ -598,21 +598,39 @@
     <value>正在檢查更新...</value>
   </data>
   <data name="Msg_UptoDate" xml:space="preserve">
-    <value>目前已是最新版本: {0}</value>
+    <value>目前已是最新版本</value>
   </data>
   <data name="Msg_CheckUpdateFailed" xml:space="preserve">
-    <value>檢查更新失敗: {0}</value>
+    <value>檢查更新失敗</value>
   </data>
   <data name="Msg_NewVerFound" xml:space="preserve">
     <value>發現新版本: {0}</value>
   </data>
-  <data name="Msg_DownloadNow" xml:space="preserve">
-    <value>是否現在下載?</value>
+  <data name="Msg_DownloadNewVer" xml:space="preserve">
+    <value>下載新版本</value>
   </data>
   <data name="Print_Horizontal" xml:space="preserve">
     <value>橫向</value>
   </data>
   <data name="Print_Vertical" xml:space="preserve">
     <value>直向</value>
+  </data>
+  <data name="Msg_CannotBeIrreversible" xml:space="preserve">
+    <value>此動作無法復原!</value>
+  </data>
+  <data name="Msg_IKnowWhatIamDoing" xml:space="preserve">
+    <value>我了解此動作無法復原!</value>
+  </data>
+  <data name="Msg_DeleteMsConfirm" xml:space="preserve">
+    <value>刪除稿件</value>
+  </data>
+  <data name="Msg_DeleteMsPermanentlyConfirm" xml:space="preserve">
+    <value>永久刪除稿件</value>
+  </data>
+  <data name="Msg_DeleteLibConfirm" xml:space="preserve">
+    <value>移到資源回收筒</value>
+  </data>
+  <data name="Msg_CopyDetails" xml:space="preserve">
+    <value>複製詳細資訊(&amp;C)</value>
   </data>
 </root>

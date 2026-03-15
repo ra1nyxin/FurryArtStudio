@@ -235,10 +235,10 @@
     <value>Searching...</value>
   </data>
   <data name="Msg_ElevatedFailed" xml:space="preserve">
-    <value>Elevation failed: {0}</value>
+    <value>Elevation failed</value>
   </data>
   <data name="Msg_TerminalFailed" xml:space="preserve">
-    <value>Failed to start terminal: {0}</value>
+    <value>Failed to start terminal</value>
   </data>
   <data name="Input_NewLibTitle" xml:space="preserve">
     <value>New Manuscript Library</value>
@@ -274,7 +274,7 @@
     <value>Renaming manuscript library...</value>
   </data>
   <data name="Msg_CreateFailed" xml:space="preserve">
-    <value>Creation failed: {0}</value>
+    <value>Creation failed</value>
   </data>
   <data name="Stat_DeletingLib" xml:space="preserve">
     <value>Deleting manuscript library...</value>
@@ -301,13 +301,13 @@
     <value>Operation cancelled by user</value>
   </data>
   <data name="Msg_DeleteLibPermanently" xml:space="preserve">
-    <value>Do you want to permanently delete the manuscript library {0}? This action is irreversible!</value>
+    <value>Do you want to permanently delete the manuscript library {0}? </value>
   </data>
   <data name="Msg_DeleteLib" xml:space="preserve">
     <value>Do you want to move the manuscript library {0} to the Recycle Bin?</value>
   </data>
   <data name="Msg_LibDeleteFailed" xml:space="preserve">
-    <value>Failed to delete library: {0}</value>
+    <value>Failed to delete library</value>
   </data>
   <data name="Main_StrPropLib" xml:space="preserve">
     <value>Library: {0}</value>
@@ -598,21 +598,39 @@
     <value>Checking for update...</value>
   </data>
   <data name="Msg_UptoDate" xml:space="preserve">
-    <value>Your version is up to date: {0}</value>
+    <value>Your version is up to date</value>
   </data>
   <data name="Msg_CheckUpdateFailed" xml:space="preserve">
-    <value>Failed to check for update: {0}</value>
+    <value>Failed to check for update</value>
   </data>
   <data name="Msg_NewVerFound" xml:space="preserve">
     <value>New version found: {0}</value>
   </data>
-  <data name="Msg_DownloadNow" xml:space="preserve">
-    <value>Download now?</value>
+  <data name="Msg_DownloadNewVer" xml:space="preserve">
+    <value>Download new version</value>
   </data>
   <data name="Print_Horizontal" xml:space="preserve">
     <value>Landscape</value>
   </data>
   <data name="Print_Vertical" xml:space="preserve">
     <value>Portrait</value>
+  </data>
+  <data name="Msg_CannotBeIrreversible" xml:space="preserve">
+    <value>This action is irreversible!</value>
+  </data>
+  <data name="Msg_IKnowWhatIamDoing" xml:space="preserve">
+    <value>I know what I'm doing!</value>
+  </data>
+  <data name="Msg_DeleteMsConfirm" xml:space="preserve">
+    <value>Delete manuscript(s)</value>
+  </data>
+  <data name="Msg_DeleteMsPermanentlyConfirm" xml:space="preserve">
+    <value>Permanently delete manuscript(s)</value>
+  </data>
+  <data name="Msg_DeleteLibConfirm" xml:space="preserve">
+    <value>move to the Recycle Bin</value>
+  </data>
+  <data name="Msg_CopyDetails" xml:space="preserve">
+    <value>&amp;Copy details</value>
   </data>
 </root>

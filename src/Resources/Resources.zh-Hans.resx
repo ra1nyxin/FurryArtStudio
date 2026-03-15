@@ -235,10 +235,10 @@
     <value>正在搜索...</value>
   </data>
   <data name="Msg_ElevatedFailed" xml:space="preserve">
-    <value>权限提升失败: {0}</value>
+    <value>权限提升失败</value>
   </data>
   <data name="Msg_TerminalFailed" xml:space="preserve">
-    <value>命令提示符启动失败: {0}</value>
+    <value>命令提示符启动失败</value>
   </data>
   <data name="Input_NewLibTitle" xml:space="preserve">
     <value>新建稿件库</value>
@@ -274,7 +274,7 @@
     <value>正在重命名稿件库...</value>
   </data>
   <data name="Msg_CreateFailed" xml:space="preserve">
-    <value>创建失败: {0}</value>
+    <value>创建失败</value>
   </data>
   <data name="Stat_DeletingLib" xml:space="preserve">
     <value>正在删除稿件库...</value>
@@ -301,13 +301,13 @@
     <value>操作已被用户取消</value>
   </data>
   <data name="Msg_DeleteLibPermanently" xml:space="preserve">
-    <value>你希望永久删除稿件库 {0} 吗? 此操作不可逆!</value>
+    <value>你希望永久删除稿件库 {0} 吗? </value>
   </data>
   <data name="Msg_DeleteLib" xml:space="preserve">
     <value>你希望将稿件库 {0} 移到回收站吗?</value>
   </data>
   <data name="Msg_LibDeleteFailed" xml:space="preserve">
-    <value>稿件库删除失败: {0}</value>
+    <value>稿件库删除失败</value>
   </data>
   <data name="Main_StrPropLib" xml:space="preserve">
     <value>稿件库: {0}</value>
@@ -598,21 +598,39 @@
     <value>正在检查更新...</value>
   </data>
   <data name="Msg_UptoDate" xml:space="preserve">
-    <value>当前已是最新版本: {0}</value>
+    <value>当前已是最新版本</value>
   </data>
   <data name="Msg_CheckUpdateFailed" xml:space="preserve">
-    <value>检查更新失败: {0}</value>
+    <value>检查更新失败</value>
   </data>
   <data name="Msg_NewVerFound" xml:space="preserve">
     <value>发现新版本: {0}</value>
   </data>
-  <data name="Msg_DownloadNow" xml:space="preserve">
-    <value>是否现在下载?</value>
+  <data name="Msg_DownloadNewVer" xml:space="preserve">
+    <value>下载新版本</value>
   </data>
   <data name="Print_Horizontal" xml:space="preserve">
     <value>横向</value>
   </data>
   <data name="Print_Vertical" xml:space="preserve">
     <value>竖向</value>
+  </data>
+  <data name="Msg_CannotBeIrreversible" xml:space="preserve">
+    <value>此操作不可逆!</value>
+  </data>
+  <data name="Msg_IKnowWhatIamDoing" xml:space="preserve">
+    <value>我知道我在做什么!</value>
+  </data>
+  <data name="Msg_DeleteMsConfirm" xml:space="preserve">
+    <value>删除稿件</value>
+  </data>
+  <data name="Msg_DeleteMsPermanentlyConfirm" xml:space="preserve">
+    <value>永久删除稿件</value>
+  </data>
+  <data name="Msg_DeleteLibConfirm" xml:space="preserve">
+    <value>移到回收站</value>
+  </data>
+  <data name="Msg_CopyDetails" xml:space="preserve">
+    <value>复制详细信息(&amp;C)</value>
   </data>
 </root>

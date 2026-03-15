@@ -21,6 +21,7 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 Imports System.Text
 Imports Krypton.Toolkit
+Imports Ookii.Dialogs.WinForms
 Imports SysThreading = System.Threading
 
 Public Class MainForm
@@ -691,7 +692,7 @@ Public Class MainForm
             Process.Start(startInfo)
             Me.Close()
         Catch ex As Win32Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_ElevatedFailed, ex.Message), My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ShowErrorDialog(ex, My.Resources.Msg_ElevatedFailed)
         End Try
     End Sub
     Private Sub MnuRunTerminal_Click(sender As Object, e As EventArgs) Handles MnuRunTerminal.Click
@@ -710,7 +711,7 @@ Public Class MainForm
             }
             Process.Start(psi)
         Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_TerminalFailed, ex.Message), My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ShowErrorDialog(ex, My.Resources.Msg_TerminalFailed)
         End Try
     End Sub
     Private Sub MnuProperties_Click(sender As Object, e As EventArgs) Handles MnuProperties.Click
@@ -809,7 +810,7 @@ Public Class MainForm
     ''' 刷新菜单列表, 并重新载入数据
     ''' </summary>
     Private Sub RefreshLib()
-        CloseLibrary() '为了避免编辑稿件后图片浏览器出现问题,所以必须关闭库重载
+        CloseLibrary() '为了避免编辑稿件后图片浏览器出现问题, 所以必须关闭库重载
         RefreshLibListMenu()
         If _libraryManager.GetCurrentLibrary IsNot Nothing Then LoadArtworks()
         If SearchTextBox.Text <> "" Then SearchArtwork()
@@ -868,7 +869,7 @@ Public Class MainForm
                     _libraryManager.AddLibrary(newLib) '载入新稿件库
                     _libraryManager.SwitchLibrary(newLib)
                 Catch ex As Exception
-                    MessageBox.Show(String.Format(My.Resources.Msg_CreateFailed, ex.Message))
+                    ShowErrorDialog(ex, My.Resources.Msg_CreateFailed)
                 End Try
                 RefreshLib() '更名后重新载入数据库
             Else
@@ -880,31 +881,48 @@ Public Class MainForm
         Dim isShiftPressed As Boolean = My.Computer.Keyboard.ShiftKeyDown
         Dim nowPath As String = _libraryManager.GetCurrentLibrary.LibraryPath
         Dim nowLib As String = _libraryManager.GetCurrentLibrary.LibraryName
+        '对话框按钮
+        Dim buttonDeletePermanently As New TaskDialogButton(My.Resources.Msg_IKnowWhatIamDoing)
+        Dim buttonDelete As New TaskDialogButton(My.Resources.Msg_DeleteLibConfirm)
+        Dim buttonCancel As New TaskDialogButton(ButtonType.Cancel)
         _libraryManager.CloseLibrary(nowLib) '先释放数据库资源, 再尝试删除文件
         Try
             StatusLabel.Text = My.Resources.Stat_DeletingLib
             If isShiftPressed Then
-                Dim result = MessageBox.Show(String.Format(My.Resources.Msg_DeleteLibPermanently, nowLib),
-                    My.Resources.FurryArtStudio,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning)
-                If result = DialogResult.Yes Then
-                    Directory.Delete(nowPath, True)
-                Else
-                    Throw New OperationCanceledException(My.Resources.Main_StrOperationCancelled)
-                End If
+                Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = String.Format(My.Resources.Msg_DeleteLibPermanently, nowLib),
+                    .Content = My.Resources.Msg_CannotBeIrreversible,
+                    .MainIcon = TaskDialogIcon.Warning
+                    }
+
+                    dlg.Buttons.Add(buttonDeletePermanently)
+                    dlg.Buttons.Add(buttonCancel)
+                    Dim result As TaskDialogButton = dlg.ShowDialog()
+                    If result Is buttonDeletePermanently Then
+                        Directory.Delete(nowPath, True)
+                    Else
+                        Throw New OperationCanceledException(My.Resources.Main_StrOperationCancelled)
+                    End If
+                End Using
             Else
-                Dim result = MessageBox.Show(String.Format(My.Resources.Msg_DeleteLib, nowLib),
-                    My.Resources.FurryArtStudio,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question)
-                If result = DialogResult.Yes Then
-                    FileIO.FileSystem.DeleteDirectory(nowPath,
-                    FileIO.UIOption.AllDialogs,
-                    FileIO.RecycleOption.SendToRecycleBin)
-                Else
-                    Throw New OperationCanceledException(My.Resources.Main_StrOperationCancelled)
-                End If
+                Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = String.Format(My.Resources.Msg_DeleteLib, nowLib),
+                    .MainIcon = TaskDialogIcon.Information
+                    }
+
+                    dlg.Buttons.Add(buttonDelete)
+                    dlg.Buttons.Add(buttonCancel)
+                    Dim result As TaskDialogButton = dlg.ShowDialog()
+                    If result Is buttonDelete Then
+                        FileIO.FileSystem.DeleteDirectory(nowPath,
+                        FileIO.UIOption.AllDialogs,
+                        FileIO.RecycleOption.SendToRecycleBin)
+                    Else
+                        Throw New OperationCanceledException(My.Resources.Main_StrOperationCancelled)
+                    End If
+                End Using
             End If
             MenuInit()
             CloseLibrary()
@@ -912,7 +930,7 @@ Public Class MainForm
             _libraryManager.AddLibrary(nowLib)
             _libraryManager.SwitchLibrary(nowLib)
         Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_LibDeleteFailed, ex.Message), My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ShowErrorDialog(ex, My.Resources.Msg_LibDeleteFailed)
         End Try
         StatusLabel.Text = My.Resources.Stat_Ready
     End Sub
@@ -928,7 +946,14 @@ Public Class MainForm
         Dim result = GetFolderInfo(library.LibraryPath)
         sb.Append(String.Format(My.Resources.Main_StrPropStorage, result.sizeString, result.fileCount) & vbCrLf)
         sb.Append(String.Format(My.Resources.Main_StrPropNowTime, Now))
-        MessageBox.Show(sb.ToString, My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Using dlg As New TaskDialog With {
+            .WindowTitle = My.Resources.FurryArtStudio,
+            .Content = sb.ToString,
+            .MainIcon = TaskDialogIcon.Information
+            }
+            dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
+            dlg.ShowDialog()
+        End Using
     End Sub
 #End Region
 
@@ -975,39 +1000,55 @@ Public Class MainForm
         Dim uuidList As List(Of Guid) = imgList.Select(Function(c) Guid.Parse(c.UUID)).ToList()
         Dim titleList As List(Of String) = imgList.Select(Function(c) c.Title).ToList()
         Dim nowPath As String = _libraryManager.GetCurrentLibrary.LibraryPath
+        '对话框按钮
+        Dim buttonDelete As New TaskDialogButton(My.Resources.Msg_DeleteMsConfirm)
+        Dim buttonDeletePermanently As New TaskDialogButton(My.Resources.Msg_DeleteMsPermanentlyConfirm)
+        Dim buttonCancel As New TaskDialogButton(ButtonType.Cancel)
         Try
             If isShiftPressed Then
-                Dim result = MessageBox.Show(String.Format(My.Resources.Msg_DeleteMsPermanently, titleList.Count) & vbCrLf &
-                                             String.Join(vbCrLf, titleList.Take(5)) &
-                                             If(titleList.Count > 5, vbCrLf & String.Format(My.Resources.Msg_DeleteMsCount, titleList.Count), ""),
-                    My.Resources.FurryArtStudio,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning)
-                If result <> DialogResult.Yes Then
-                    StatusLabel.Text = My.Resources.Stat_Ready
-                    Return
-                End If
-                For Each uuid In uuidList
-                    Directory.Delete(Path.Combine(nowPath, uuid.ToString), True) '永久删除数据
-                    _libraryManager.GetCurrentLibrary.SoftDeleteArtwork(uuid) '标记为软删除
-                Next
+                Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = String.Format(My.Resources.Msg_DeleteMsPermanently, titleList.Count),
+                    .Content = String.Join(vbCrLf, titleList.Take(5)) &
+                                             If(titleList.Count > 5, vbCrLf &
+                                             String.Format(My.Resources.Msg_DeleteMsCount, titleList.Count), ""),
+                    .MainIcon = TaskDialogIcon.Warning
+                    }
+                    dlg.Buttons.Add(buttonDeletePermanently)
+                    dlg.Buttons.Add(buttonCancel)
+                    Dim result As TaskDialogButton = dlg.ShowDialog()
+                    If result Is buttonCancel Then
+                        StatusLabel.Text = My.Resources.Stat_Ready
+                        Return
+                    End If
+                    For Each uuid In uuidList
+                        Directory.Delete(Path.Combine(nowPath, uuid.ToString), True) '永久删除数据
+                        _libraryManager.GetCurrentLibrary.SoftDeleteArtwork(uuid) '标记为软删除
+                    Next
+                End Using
             Else
-                Dim result = MessageBox.Show(String.Format(My.Resources.Msg_DeleteMs, titleList.Count) & vbCrLf &
-                                             String.Join(vbCrLf, titleList.Take(5)) &
-                                             If(titleList.Count > 5, vbCrLf & String.Format(My.Resources.Msg_DeleteMsCount, titleList.Count), ""),
-                    My.Resources.FurryArtStudio,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question)
-                If result <> DialogResult.Yes Then
-                    StatusLabel.Text = My.Resources.Stat_Ready
-                    Return
-                End If
-                For Each uuid In uuidList
-                    FileIO.FileSystem.DeleteDirectory(Path.Combine(nowPath, uuid.ToString),
-                                                      FileIO.UIOption.OnlyErrorDialogs,
-                                                      FileIO.RecycleOption.SendToRecycleBin) '移动到回收站
-                    _libraryManager.GetCurrentLibrary.SoftDeleteArtwork(uuid) '标记为软删除
-                Next
+                Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = String.Format(My.Resources.Msg_DeleteMs, titleList.Count),
+                    .Content = String.Join(vbCrLf, titleList.Take(5)) &
+                                             If(titleList.Count > 5, vbCrLf &
+                                             String.Format(My.Resources.Msg_DeleteMsCount, titleList.Count), ""),
+                    .MainIcon = TaskDialogIcon.Information
+                    }
+                    dlg.Buttons.Add(buttonDelete)
+                    dlg.Buttons.Add(buttonCancel)
+                    Dim result As TaskDialogButton = dlg.ShowDialog()
+                    If result Is buttonCancel Then
+                        StatusLabel.Text = My.Resources.Stat_Ready
+                        Return
+                    End If
+                    For Each uuid In uuidList
+                        FileIO.FileSystem.DeleteDirectory(Path.Combine(nowPath, uuid.ToString),
+                                                          FileIO.UIOption.OnlyErrorDialogs,
+                                                          FileIO.RecycleOption.SendToRecycleBin) '移动到回收站
+                        _libraryManager.GetCurrentLibrary.SoftDeleteArtwork(uuid) '标记为软删除
+                    Next
+                End Using
             End If
             RefreshLib()
         Catch ex As OperationCanceledException
@@ -1043,8 +1084,14 @@ Public Class MainForm
         End If
         '检查是否有图片
         If selectedImages.Count = 0 Then
-            MessageBox.Show(My.Resources.Msg_NoPrintFile, My.Resources.FurryArtStudio,
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = My.Resources.Msg_NoPrintFile,
+                    .MainIcon = TaskDialogIcon.Information
+                    }
+                dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
+                dlg.ShowDialog()
+            End Using
             StatusLabel.Text = My.Resources.Stat_Ready
             Return
         End If
@@ -1093,9 +1140,7 @@ Public Class MainForm
                         StatusLabel.Text = My.Resources.Stat_Printing
                         printForm.PrintDocumentInstance.Print()
                     Catch ex As Exception
-                        MessageBox.Show(String.Format(My.Resources.Msg_PrintFailed, ex.Message),
-                                  My.Resources.FurryArtStudio,
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        ShowErrorDialog(ex, My.Resources.Msg_PrintFailed)
                     End Try
                 ElseIf printForm.UserCancelled Then
                 End If
@@ -1144,8 +1189,7 @@ Public Class MainForm
             e.HasMorePages = (_currentPrintIndex < _currentPrintImages.Count)
         Catch ex As Exception
             '处理图片加载失败的情况
-            MessageBox.Show(String.Format(My.Resources.Msg_ImageLoadFailed, ex.Message), My.Resources.FurryArtStudio,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ShowErrorDialog(ex, My.Resources.Msg_ImageLoadFailed)
             '跳过这张图片，继续下一张
             _currentPrintIndex += 1
             e.HasMorePages = (_currentPrintIndex < _currentPrintImages.Count)
@@ -1173,14 +1217,21 @@ Public Class MainForm
     Private Sub MnuMsOpenFolder_Click(sender As Object, e As EventArgs) Handles MnuMsOpenFolder.Click
         Dim artworkPaths = GetSelectedArtworkList()
         If artworkPaths.Count > 5 Then '当用户打开超过5个稿件时, 进行确认
-            Dim result = MessageBox.Show(
-                            String.Format(My.Resources.Msg_MultiFolderOpen, artworkPaths.Count),
-                            My.Resources.FurryArtStudio, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If result = DialogResult.No Then Return
+            Dim buttonYes As New TaskDialogButton(ButtonType.Yes)
+            Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = My.Resources.Msg_MultiFolderOpen,
+                    .MainIcon = TaskDialogIcon.Information
+                    }
+                dlg.Buttons.Add(buttonYes)
+                dlg.Buttons.Add(New TaskDialogButton(ButtonType.No))
+                If dlg.ShowDialog() Is buttonYes Then
+                    For Each artworkPath In artworkPaths
+                        Shell($"explorer {artworkPath}", 1)
+                    Next
+                End If
+            End Using
         End If
-        For Each artworkPath In artworkPaths
-            Shell($"explorer {artworkPath}", 1)
-        Next
     End Sub
     Private Sub MnuMsCopy_Click(sender As Object, e As EventArgs) Handles MnuMsCopy.Click
         Dim artworkPaths = GetSelectedArtworkList() '获取所有选中的项目的目录路径
@@ -1292,15 +1343,39 @@ Public Class MainForm
         StatusLabel.Text = My.Resources.Msg_CheckingUpdate
         Dim updateInfo = Await CheckForUpdateAsync()
         If updateInfo.HasError Then '检查更新失败
-            MessageBox.Show(String.Format(My.Resources.Msg_CheckUpdateFailed, updateInfo.ErrorMessage), My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Using dlg As New TaskDialog With {
+                .WindowTitle = My.Resources.FurryArtStudio,
+                .MainInstruction = My.Resources.Msg_CheckUpdateFailed,
+                .Content = updateInfo.ErrorMessage,
+                .MainIcon = TaskDialogIcon.Error
+                }
+                dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
+                dlg.ShowDialog()
+            End Using
         ElseIf updateInfo.IsUpdateAvailable Then '有新版本可用
-            Dim msg = updateInfo.ReleaseNotes & vbCrLf & My.Resources.Msg_DownloadNow
-            Dim result = MessageBox.Show(msg, String.Format(My.Resources.Msg_NewVerFound, updateInfo.LatestVersion), MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If result = DialogResult.Yes Then
-                Process.Start(updateInfo.DownloadUrl) '打开下载链接
-            End If
+            Dim buttonDownload As New TaskDialogButton(My.Resources.Msg_DownloadNewVer)
+            Using dlg As New TaskDialog With {
+                .WindowTitle = My.Resources.FurryArtStudio,
+                .MainInstruction = String.Format(My.Resources.Msg_NewVerFound, updateInfo.LatestVersion),
+                .Content = updateInfo.ReleaseNotes,
+                .MainIcon = TaskDialogIcon.Information
+                }
+                dlg.Buttons.Add(New TaskDialogButton(ButtonType.Cancel))
+                dlg.Buttons.Add(buttonDownload)
+                If dlg.ShowDialog() Is buttonDownload Then
+                    Process.Start(updateInfo.DownloadUrl) '打开下载链接
+                End If
+            End Using
         Else '已是最新版本
-            MessageBox.Show(String.Format(My.Resources.Msg_UptoDate, updateInfo.LatestVersion), My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Using dlg As New TaskDialog With {
+                .WindowTitle = My.Resources.FurryArtStudio,
+                .MainInstruction = My.Resources.Msg_UptoDate,
+                .Content = updateInfo.LatestVersion,
+                .MainIcon = TaskDialogIcon.Information
+                }
+                dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
+                dlg.ShowDialog()
+            End Using
         End If
         StatusLabel.Text = My.Resources.Stat_Ready
     End Function
@@ -1446,8 +1521,14 @@ Public Class MainForm
             If currentArtwork.FilePaths Is Nothing OrElse'检查当前稿件是否有图片
             currentArtwork.FilePaths.Length = 0 OrElse
             Not currentArtwork.FilePaths.Any(Function(p) IsImageFile(p)) Then
-                MessageBox.Show(My.Resources.Msg_NoImg, My.Resources.FurryArtStudio,
-                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Using dlg As New TaskDialog With {
+                    .WindowTitle = My.Resources.FurryArtStudio,
+                    .MainInstruction = My.Resources.Msg_NoImg,
+                    .MainIcon = TaskDialogIcon.Information
+                    }
+                    dlg.Buttons.Add(New TaskDialogButton(ButtonType.Ok))
+                    dlg.ShowDialog()
+                End Using
                 Return
             End If
             Dim viewForm As New ViewForm(currentArtwork, allArtworks)
@@ -1457,8 +1538,7 @@ Public Class MainForm
                                             End Sub '订阅窗口关闭事件
             viewForm.Show() '创建并显示图片窗口
         Catch ex As Exception
-            MessageBox.Show(String.Format(My.Resources.Msg_ImageLoadFailed, ex.Message), My.Resources.FurryArtStudio,
-                            MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ShowErrorDialog(ex, My.Resources.Msg_ImageLoadFailed)
         End Try
     End Sub
     Public Sub CloseLibrary()

@@ -997,6 +997,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 This action is irreversible! 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_CannotBeIrreversible() As String
+            Get
+                Return ResourceManager.GetString("Msg_CannotBeIrreversible", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 Checking for update... 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_CheckingUpdate() As String
@@ -1006,7 +1015,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Failed to check for update: {0} 的本地化字符串。
+        '''  查找类似 Failed to check for update 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_CheckUpdateFailed() As String
             Get
@@ -1015,7 +1024,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Creation failed: {0} 的本地化字符串。
+        '''  查找类似 &amp;Copy details 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_CopyDetails() As String
+            Get
+                Return ResourceManager.GetString("Msg_CopyDetails", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Creation failed 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_CreateFailed() As String
             Get
@@ -1033,7 +1051,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Do you want to permanently delete the manuscript library {0}? This action is irreversible! 的本地化字符串。
+        '''  查找类似 move to the Recycle Bin 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_DeleteLibConfirm() As String
+            Get
+                Return ResourceManager.GetString("Msg_DeleteLibConfirm", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Do you want to permanently delete the manuscript library {0}?  的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_DeleteLibPermanently() As String
             Get
@@ -1047,6 +1074,15 @@ Namespace My.Resources
         Friend ReadOnly Property Msg_DeleteMs() As String
             Get
                 Return ResourceManager.GetString("Msg_DeleteMs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Delete manuscript(s) 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_DeleteMsConfirm() As String
+            Get
+                Return ResourceManager.GetString("Msg_DeleteMsConfirm", resourceCulture)
             End Get
         End Property
         
@@ -1069,20 +1105,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Download now? 的本地化字符串。
+        '''  查找类似 Permanently delete manuscript(s) 的本地化字符串。
         '''</summary>
-        Friend ReadOnly Property Msg_DownloadNow() As String
+        Friend ReadOnly Property Msg_DeleteMsPermanentlyConfirm() As String
             Get
-                Return ResourceManager.GetString("Msg_DownloadNow", resourceCulture)
+                Return ResourceManager.GetString("Msg_DeleteMsPermanentlyConfirm", resourceCulture)
             End Get
         End Property
         
         '''<summary>
-        '''  查找类似 Elevation failed: {0} 的本地化字符串。
+        '''  查找类似 Download new version 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_DownloadNewVer() As String
+            Get
+                Return ResourceManager.GetString("Msg_DownloadNewVer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 Elevation failed 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_ElevatedFailed() As String
             Get
                 Return ResourceManager.GetString("Msg_ElevatedFailed", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 I know what I&apos;m doing! 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Msg_IKnowWhatIamDoing() As String
+            Get
+                Return ResourceManager.GetString("Msg_IKnowWhatIamDoing", resourceCulture)
             End Get
         End Property
         
@@ -1096,7 +1150,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Failed to delete library: {0} 的本地化字符串。
+        '''  查找类似 Failed to delete library 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_LibDeleteFailed() As String
             Get
@@ -1258,7 +1312,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Failed to start terminal: {0} 的本地化字符串。
+        '''  查找类似 Failed to start terminal 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_TerminalFailed() As String
             Get
@@ -1267,7 +1321,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  查找类似 Your version is up to date: {0} 的本地化字符串。
+        '''  查找类似 Your version is up to date 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Msg_UptoDate() As String
             Get

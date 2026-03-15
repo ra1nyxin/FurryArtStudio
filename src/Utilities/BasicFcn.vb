@@ -18,6 +18,8 @@ Imports System.IO
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 Imports System.Security.Principal
+Imports System.Text
+Imports Ookii.Dialogs.WinForms
 
 ''' <summary>
 ''' 基本函数
@@ -562,6 +564,45 @@ Module BasicFcn
             Dim localizable = TryCast(frm, ILocalizable)
             localizable?.LanguageChange() '当不为空时更新语言
         Next
+    End Sub
+#End Region
+
+#Region "对话框"
+    ''' <summary>
+    ''' 显示一个包含堆栈跟踪的错误对话框
+    ''' </summary>
+    Public Sub ShowErrorDialog(exception As Exception, mainInstruction As String)
+        Dim dialog As New TaskDialog()
+        dialog.WindowTitle = My.Resources.FurryArtStudio
+        dialog.MainInstruction = mainInstruction
+        dialog.Content = exception.Message
+        If Not String.IsNullOrEmpty(exception.StackTrace) Then
+            dialog.ExpandedInformation = exception.StackTrace
+        End If
+        dialog.ExpandedByDefault = False
+        dialog.MainIcon = TaskDialogIcon.Error
+        Dim copyButton As New TaskDialogButton(My.Resources.Msg_CopyDetails)
+        '处理复制按钮点击事件
+
+        Dim okButton As New TaskDialogButton(ButtonType.Ok)
+        dialog.Buttons.Add(copyButton)
+        dialog.Buttons.Add(okButton)
+        AddHandler dialog.ButtonClicked, Sub(sender, e)
+                                             '构建要复制的完整信息
+                                             If e.Item Is copyButton Then
+                                                 Dim info As New StringBuilder()
+                                                 info.AppendLine(mainInstruction)
+                                                 info.AppendLine(exception.Message)
+                                                 If Not String.IsNullOrEmpty(exception.StackTrace) Then
+                                                     info.AppendLine(vbCrLf)
+                                                     info.AppendLine(exception.StackTrace)
+                                                 End If
+                                                 '复制到剪贴板
+                                                 Clipboard.SetText(info.ToString())
+                                                 e.Cancel = True
+                                             End If
+                                         End Sub
+        dialog.ShowDialog()
     End Sub
 #End Region
 
