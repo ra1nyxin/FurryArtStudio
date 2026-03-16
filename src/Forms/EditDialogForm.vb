@@ -88,10 +88,25 @@ Public Class EditDialogForm
     End Sub
     Protected Overrides Sub OnHandleCreated(e As EventArgs)
         MyBase.OnHandleCreated(e)
-        '解决管理员权限下程序无法接受拖拽数据的问题
-        '但是似乎不能用, 可能是微软限制, 不管了
-        ChangeWindowMessageFilterEx(Me.Handle, WM_DROPFILES, MSGFLT_ALLOW, IntPtr.Zero)
-        ChangeWindowMessageFilterEx(Me.Handle, WM_COPYDATA, MSGFLT_ALLOW, IntPtr.Zero)
+        RegisterUIPIDragDropFilter(Me.Handle)
+    End Sub
+    Private Sub RegisterUIPIDragDropFilter(hWnd As IntPtr)
+        If hWnd = IntPtr.Zero Then Return
+        Try
+            Dim cfs As New WinAPI.CHANGEFILTERSTRUCT()
+            cfs.cbSize = Marshal.SizeOf(cfs)
+            Dim targetMessages As Integer() = {
+                WinAPI.WM_DROPFILES,
+                WinAPI.WM_COPYDATA,
+                WinAPI.WM_COPYGLOBALDATA
+            }
+            For Each msg In targetMessages
+                WinAPI.ChangeWindowMessageFilterEx(hWnd, msg, WinAPI.MSGFLT_ALLOW, cfs)
+            Next
+            WinAPI.DragAcceptFiles(hWnd, True)
+        Catch ex As Exception
+            Debug.WriteLine($"UIPI Error: {ex.Message}")
+        End Try
     End Sub
     Private Sub EditDialogForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         _transaction.Dispose()
