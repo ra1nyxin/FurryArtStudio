@@ -90,24 +90,6 @@ Public Class EditDialogForm
         MyBase.OnHandleCreated(e)
         RegisterUIPIDragDropFilter(Me.Handle)
     End Sub
-    Private Sub RegisterUIPIDragDropFilter(hWnd As IntPtr)
-        If hWnd = IntPtr.Zero Then Return
-        Try
-            Dim cfs As New WinAPI.CHANGEFILTERSTRUCT()
-            cfs.cbSize = Marshal.SizeOf(cfs)
-            Dim targetMessages As Integer() = {
-                WinAPI.WM_DROPFILES,
-                WinAPI.WM_COPYDATA,
-                WinAPI.WM_COPYGLOBALDATA
-            }
-            For Each msg In targetMessages
-                WinAPI.ChangeWindowMessageFilterEx(hWnd, msg, WinAPI.MSGFLT_ALLOW, cfs)
-            Next
-            WinAPI.DragAcceptFiles(hWnd, True)
-        Catch ex As Exception
-            Debug.WriteLine($"UIPI Error: {ex.Message}")
-        End Try
-    End Sub
     Private Sub EditDialogForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         _transaction.Dispose()
     End Sub
