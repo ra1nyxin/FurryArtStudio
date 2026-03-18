@@ -32,14 +32,15 @@
 
     开源与致谢
     本项目基于以下优秀开源库和技术构建（按字母顺序）：
-    - Dapper - Sam Saffron,Marc Gravell,Nick Craver（Apache-2.0）
+    - Chromis - xionglongztz (Apache-2.0)
+    - Dapper - Sam Saffron,Marc Gravell,Nick Craver (Apache-2.0)
     - Krypton.Toolkit - Peter Wagner (A.K.A Wagnerp) and Simon Coghlan (A.K.A Smurf-IV), Giduac, Ahmed Abdelhameed, Lesandro, tobitege, Phil Wright (A.K.A ComponentFactory) (BSD-3-Clause)
     - Lucide - Lucide Icons (ISC License)
-    - Maoken Assorted Sans - Maoken Fonts（OFL-1.1 license）
+    - Maoken Assorted Sans - Maoken Fonts (OFL-1.1 license)
     - Microsoft .NET Runtime Libraries (MIT)
-    - Stub.System.Data.SQLite.Core.NetFrame - SQLite Development Team（Public Domain）
+    - Stub.System.Data.SQLite.Core.NetFrame - SQLite Development Team (Public Domain)
     - System.Data.SQLite - System.Data.SQLite
-    - System.Data.SQLite.Core - SQLite Development Team（Public Domain）
+    - System.Data.SQLite.Core - SQLite Development Team (Public Domain)
     
     反馈与支持
     - GitHub：https://github.com/xionglongztz/FurryArtStudio

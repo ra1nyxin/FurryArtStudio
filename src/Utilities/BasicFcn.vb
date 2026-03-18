@@ -341,6 +341,23 @@ Module BasicFcn
         path.CloseFigure()
         Return path
     End Function
+    ''' <summary>
+    ''' 从图像采样像素点
+    ''' </summary>
+    ''' <param name="image">图像类</param>
+    ''' <param name="stepCount">步长</param>
+    ''' <returns>一组包含采样点的像素列表</returns>
+    Public Function GetPixelsFromImage(image As Image, Optional stepCount As Integer = 5) As List(Of Color)
+        Dim pixels As New List(Of Color)()
+        Using bmp = New Bitmap(image)
+            For x = 0 To bmp.Width - 1 Step stepCount
+                For y = 0 To bmp.Height - 1 Step stepCount
+                    pixels.Add(bmp.GetPixel(x, y))
+                Next
+            Next
+        End Using
+        Return pixels
+    End Function
 #End Region
 
 #Region "主题相关"

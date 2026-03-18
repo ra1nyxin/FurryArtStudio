@@ -17,6 +17,7 @@ Imports System.IO
 Imports System.Runtime.InteropServices
 Imports System.Text.RegularExpressions
 Imports System.Threading
+Imports Chromis
 
 Public Class ViewForm
     Implements IThemeChangeable, ILocalizable
@@ -199,7 +200,15 @@ Public Class ViewForm
                 Case SC_PROP '文件属性
                     ShowProperties(filePath)
                 Case SC_INFO '详情
-                    ShowArtworkInfo()
+                    'ShowArtworkInfo()
+                    Dim pixels As New List(Of ColorExtractor.RGBColor)
+                    For Each color In GetPixelsFromImage(PictureBoxMain.Image)
+                        pixels.Add(ColorExtractor.RGBColor.FromRGB(color.R, color.G, color.B))
+                    Next
+                    Dim colorInfos = ColorExtractor.Extract(pixels, 10, ColorExtractor.ExtractType.KMeans)
+                    For Each ci In colorInfos
+                        Debug.Print($"{ci.Color.R}, {ci.Color.G}, {ci.Color.B} - {ci.Ratio:P}")
+                    Next
                 Case SC_PLAY'幻灯片放映
                     '待开发
                 Case SC_HELP '帮助
