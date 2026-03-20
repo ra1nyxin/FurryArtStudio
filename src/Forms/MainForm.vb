@@ -103,8 +103,8 @@ Public Class MainForm
         SetTitleBarColor(Handle, IconColorLight) '修改标题栏颜色(win11生效)
         Icon = Icon.FromHandle(My.Resources.Icons.FurryArtStudio.GetHicon) '设置图标
         settings.Save() '保存默认设置
-        StatusLabel.Text = My.Resources.Stat_Ready '就绪
         Me.AllowDrop = True
+        StatusLabel.Text = My.Resources.Stat_Ready '就绪
     End Sub
 
     ''' <summary>
@@ -480,6 +480,7 @@ Public Class MainForm
         TSSep1.Visible = False
         SearchStatusLabel.Visible = False
         MnuLibExportCSV.Enabled = False
+        ArtworkListSplitContainer.TabStop = False '避免启动时出现虚线
         Dim menuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
         EnableMenuItem(menuHandle, SC_NEWMANUSCRIPT, MF_GRAYED)
         EnableMenuItem(menuHandle, SC_PLAY, MF_GRAYED)
@@ -553,6 +554,7 @@ Public Class MainForm
         MnuLibExportCSV.Enabled = True
         MnuSearch.Enabled = True
         ImageGalleryMain.Enabled = True
+        ArtworkListSplitContainer.TabStop = True
         Dim menuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
         EnableMenuItem(menuHandle, SC_NEWMANUSCRIPT, MF_ENABLED)
         EnableMenuItem(menuHandle, SC_PLAY, MF_ENABLED)

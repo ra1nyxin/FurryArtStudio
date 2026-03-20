@@ -166,7 +166,7 @@ Public Class ViewForm
         SetMenuItemWithShortcut(menuHandle, 10, SC_INFO, "详情(&I)...", "I")
         SetMenuItemWithShortcut(menuHandle, 12, SC_PLAY, "幻灯片放映(&P)", "Ctrl+F5")
         SetMenuItemWithShortcut(menuHandle, 13, SC_HELP, "帮助(&H)...", "F1")
-        SetMenuItemWithShortcut(menuHandle, 14, SC_FULLSCREEN, "全屏(&F)", "F11")
+        SetMenuItemWithShortcut(menuHandle, 15, SC_FULLSCREEN, "全屏(&F)", "F11")
     End Sub
     Private Sub InitializeMenuImages(Optional isDarkMode As Boolean = False)
         Dim menuHandle = GetSystemMenu(Handle, False) '设置窗体菜单

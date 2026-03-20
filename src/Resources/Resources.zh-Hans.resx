@@ -190,7 +190,7 @@
     <value>&lt;无稿件库&gt;</value>
   </data>
   <data name="Main_LblNoMs" xml:space="preserve">
-    <value>0个稿件</value>
+    <value>0 个稿件</value>
   </data>
   <data name="Main_LblNoStorage" xml:space="preserve">
     <value>存储: 0B (0个文件)</value>
