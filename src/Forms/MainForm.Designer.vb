@@ -81,9 +81,10 @@ Partial Class MainForm
         Me.MnuHelpTutorial = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.MnuHelpWebsite = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MnuHelpDonate = New System.Windows.Forms.ToolStripMenuItem()
         Me.MnuHelpGithub = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MnuHelpWhatsNew = New System.Windows.Forms.ToolStripMenuItem()
         Me.MnuCheckUpdate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MnuHelpWhatsNew = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.MnuHelpLicense = New System.Windows.Forms.ToolStripMenuItem()
         Me.MnuHelpPrivacy = New System.Windows.Forms.ToolStripMenuItem()
@@ -91,6 +92,7 @@ Partial Class MainForm
         Me.MnuHelpAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchTextBox = New System.Windows.Forms.TextBox()
         Me.ArtworkListSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.LblNotes = New System.Windows.Forms.Label()
         Me.LblTags = New System.Windows.Forms.Label()
         Me.LblCharacters = New System.Windows.Forms.Label()
@@ -121,7 +123,6 @@ Partial Class MainForm
         Me.ConMnuMsOpenFolder = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConMnuMsCopy = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConMnuMsCopyPath = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImageGalleryMain = New FurryArtStudio.ImageGallery()
         Me.MnuStrip.SuspendLayout()
         CType(Me.ArtworkListSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ArtworkListSplitContainer.Panel1.SuspendLayout()
@@ -517,7 +518,7 @@ Partial Class MainForm
         '
         'MnuHelp
         '
-        Me.MnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuHelpTutorial, Me.ToolStripSeparator8, Me.MnuHelpWebsite, Me.MnuHelpGithub, Me.MnuHelpWhatsNew, Me.MnuCheckUpdate, Me.ToolStripSeparator10, Me.MnuHelpLicense, Me.MnuHelpPrivacy, Me.MnuTerms, Me.MnuHelpAbout})
+        Me.MnuHelp.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MnuHelpTutorial, Me.ToolStripSeparator8, Me.MnuHelpWebsite, Me.MnuHelpDonate, Me.MnuHelpGithub, Me.MnuCheckUpdate, Me.MnuHelpWhatsNew, Me.ToolStripSeparator10, Me.MnuHelpLicense, Me.MnuHelpPrivacy, Me.MnuTerms, Me.MnuHelpAbout})
         Me.MnuHelp.Name = "MnuHelp"
         Me.MnuHelp.Size = New System.Drawing.Size(75, 24)
         Me.MnuHelp.Text = "帮助(&H)"
@@ -537,9 +538,17 @@ Partial Class MainForm
         '
         'MnuHelpWebsite
         '
+        Me.MnuHelpWebsite.Image = CType(resources.GetObject("MnuHelpWebsite.Image"), System.Drawing.Image)
         Me.MnuHelpWebsite.Name = "MnuHelpWebsite"
         Me.MnuHelpWebsite.Size = New System.Drawing.Size(224, 26)
         Me.MnuHelpWebsite.Text = "官网(&W)"
+        '
+        'MnuHelpDonate
+        '
+        Me.MnuHelpDonate.Image = CType(resources.GetObject("MnuHelpDonate.Image"), System.Drawing.Image)
+        Me.MnuHelpDonate.Name = "MnuHelpDonate"
+        Me.MnuHelpDonate.Size = New System.Drawing.Size(224, 26)
+        Me.MnuHelpDonate.Text = "捐赠(&D)"
         '
         'MnuHelpGithub
         '
@@ -548,18 +557,18 @@ Partial Class MainForm
         Me.MnuHelpGithub.Size = New System.Drawing.Size(224, 26)
         Me.MnuHelpGithub.Text = "&GitHub"
         '
+        'MnuCheckUpdate
+        '
+        Me.MnuCheckUpdate.Name = "MnuCheckUpdate"
+        Me.MnuCheckUpdate.Size = New System.Drawing.Size(224, 26)
+        Me.MnuCheckUpdate.Text = "检查更新(&U)"
+        '
         'MnuHelpWhatsNew
         '
         Me.MnuHelpWhatsNew.Image = CType(resources.GetObject("MnuHelpWhatsNew.Image"), System.Drawing.Image)
         Me.MnuHelpWhatsNew.Name = "MnuHelpWhatsNew"
         Me.MnuHelpWhatsNew.Size = New System.Drawing.Size(224, 26)
         Me.MnuHelpWhatsNew.Text = "新增功能(&H)"
-        '
-        'MnuCheckUpdate
-        '
-        Me.MnuCheckUpdate.Name = "MnuCheckUpdate"
-        Me.MnuCheckUpdate.Size = New System.Drawing.Size(224, 26)
-        Me.MnuCheckUpdate.Text = "检查更新(&U)"
         '
         'ToolStripSeparator10
         '
@@ -628,6 +637,22 @@ Partial Class MainForm
         Me.ArtworkListSplitContainer.Size = New System.Drawing.Size(962, 539)
         Me.ArtworkListSplitContainer.SplitterDistance = 730
         Me.ArtworkListSplitContainer.TabIndex = 3
+        '
+        'ImageGalleryMain
+        '
+        Me.ImageGalleryMain.AutoScroll = True
+        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
+        Me.ImageGalleryMain.BadgeColor = System.Drawing.Color.Red
+        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
+        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 25)
+        Me.ImageGalleryMain.MaxItemSize = 240
+        Me.ImageGalleryMain.MinItemSize = 120
+        Me.ImageGalleryMain.Name = "ImageGalleryMain"
+        Me.ImageGalleryMain.PageSize = 100
+        Me.ImageGalleryMain.SelectionAccentColor = System.Drawing.Color.Blue
+        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 514)
+        Me.ImageGalleryMain.TabIndex = 3
         '
         'LblNotes
         '
@@ -846,22 +871,6 @@ Partial Class MainForm
         Me.ConMnuMsCopyPath.Size = New System.Drawing.Size(229, 24)
         Me.ConMnuMsCopyPath.Text = "复制目录路径(&T)"
         '
-        'ImageGalleryMain
-        '
-        Me.ImageGalleryMain.AutoScroll = True
-        Me.ImageGalleryMain.BackColor = System.Drawing.Color.White
-        Me.ImageGalleryMain.BadgeColor = System.Drawing.Color.Red
-        Me.ImageGalleryMain.DisplayMode = FurryArtStudio.GalleryDisplayMode.Normal
-        Me.ImageGalleryMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ImageGalleryMain.Location = New System.Drawing.Point(3, 25)
-        Me.ImageGalleryMain.MaxItemSize = 240
-        Me.ImageGalleryMain.MinItemSize = 120
-        Me.ImageGalleryMain.Name = "ImageGalleryMain"
-        Me.ImageGalleryMain.PageSize = 100
-        Me.ImageGalleryMain.SelectionAccentColor = System.Drawing.Color.Blue
-        Me.ImageGalleryMain.Size = New System.Drawing.Size(727, 514)
-        Me.ImageGalleryMain.TabIndex = 3
-        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -988,4 +997,5 @@ Partial Class MainForm
     Friend WithEvents ConMnuMsOpenFolder As ToolStripMenuItem
     Friend WithEvents ConMnuMsCopy As ToolStripMenuItem
     Friend WithEvents ConMnuMsCopyPath As ToolStripMenuItem
+    Friend WithEvents MnuHelpDonate As ToolStripMenuItem
 End Class

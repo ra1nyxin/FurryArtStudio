@@ -857,6 +857,26 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Drawing.Bitmap 类型的本地化资源。
         '''</summary>
+        Public Shared ReadOnly Property MenuSupportDark() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuSupportDark", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Public Shared ReadOnly Property MenuSupportLight() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuSupportLight", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
         Public Shared ReadOnly Property MenuTerminalDark() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("MenuTerminalDark", resourceCulture)
@@ -930,6 +950,26 @@ Namespace My.Resources
         Public Shared ReadOnly Property MenuWallpaperLight() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("MenuWallpaperLight", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Public Shared ReadOnly Property MenuWebsiteDark() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuWebsiteDark", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Drawing.Bitmap 类型的本地化资源。
+        '''</summary>
+        Public Shared ReadOnly Property MenuWebsiteLight() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("MenuWebsiteLight", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

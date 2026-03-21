@@ -370,6 +370,8 @@ Public Class MainForm
         (MnuPageDown, "MenuNext"),
         (MnuHelpTutorial, "MenuTutorial"),
         (MnuHelpGithub, "MenuGithub"),
+        (MnuHelpDonate, "MenuSupport"),
+        (MnuHelpWebsite, "MenuWebsite"),
         (MnuHelpAbout, "MenuInfo"),
         (MnuHelpWhatsNew, "MenuStar"),
         (ConMnuMsView, "MenuView"),
@@ -1340,6 +1342,9 @@ Public Class MainForm
     End Sub
     Private Sub MnuHelpWebsite_Click(sender As Object, e As EventArgs) Handles MnuHelpWebsite.Click
 
+    End Sub
+    Private Sub MnuHelpDonate_Click(sender As Object, e As EventArgs) Handles MnuHelpDonate.Click
+        Process.Start("https://ifdian.net/a/xionglongztz")
     End Sub
     Private Sub MnuHelpLicense_Click(sender As Object, e As EventArgs) Handles MnuHelpLicense.Click
         Dim txt As New TextBoxForm(My.Resources.Licenses.LicenseText, My.Resources.Main_StrLicense)
