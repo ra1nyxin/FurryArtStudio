@@ -682,6 +682,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  查找类似 &amp;Donate 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property Mnu_Donate() As String
+            Get
+                Return ResourceManager.GetString("Mnu_Donate", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  查找类似 &amp;Edit... 的本地化字符串。
         '''</summary>
         Friend ReadOnly Property Mnu_Edit() As String
@@ -1614,6 +1623,123 @@ Namespace My.Resources
         Friend ReadOnly Property Stat_Searching() As String
             Get
                 Return ResourceManager.GetString("Stat_Searching", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Copy 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Copy() As String
+            Get
+                Return ResourceManager.GetString("View_Copy", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Extract 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Extract() As String
+            Get
+                Return ResourceManager.GetString("View_Extract", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 File P&amp;roperties 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_FileProperties() As String
+            Get
+                Return ResourceManager.GetString("View_FileProperties", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Full Screen 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Fullscreen() As String
+            Get
+                Return ResourceManager.GetString("View_Fullscreen", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Help... 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Help() As String
+            Get
+                Return ResourceManager.GetString("View_Help", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Info... 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Info() As String
+            Get
+                Return ResourceManager.GetString("View_Info", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;K-Means Cluster 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_KMeansCluster() As String
+            Get
+                Return ResourceManager.GetString("View_KMeansCluster", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Median Cut 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_MedianCut() As String
+            Get
+                Return ResourceManager.GetString("View_MedianCut", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Next Image 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_NextImg() As String
+            Get
+                Return ResourceManager.GetString("View_NextImg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 N&amp;ext Artwork 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_NextMs() As String
+            Get
+                Return ResourceManager.GetString("View_NextMs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Octree 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_Octree() As String
+            Get
+                Return ResourceManager.GetString("View_Octree", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 &amp;Previous Image 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_PreviousImg() As String
+            Get
+                Return ResourceManager.GetString("View_PreviousImg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找类似 P&amp;revious Artwork 的本地化字符串。
+        '''</summary>
+        Friend ReadOnly Property View_PreviousMs() As String
+            Get
+                Return ResourceManager.GetString("View_PreviousMs", resourceCulture)
             End Get
         End Property
     End Module

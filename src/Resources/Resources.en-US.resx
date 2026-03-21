@@ -636,4 +636,46 @@
   <data name="ColorDialog_Title" xml:space="preserve">
     <value>Extract result</value>
   </data>
+  <data name="Mnu_Donate" xml:space="preserve">
+    <value>&amp;Donate</value>
+  </data>
+  <data name="View_PreviousImg" xml:space="preserve">
+    <value>&amp;Previous Image</value>
+  </data>
+  <data name="View_NextImg" xml:space="preserve">
+    <value>&amp;Next Image</value>
+  </data>
+  <data name="View_PreviousMs" xml:space="preserve">
+    <value>P&amp;revious Artwork</value>
+  </data>
+  <data name="View_NextMs" xml:space="preserve">
+    <value>N&amp;ext Artwork</value>
+  </data>
+  <data name="View_Copy" xml:space="preserve">
+    <value>&amp;Copy</value>
+  </data>
+  <data name="View_FileProperties" xml:space="preserve">
+    <value>File P&amp;roperties</value>
+  </data>
+  <data name="View_Info" xml:space="preserve">
+    <value>&amp;Info...</value>
+  </data>
+  <data name="View_Help" xml:space="preserve">
+    <value>&amp;Help...</value>
+  </data>
+  <data name="View_Fullscreen" xml:space="preserve">
+    <value>&amp;Full Screen</value>
+  </data>
+  <data name="View_Extract" xml:space="preserve">
+    <value>&amp;Extract</value>
+  </data>
+  <data name="View_KMeansCluster" xml:space="preserve">
+    <value>&amp;K-Means Cluster</value>
+  </data>
+  <data name="View_MedianCut" xml:space="preserve">
+    <value>&amp;Median Cut</value>
+  </data>
+  <data name="View_Octree" xml:space="preserve">
+    <value>&amp;Octree</value>
+  </data>
 </root>

@@ -254,6 +254,7 @@ Public Class MainForm
         MnuCheckUpdate.Text = My.Resources.Mnu_CheckUpdate
         MnuHelpLicense.Text = My.Resources.Mnu_License
         MnuHelpPrivacy.Text = My.Resources.Mnu_Privacy
+        MnuHelpDonate.Text = My.Resources.Mnu_Donate
         MnuTerms.Text = My.Resources.Mnu_Terms
         MnuHelpAbout.Text = My.Resources.Mnu_About
         '窗体

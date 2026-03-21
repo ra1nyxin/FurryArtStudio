@@ -89,6 +89,7 @@ Public Class ViewForm
         PictureBoxMain.Dock = DockStyle.Fill
         SysMenuInit() '初始化菜单
         UpdateMenuStates() '更新菜单状态
+        LanguageChange() '初始化语言
         SystemThemeChange() '初始化主题
         '加载当前稿件的第一张图片
         LoadCurrentArtworkFirstImage()
@@ -124,7 +125,25 @@ Public Class ViewForm
     End Sub
     '语言
     Private Sub LanguageChange() Implements ILocalizable.LanguageChange
-
+        UpdateMenuItem() '更新菜单项
+    End Sub
+    Private Sub UpdateMenuItem()
+        Dim menuHandle = GetSystemMenu(Handle, False)
+        '设置菜单项快捷键
+        SetMenuItemWithShortcut(menuHandle, 0, SC_PREVIMG, My.Resources.View_PreviousImg, "PageUp")
+        SetMenuItemWithShortcut(menuHandle, 1, SC_NEXTIMG, My.Resources.View_NextImg, "PageDown")
+        SetMenuItemWithShortcut(menuHandle, 3, SC_PREVART, My.Resources.View_PreviousMs, "Ctrl+Left")
+        SetMenuItemWithShortcut(menuHandle, 4, SC_NEXTART, My.Resources.View_NextMs, "Ctrl+Right")
+        SetMenuItemWithShortcut(menuHandle, 6, SC_ALWAYSONTOP, My.Resources.Mnu_AlwaysOnTop, "Alt+T")
+        SetMenuItemWithShortcut(menuHandle, 7, SC_COPY, My.Resources.View_Copy, "Ctrl+C")
+        SetMenuItemWithShortcut(menuHandle, 9, SC_PROP, My.Resources.View_FileProperties, "Alt+Enter")
+        SetMenuItemWithShortcut(menuHandle, 10, SC_INFO, My.Resources.View_Info, "I")
+        SetMenuItemWithShortcut(menuHandle, 12, SC_PLAY, My.Resources.Mnu_Play, "Ctrl+F5")
+        SetMenuItemWithShortcut(menuHandle, 13, SC_HELP, My.Resources.View_Help, "F1")
+        SetMenuItemWithShortcut(menuHandle, 15, SC_FULLSCREEN, My.Resources.View_Fullscreen, "F11")
+        SetMenuItemWithShortcut(_hSubMenu, 0, SC_KMEANS, My.Resources.View_KMeansCluster, "Alt+1")
+        SetMenuItemWithShortcut(_hSubMenu, 1, SC_MEDIANCUT, My.Resources.View_MedianCut, "Alt+2")
+        SetMenuItemWithShortcut(_hSubMenu, 2, SC_OCTREE, My.Resources.View_Octree, "Alt+3")
     End Sub
     ''' <summary>
     ''' 初始化系统菜单
@@ -132,41 +151,26 @@ Public Class ViewForm
     Private Sub SysMenuInit()
         Dim hSubMenu As IntPtr = CreatePopupMenu() '新建一个子菜单
         _hSubMenu = hSubMenu
-        AppendMenu(hSubMenu, MF_STRING, CType(SC_KMEANS, UIntPtr), "K-Means聚类(&K)...")
-        AppendMenu(hSubMenu, MF_STRING, CType(SC_MEDIANCUT, UIntPtr), "中位切分(&M)...")
-        AppendMenu(hSubMenu, MF_STRING, CType(SC_OCTREE, UIntPtr), "八叉树(&O)...")
-        SetMenuItemWithShortcut(hSubMenu, 0, SC_KMEANS, "K-Means聚类(&K)...", "Alt+1")
-        SetMenuItemWithShortcut(hSubMenu, 1, SC_MEDIANCUT, "中位切分(&M)...", "Alt+2")
-        SetMenuItemWithShortcut(hSubMenu, 2, SC_OCTREE, "八叉树(&O)...", "Alt+3")
+        AppendMenu(hSubMenu, MF_STRING, CType(SC_KMEANS, UIntPtr), My.Resources.View_KMeansCluster)
+        AppendMenu(hSubMenu, MF_STRING, CType(SC_MEDIANCUT, UIntPtr), My.Resources.View_MedianCut)
+        AppendMenu(hSubMenu, MF_STRING, CType(SC_OCTREE, UIntPtr), My.Resources.View_Octree)
         Dim menuHandle = GetSystemMenu(Handle, False) '获取菜单句柄
-        InsertMenu(menuHandle, 0, MF_BYPOSITION Or MF_STRING, SC_PREVIMG, "上一张(&P)")
-        InsertMenu(menuHandle, 1, MF_BYPOSITION Or MF_STRING, SC_NEXTIMG, "下一张(&N)")
+        InsertMenu(menuHandle, 0, MF_BYPOSITION Or MF_STRING, SC_PREVIMG, My.Resources.View_PreviousImg)
+        InsertMenu(menuHandle, 1, MF_BYPOSITION Or MF_STRING, SC_NEXTIMG, My.Resources.View_NextImg)
         InsertMenu(menuHandle, 2, MF_BYPOSITION Or MF_SEPARATOR, 0, Nothing)
-        InsertMenu(menuHandle, 3, MF_BYPOSITION Or MF_STRING, SC_PREVART, "上一稿件(&R)")
-        InsertMenu(menuHandle, 4, MF_BYPOSITION Or MF_STRING, SC_NEXTART, "下一稿件(&E)")
+        InsertMenu(menuHandle, 3, MF_BYPOSITION Or MF_STRING, SC_PREVART, My.Resources.View_PreviousMs)
+        InsertMenu(menuHandle, 4, MF_BYPOSITION Or MF_STRING, SC_NEXTART, My.Resources.View_NextMs)
         InsertMenu(menuHandle, 5, MF_BYPOSITION Or MF_SEPARATOR, 0, Nothing)
-        InsertMenu(menuHandle, 6, MF_BYPOSITION Or MF_STRING, SC_ALWAYSONTOP, "窗口置顶(&T)")
-        InsertMenu(menuHandle, 7, MF_BYPOSITION Or MF_STRING, SC_COPY, "复制(&C)")
+        InsertMenu(menuHandle, 6, MF_BYPOSITION Or MF_STRING, SC_ALWAYSONTOP, My.Resources.Mnu_AlwaysOnTop)
+        InsertMenu(menuHandle, 7, MF_BYPOSITION Or MF_STRING, SC_COPY, My.Resources.View_Copy)
         InsertMenu(menuHandle, 8, MF_BYPOSITION Or MF_SEPARATOR, 0, Nothing)
-        InsertMenu(menuHandle, 9, MF_BYPOSITION Or MF_STRING, SC_PROP, "文件属性(&R)")
-        InsertMenu(menuHandle, 10, MF_BYPOSITION Or MF_STRING, SC_INFO, "详情(&I)...")
-        InsertMenu(menuHandle, 11, MF_BYPOSITION Or MF_POPUP, hSubMenu, "提取(&E)")
-        InsertMenu(menuHandle, 12, MF_BYPOSITION Or MF_STRING, SC_PLAY, "幻灯片放映(&P)")
-        InsertMenu(menuHandle, 13, MF_BYPOSITION Or MF_STRING, SC_HELP, "帮助(&H)...")
+        InsertMenu(menuHandle, 9, MF_BYPOSITION Or MF_STRING, SC_PROP, My.Resources.View_FileProperties)
+        InsertMenu(menuHandle, 10, MF_BYPOSITION Or MF_STRING, SC_INFO, My.Resources.View_Info)
+        InsertMenu(menuHandle, 11, MF_BYPOSITION Or MF_POPUP, hSubMenu, My.Resources.View_Extract)
+        InsertMenu(menuHandle, 12, MF_BYPOSITION Or MF_STRING, SC_PLAY, My.Resources.Mnu_Play)
+        InsertMenu(menuHandle, 13, MF_BYPOSITION Or MF_STRING, SC_HELP, My.Resources.View_Help)
         InsertMenu(menuHandle, 14, MF_BYPOSITION Or MF_SEPARATOR, 0, Nothing)
-        InsertMenu(menuHandle, 15, MF_BYPOSITION Or MF_STRING, SC_FULLSCREEN, "全屏(&F)")
-        '设置菜单项快捷键
-        SetMenuItemWithShortcut(menuHandle, 0, SC_PREVIMG, "上一张(&P)", "PageUp")
-        SetMenuItemWithShortcut(menuHandle, 1, SC_NEXTIMG, "下一张(&N)", "PageDown")
-        SetMenuItemWithShortcut(menuHandle, 3, SC_PREVART, "上一稿件(&R)", "Ctrl+Left")
-        SetMenuItemWithShortcut(menuHandle, 4, SC_NEXTART, "下一稿件(&E)", "Ctrl+Right")
-        SetMenuItemWithShortcut(menuHandle, 6, SC_ALWAYSONTOP, "窗口置顶(&T)", "Alt+T")
-        SetMenuItemWithShortcut(menuHandle, 7, SC_COPY, "复制(&C)", "Ctrl+C")
-        SetMenuItemWithShortcut(menuHandle, 9, SC_PROP, "文件属性(&R)", "Alt+Enter")
-        SetMenuItemWithShortcut(menuHandle, 10, SC_INFO, "详情(&I)...", "I")
-        SetMenuItemWithShortcut(menuHandle, 12, SC_PLAY, "幻灯片放映(&P)", "Ctrl+F5")
-        SetMenuItemWithShortcut(menuHandle, 13, SC_HELP, "帮助(&H)...", "F1")
-        SetMenuItemWithShortcut(menuHandle, 15, SC_FULLSCREEN, "全屏(&F)", "F11")
+        InsertMenu(menuHandle, 15, MF_BYPOSITION Or MF_STRING, SC_FULLSCREEN, My.Resources.View_Fullscreen)
     End Sub
     Private Sub InitializeMenuImages(Optional isDarkMode As Boolean = False)
         Dim menuHandle = GetSystemMenu(Handle, False) '设置窗体菜单
@@ -344,13 +348,13 @@ Public Class ViewForm
     ''' </summary>
     Private Sub LoadCurrentArtworkFirstImage()
         If _currentArtwork Is Nothing OrElse _currentArtwork.FilePaths Is Nothing Then
-            MessageBox.Show("当前稿件目录为空", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("当前稿件目录为空", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
             Return
         End If
         Dim imageFiles As List(Of String) = GetImageFiles(_currentArtwork.FilePaths)
         If imageFiles.Count = 0 Then
-            MessageBox.Show("当前稿件没有支持的图片格式文件", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("当前稿件没有支持的图片格式文件", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Close()
             Return
         End If
@@ -419,7 +423,7 @@ Public Class ViewForm
         sb.Append($"入库时间: {_currentArtwork.ImportTime:yyyy-MM-dd HH:mm:ss}{vbCrLf}")
         sb.Append($"更新时间: {_currentArtwork.UpdateTime:yyyy-MM-dd HH:mm:ss}{vbCrLf}")
         sb.Append($"备注: {_currentArtwork.Notes}{vbCrLf}")
-        sb.Append("----------")
+        sb.Append($"----------{vbCrLf}")
         sb.Append($"文件路径: {filePath}")
         '分辨率，位深
         '文件类型
@@ -525,7 +529,7 @@ Public Class ViewForm
         Catch ex As OperationCanceledException
             '忽略取消事件
         Catch ex As Exception
-            MessageBox.Show($"加载图片时出错: {ex.Message}", "FurryArtStudio",
+            MessageBox.Show($"加载图片时出错: {ex.Message}", My.Resources.FurryArtStudio,
                            MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             '无论如何都要释放加载状态
@@ -610,7 +614,7 @@ Public Class ViewForm
                 End If
             Next
         End If
-        MessageBox.Show("已经是最后一张图片了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是最后一张图片了", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -640,7 +644,7 @@ Public Class ViewForm
                 End If
             Next
         End If
-        MessageBox.Show("已经是第一张图片了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是第一张图片了", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -695,7 +699,7 @@ Public Class ViewForm
                 Return
             End If
         Next
-        MessageBox.Show("已经是第一个有图片的稿件了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是第一个有图片的稿件了", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     ''' <summary>
@@ -716,7 +720,7 @@ Public Class ViewForm
                 Return
             End If
         Next
-        MessageBox.Show("已经是最后一个有图片的稿件了", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("已经是最后一个有图片的稿件了", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 #End Region
 
@@ -813,7 +817,7 @@ Public Class ViewForm
                 Throw New Win32Exception(Marshal.GetLastWin32Error())
             End If
         Catch ex As Exception
-            MessageBox.Show($"无法打开属性窗口: {ex.Message}", "FurryArtStudio", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show($"无法打开属性窗口: {ex.Message}", My.Resources.FurryArtStudio, MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
     Private Sub PictureBoxMain_MouseDown(sender As Object, e As MouseEventArgs) Handles PictureBoxMain.MouseDown
